@@ -71,8 +71,8 @@
         <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
             <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
                 <div class="uc-logo">
-                    <a href="index.html" class="h5 text-none text-gray-900 dark:text-white">
-                        <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="Lexend">
+                    <a href="{{ config('app.url') }}" class="h5 text-none text-gray-900 dark:text-white">
+                        <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="{{ config('app.name') }}">
                     </a>
                 </div>
                 <button class="uc-offcanvas-close rtl:end-auto rtl:start-0 m-1 mt-2 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all" type="button">
@@ -81,26 +81,20 @@
             </header>
 
             <div class="panel">
-                <form id="search-panel" class="form-icon-group vstack gap-1 mb-2" data-uc-sticky="">
+                <!-- <form id="search-panel" class="form-icon-group vstack gap-1 mb-2" data-uc-sticky="">
                     <input type="email" class="form-control form-control-sm fs-7 rounded-default" placeholder="Search..">
                     <span class="form-icon text-gray">
                         <i class="unicon-search icon-1"></i>
                     </span>
-                </form>
+                </form> -->
                 <ul class="nav-y gap-narrow fw-medium fs-6" data-uc-nav="">
-                    <li>
-                        <a href="#features">Features</a>
-                    </li>
-                    <li>
-                        <a href="#how_it_works">How it works</a>
-                    </li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how_it_works">How it works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#clients_feedback">Reviews</a></li>
-                    <li><a href="#insights">Insights</a></li>
+
                     <li class="hr opacity-10 my-1"></li>
                     <li><a href="sign-up.html">Create an account</a></li>
                     <li><a href="sign-in.html">Log in</a></li>
-                    <li><a href="https://themeforest.net/item/lexend-software-saas-startup-html5-template/51596504">Buy Template</a></li>
                 </ul>
                 <ul class="social-icons nav-x mt-4">
                     <li>
@@ -157,20 +151,14 @@
                                 <li class="d-none">
                                     <a href="#overview">Overview</a>
                                 </li>
-                                <li>
-                                    <a href="#features">Features</a>
-                                </li>
-                                <li>
-                                    <a href="#how_it_works">How it works</a>
-                                </li>
+                                <li><a href="#features">Features</a></li>
+                                <li><a href="#how_it_works">How it works</a></li>
                                 <li><a href="#pricing">Pricing</a></li>
-                                <li><a href="#clients_feedback">Reviews</a></li>
-                                <li><a href="#insights">Insights</a></li>
                             </ul>
                         </div>
                         <div class="uc-navbar-right">
-                            <a href="page-pricing-2.html" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
-                                <span>See pricing</span>
+                            <a href="" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
+                                <span>Sign In</span>
                             </a>
                             <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
                         </div>
@@ -203,11 +191,11 @@
                                     <div class="panel vstack items-start gap-3 xl:gap-4 lg:max-w-1/2">
                                         <div>
                                             <a href="index.html" style="width: 140px">
-                                                <img class="text-primary" src="../assets/images/common/logo-dark.svg" alt="Lexend">
+                                                <img class="text-primary" src="../assets/images/common/logo-dark.svg" alt="{{ config('app.name') }}">
                                             </a>
-                                            <p class="mt-2">Design amazing digital experiences that create more happy in the world.</p>
+                                            <p class="mt-2">{{ config('app.name') }} automatically creates, schedules, and posts Faceless videos for you, on auto-pilot. Each video is unique and customized to your topic.</p>
                                         </div>
-                                        <div class="d-inline-block">
+                                        <!-- <div class="d-inline-block">
                                             <a href="#" class="hstack gap-1 text-none fw-medium">
                                                 <i class="icon icon-1 unicon-earth-filled"></i>
                                                 <span>English</span>
@@ -220,32 +208,28 @@
                                                     <li><a href="#ch">中文</a></li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div>
                                     <ul class="nav-y gap-2 fw-medium">
-                                        <li class="fs-7 text-uppercase dark:text-gray-300">Product</li>
-                                        <li><a href="#how_it_works">How it works</a></li>
-                                        <li><a href="#features">Features</a></li>
-                                        <li><a href="#key_features">Key Goods</a></li>
-                                        <li><a href="#builder_elements">Pro Elements</a></li>
+                                        <li class="fs-7 text-uppercase dark:text-gray-300">Company</li>
                                         <li><a href="#pricing">Pricing</a></li>
-                                        <li><a href="#">Changelog</a></li>
+                                        <li><a href="#">Affiliates</a></li>
+                                        <li><a href="#">Contact Us</a></li>
                                     </ul>
                                 </div>
                                 <div>
                                     <ul class="nav-y gap-2 fw-medium">
-                                        <li class="fs-7 text-uppercase dark:text-gray-300">Company</li>
-                                        <li><a href="page-about.html">About us</a></li>
-                                        <li><a href="page-career.html">Careers</a></li>
-                                        <li><a href="#">Press</a></li>
-                                        <li><a href="blog.html">News</a></li>
-                                        <li><a href="#">Media kit</a></li>
-                                        <li><a href="page-contacct.html">Contact</a></li>
+                                        <li class="fs-7 text-uppercase dark:text-gray-300">Support</li>
+                                        <li><a href="#how_it_works">FAQs</a></li>
+                                        <li><a href="#features">Terms & Conditions</a></li>
+                                        <li><a href="#key_features">Privacy Policy</a></li>
+                                        <li><a href="#builder_elements">Google API Disclosure</a></li>
+                                        <li><a href="#pricing">Articles</a></li>
                                     </ul>
                                 </div>
-                                <div class="d-none lg:d-block">
+                                <!-- <div class="d-none lg:d-block">
                                     <ul class="nav-y gap-2 fw-medium">
                                         <li class="fs-7 text-uppercase dark:text-gray-300">Resources</li>
                                         <li><a href="blog.html">Blog</a></li>
@@ -255,30 +239,15 @@
                                         <li><a href="#">Tutorials</a></li>
                                         <li><a href="#">Support</a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-between text-center pt-4 lg:pt-6 border-top dark:text-white">
-                            <p class="opacity-60">Lexend © 2024, All rights reserved.</p>
+                            <p class="opacity-60">{{ config('app.name') }} © {{ date('Y') }}, All rights reserved.</p>
                             <ul class="nav-x justify-center gap-2 text-gray-300">
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-linkedin"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-x-filled"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-youtube"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon icon-2 unicon-logo-dribbble"></i></a>
-                                </li>
+                                <li><a href="#"><i class="icon icon-2 unicon-logo-facebook"></i></a></li>
+                                <li><a href="#"><i class="icon icon-2 unicon-logo-youtube"></i></a></li>
+                                <li><a href="#"><i class="icon icon-2 unicon-logo-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
