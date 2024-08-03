@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{config('app.name')}} | AI Generator for Faceless videos on Tiktok and Youtube</title>
+    <meta name="description" content="AI-powered tool for creating engaging faceless videos on TikTok and YouTube.">
+    <meta name="keywords" content="ai, shorts, faceless, youtube, tiktok, video, generator">
+    <link rel="canonical" href="{{ config('app.url') }}">
+    <meta name="theme-color" content="#178d72">
+
+    <!-- Open Graph Tags -->
+    <!-- <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lexend">
+    <meta property="og:description" content="Full-featured, Professional-looking SaaS, Software and Startup Site Template.">
+    <meta property="og:url" content="https://unistudio.co/html/lexend/">
+    <meta property="og:site_name" content="Lexend">
+    <meta property="og:image" content="https://unistudio.co/html/lexend/assets/images/common/seo-image.jpg">
+    <meta property="og:image:width" content="1180">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/png"> -->
+
+    <!-- Twitter Card Tags -->
+    <!-- <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lexend">
+    <meta name="twitter:description" content="Full-featured, Professional-looking SaaS, Software and Startup Site Template.">
+    <meta name="twitter:image" content="https://unistudio.co/html/lexend/assets/images/common/seo-image.jpg"> -->
+
+    <link rel="canonical" href="{{ config('app.url') }}">
+
+    <!-- preload head styles -->
+    <link rel="preload" href="../assets/css/unicons.min.css" as="style">
+    <link rel="preload" href="../assets/css/swiper-bundle.min.css" as="style">
+
+    <!-- preload footer scripts -->
+    <link rel="preload" href="../assets/js/libs/jquery.min.js" as="script">
+    <link rel="preload" href="../assets/js/libs/scrollmagic.min.js" as="script">
+    <link rel="preload" href="../assets/js/libs/swiper-bundle.min.js" as="script">
+    <link rel="preload" href="../assets/js/libs/anime.min.js" as="script">
+    <link rel="preload" href="../assets/js/helpers/data-attr-helper.js" as="script">
+    <link rel="preload" href="../assets/js/helpers/swiper-helper.js" as="script">
+    <link rel="preload" href="../assets/js/helpers/anime-helper.js" as="script">
+    <link rel="preload" href="../assets/js/helpers/anime-helper-defined-timelines.js" as="script">
+    <link rel="preload" href="../assets/js/uikit-components-bs.js" as="script">
+    <link rel="preload" href="../assets/js/app.js" as="script">
+
+    <!-- app head for bootstrap core -->
+    <script src="../assets/js/app-head-bs.js"></script>
+
+    <!-- include uni-core components -->
+    <link rel="stylesheet" href="../assets/js/uni-core/css/uni-core.min.css">
+
+    <!-- include styles -->
+    <link rel="stylesheet" href="../assets/css/unicons.min.css">
+    <link rel="stylesheet" href="../assets/css/prettify.min.css">
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+    <!-- include main style -->
+    <link rel="stylesheet" href="../assets/css/theme/theme-two.min.purge.css">
+
+    <!-- include scripts -->
+    <script src="../assets/js/uni-core/js/uni-core-bundle.min.js"></script>
+</head>
+
+<body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+    <!--  Menu panel -->
+    <div id="uc-menu-panel" data-uc-offcanvas="overlay: true;">
+        <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
+            <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
+                <div class="uc-logo">
+                    <a href="index.html" class="h5 text-none text-gray-900 dark:text-white">
+                        <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="Lexend">
+                    </a>
+                </div>
+                <button class="uc-offcanvas-close rtl:end-auto rtl:start-0 m-1 mt-2 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all" type="button">
+                    <i class="unicon-close"></i>
+                </button>
+            </header>
+
+            <div class="panel">
+                <form id="search-panel" class="form-icon-group vstack gap-1 mb-2" data-uc-sticky="">
+                    <input type="email" class="form-control form-control-sm fs-7 rounded-default" placeholder="Search..">
+                    <span class="form-icon text-gray">
+                        <i class="unicon-search icon-1"></i>
+                    </span>
+                </form>
+                <ul class="nav-y gap-narrow fw-medium fs-6" data-uc-nav="">
+                    <li>
+                        <a href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a href="#how_it_works">How it works</a>
+                    </li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#clients_feedback">Reviews</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li class="hr opacity-10 my-1"></li>
+                    <li><a href="sign-up.html">Create an account</a></li>
+                    <li><a href="sign-in.html">Log in</a></li>
+                    <li><a href="https://themeforest.net/item/lexend-software-saas-startup-html5-template/51596504">Buy Template</a></li>
+                </ul>
+                <ul class="social-icons nav-x mt-4">
+                    <li>
+                        <a href="#"><i class="unicon-logo-medium icon-2"></i></a>
+                        <a href="#"><i class="unicon-logo-x-filled icon-2"></i></a>
+                        <a href="#"><i class="unicon-logo-instagram icon-2"></i></a>
+                        <a href="#"><i class="unicon-logo-pinterest icon-2"></i></a>
+                    </li>
+                </ul>
+                <div class="py-2 hstack gap-2 mt-4 bg-white dark:bg-gray-900" data-uc-sticky="position: bottom">
+                    <div class="vstack gap-1">
+                        <span class="fs-7 opacity-60">Select theme:</span>
+                        <div class="darkmode-trigger" data-darkmode-switch="">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider fs-5"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Bottom Actions Sticky -->
+    <div class="backtotop-wrap position-fixed bottom-0 end-0 z-99 m-2 vstack">
+        <div class="darkmode-trigger cstack w-40px h-40px rounded-circle text-none bg-gray-100 dark:bg-gray-700 dark:text-white" data-darkmode-toggle="">
+            <label class="switch">
+                <span class="sr-only">Dark mode toggle</span>
+                <input type="checkbox">
+                <span class="slider fs-5"></span>
+            </label>
+        </div>
+        <a class="btn btn-sm bg-primary text-white w-40px h-40px rounded-circle" href="to_top" data-uc-backtotop>
+            <i class="icon-2 unicon-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Header start -->
+    <header class="uc-header header-six uc-navbar-sticky-wrap z-999" data-uc-sticky="start: 1200px; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
+        <nav class="uc-navbar-container lg:mt-3 rounded-0 lg:rounded-pill uc-navbar-float ft-tertiary z-1" data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
+            <div class="uc-navbar-main" style="--uc-nav-height: 80px">
+                <div class="container max-w-lg lg:max-w-950px xl:max-w-xl">
+                    <div class="uc-navbar min-h-64px lg:min-h-80px px-2 lg:px-0 text-gray-900 dark:text-white" data-uc-navbar="mode: click; animation: uc-animation-slide-top-small; duration: 150;">
+                        <div class="uc-navbar-left">
+                            <div class="uc-logo">
+                                <a class="panel text-none" href="index-6.html">
+                                    <img src="../assets/images/common/logo-icon.svg" alt="Lexend">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="uc-navbar-center">
+                            <ul class="uc-navbar-nav gap-3 xl:gap-5 d-none lg:d-flex fs-5 fw-medium" data-uc-scrollspy-nav="closest: li; offset: 40; scroll: true">
+                                <li class="d-none">
+                                    <a href="#overview">Overview</a>
+                                </li>
+                                <li>
+                                    <a href="#features">Features</a>
+                                </li>
+                                <li>
+                                    <a href="#how_it_works">How it works</a>
+                                </li>
+                                <li><a href="#pricing">Pricing</a></li>
+                                <li><a href="#clients_feedback">Reviews</a></li>
+                                <li><a href="#insights">Insights</a></li>
+                            </ul>
+                        </div>
+                        <div class="uc-navbar-right">
+                            <a href="page-pricing-2.html" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
+                                <span>See pricing</span>
+                            </a>
+                            <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Header end -->
+
+    <!-- Wrapper start -->
+    <div id="wrapper" class="wrap">
+
+        {{ $slot }}
+
+    </div>
+
+    <!-- Wrapper end -->
+
+    <!-- Footer start -->
+    <footer id="uc-footer" class="uc-footer panel overflow-hidden uc-dark">
+        <div class="footer-outer pb-4 lg:pb-6 dark:bg-gray-800 dark:text-white m-2 rounded-2 lg:rounded-3">
+            <div class="uc-footer-content pt-6 lg:pt-8">
+                <div class="container xl:max-w-xl">
+                    <div class="uc-footer-inner vstack gap-4 lg:gap-6 xl:gap-8">
+                        <div class="uc-footer-widgets panel">
+                            <div class="row child-cols-6 md:child-cols col-match g-4">
+                                <div class="col-12 lg:col-6">
+                                    <div class="panel vstack items-start gap-3 xl:gap-4 lg:max-w-1/2">
+                                        <div>
+                                            <a href="index.html" style="width: 140px">
+                                                <img class="text-primary" src="../assets/images/common/logo-dark.svg" alt="Lexend">
+                                            </a>
+                                            <p class="mt-2">Design amazing digital experiences that create more happy in the world.</p>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <a href="#" class="hstack gap-1 text-none fw-medium">
+                                                <i class="icon icon-1 unicon-earth-filled"></i>
+                                                <span>English</span>
+                                                <span data-uc-drop-parent-icon=""></span>
+                                            </a>
+                                            <div class="p-2 bg-white dark:bg-gray-700 shadow-xs rounded w-150px" data-uc-drop="mode: click; offset: 16; pos: bottom-center; boundary: !.uc-footer-widgets; animation: uc-animation-slide-top-small; duration: 150;">
+                                                <ul class="nav-y gap-1 fw-medium rtl:items-end">
+                                                    <li><a href="#en">English</a></li>
+                                                    <li><a href="#ar">العربية</a></li>
+                                                    <li><a href="#ch">中文</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <ul class="nav-y gap-2 fw-medium">
+                                        <li class="fs-7 text-uppercase dark:text-gray-300">Product</li>
+                                        <li><a href="#how_it_works">How it works</a></li>
+                                        <li><a href="#features">Features</a></li>
+                                        <li><a href="#key_features">Key Goods</a></li>
+                                        <li><a href="#builder_elements">Pro Elements</a></li>
+                                        <li><a href="#pricing">Pricing</a></li>
+                                        <li><a href="#">Changelog</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul class="nav-y gap-2 fw-medium">
+                                        <li class="fs-7 text-uppercase dark:text-gray-300">Company</li>
+                                        <li><a href="page-about.html">About us</a></li>
+                                        <li><a href="page-career.html">Careers</a></li>
+                                        <li><a href="#">Press</a></li>
+                                        <li><a href="blog.html">News</a></li>
+                                        <li><a href="#">Media kit</a></li>
+                                        <li><a href="page-contacct.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="d-none lg:d-block">
+                                    <ul class="nav-y gap-2 fw-medium">
+                                        <li class="fs-7 text-uppercase dark:text-gray-300">Resources</li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="#">Newsletter</a></li>
+                                        <li><a href="#">Events</a></li>
+                                        <li><a href="#">Help center</a></li>
+                                        <li><a href="#">Tutorials</a></li>
+                                        <li><a href="#">Support</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-between text-center pt-4 lg:pt-6 border-top dark:text-white">
+                            <p class="opacity-60">Lexend © 2024, All rights reserved.</p>
+                            <ul class="nav-x justify-center gap-2 text-gray-300">
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-x-filled"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-youtube"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon icon-2 unicon-logo-dribbble"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer end -->
+
+    <!-- include jquery & bootstrap js -->
+    <script defer src="../assets/js/libs/jquery.min.js"></script>
+    <script defer src="../assets/js/libs/bootstrap.min.js"></script>
+
+    <!-- include scripts -->
+    <script defer src="../assets/js/libs/anime.min.js"></script>
+    <script defer src="../assets/js/libs/swiper-bundle.min.js"></script>
+    <script defer src="../assets/js/libs/scrollmagic.min.js"></script>
+    <script defer src="../assets/js/helpers/data-attr-helper.js"></script>
+    <script defer src="../assets/js/helpers/swiper-helper.js"></script>
+    <script defer src="../assets/js/helpers/anime-helper.js"></script>
+    <script defer src="../assets/js/helpers/anime-helper-defined-timelines.js"></script>
+    <script defer src="../assets/js/uikit-components-bs.js"></script>
+
+    <!-- include app script -->
+    <script defer src="../assets/js/app.js"></script>
+
+    <script>
+        // Schema toggle via URL
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const getSchema = urlParams.get("schema");
+        if (getSchema === "dark") {
+            setDarkMode(1);
+        } else if (getSchema === "light") {
+            setDarkMode(0);
+        }
+    </script>
+</body>
+
+</html>
