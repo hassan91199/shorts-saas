@@ -64,8 +64,14 @@
         <div class="row child-cols-12 g-2" data-anime="onview: -200; targets: > * > *; translateY: [48, 0]; opacity: [0, 1]; delay: anime.stagger(100, { start: 200 }); duration: 1000; easing: 'spring(1, 80, 10, 0)'">
             <div>
                 <div class="panel p-3 lg:p-6 lg:pb-3 rounded-1-5 lg:rounded-2 bg-secondary dark:bg-gray-800 overflow-hidden">
-                    <h5 class="h4 md:h3 -ls-2 mb-1">Unique Videos Each Time</h5>
-                    <p class="fs-6 md:fs-5 lg:fs-4 text-gray-500 dark:text-gray-300 max-w-600px">Choose a video in any niche</p>
+                    <div class="heading vstack items-center gap-2 panel max-w-550px mx-auto text-center" data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
+                        <div class="cstack gap-1 py-1 px-2 border rounded-pill">
+                            <span class="d-inline-block w-4px h-4px rounded-circle bg-primary dark:bg-secondary"></span>
+                            <span class="fs-8 fw-bold text-uppercase">Features</span>
+                        </div>
+                        <h2 class="title h3 lg:h2 xl:h1 m-0 px-2">Unique <span class="d-inline-flex px-1 bg-primary text-secondary -rotate-1 lg:-rotate-2 rounded-1 lg:rounded-1-5">videos</span> each time.</h2>
+                        <p class="fs-6 xl:fs-5 text-opacity-70">Choose a video in any niche.</p>
+                    </div>
                     <div class="swiper mt-4 mx-n1 overflow-unset mask-x" data-uc-swiper="items: 4; gap: 0; center: true; center-bounds: true; autoplay: 15000; loop: true; speed: 15000; autoplay-delay: -1; allowTouchMove: false; disableOnInteraction: true; pauseOnMouseEnter: true;">
                         <div class="swiper-wrapper ease-linear">
                             <div class="swiper-slide">
