@@ -193,7 +193,7 @@
                             <p class="fs-6 xl:fs-5 text-opacity-70">No extra charges. No hidden fees.</p>
                         </div>
                         <div class="content panel">
-                            <div class="row child-cols-12 sm:child-cols-6 xl:child-cols-4 col-match justify-center g-2 lg:g-4" data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 400});">
+                            <div class="row child-cols-12 md:child-cols-6 xl:child-cols-3 col-match justify-center g-1" data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 400});">
                                 <div>
                                     <div class="tier panel vstack justify-between p-2 rounded-1-5 lg:rounded-2 bg-white text-gray-900 text-center">
                                         <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
@@ -202,84 +202,41 @@
                                                 <h3 class="h1 lg:display-6 price m-0 text-dark">$0</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p>
+                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
                                             <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
-                                                <span>Get started</span>
+                                                <span>Try Now!</span>
                                             </a>
-                                            <p class="details">Free Forever!</p>
+                                            <!-- <p class="details">Free Forever!</p> -->
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Use on 1 website</span>
+                                                    <span class="d-inline">Creates 1 video</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Personal License</span>
+                                                    <span class="d-inline">1 Series</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">20 Basic Elements</span>
+                                                    <span class="d-inline">Edit & preview videos</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Basic Dynamic Data</span>
+                                                    <i class="cstack w-24px h-24px bg-secondary text-danger rounded-circle unicon-close fw-bold"></i>
+                                                    <span class="d-inline text-line-through">Auto-post to channel</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Basic Design Library</span>
+                                                    <i class="cstack w-24px h-24px bg-secondary text-danger rounded-circle unicon-close fw-bold"></i>
+                                                    <span class="d-inline text-line-through">HD Video Resolution</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Basic support</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="tier panel vstack justify-between p-2 rounded-1-5 lg:rounded-2 bg-white text-gray-900 text-center">
-                                        <div class="position-absolute top-0 end-0 cstack gap-1 py-narrow px-1 my-2 mx-3 bg-secondary rounded-default -rotate-2">
-                                            <span class="fs-8 fw-bold text-uppercase text-primary">Save $25</span>
-                                        </div>
-                                        <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
-                                            <h5 class="h5 lg:h4 m-0 text-primary">Pro</h5>
-                                            <div class="d-flex gap-narrow items-end mt-1">
-                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$79</h3>
-                                                <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
-                                            </div>
-                                            <p class="desc lg:fs-5">Build <b>one website</b> with every pro feature.</p>
-                                            <a class="btn btn-md lg:btn-lg btn-primary w-100 mt-2" href="sign-up.html">
-                                                <span>Get started</span>
-                                            </a>
-                                            <p class="details">Billed annually.</p>
-                                        </header>
-                                        <div class="tier-body border rounded-1-5 p-2 md:p-4">
-                                            <ul class="nav-y gap-2 text-start">
-                                                <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Use on 1 website</span>
+                                                    <i class="cstack w-24px h-24px bg-secondary text-danger rounded-circle unicon-close fw-bold"></i>
+                                                    <span class="d-inline text-line-through">Background Music</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Personal License</span>
-                                                </li>
-                                                <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">100 Pro Elements</span>
-                                                </li>
-                                                <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Full Dynamic Data</span>
-                                                </li>
-                                                <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Full Design Library</span>
-                                                </li>
-                                                <li class="hstack items-start gap-2">
-                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Priority support</span>
+                                                    <i class="cstack w-24px h-24px bg-secondary text-danger rounded-circle unicon-close fw-bold"></i>
+                                                    <span class="d-inline text-line-through">No Watermark</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -288,42 +245,142 @@
                                 <div>
                                     <div class="tier panel vstack justify-between p-2 rounded-1-5 lg:rounded-2 bg-white text-gray-900 text-center">
                                         <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
-                                            <h5 class="h5 lg:h4 m-0 text-primary">Agency</h5>
+                                            <h5 class="h5 lg:h4 m-0 text-primary">Starter</h5>
                                             <div class="d-flex gap-narrow items-end mt-1">
-                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$199</h3>
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$19</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <p class="desc lg:fs-5">Build <b>unlimited websites</b> with every pro feature</p>
+                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
                                             <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
-                                                <span>Get started</span>
+                                                <span>Try Now!</span>
                                             </a>
-                                            <p class="details">Billed annually.</p>
+                                            <!-- <p class="details">Free Forever!</p> -->
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Use on unlimited websites</span>
+                                                    <span class="d-inline">Posts 3 times a week</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Commercial License</span>
+                                                    <span class="d-inline">1 Series</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">100 Pro Elements</span>
+                                                    <span class="d-inline">Edit & preview videos</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Full Dynamic Data</span>
+                                                    <span class="d-inline">Auto-post to channel</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Full Design Library</span>
+                                                    <span class="d-inline">HD Video Resolution</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">Priority support</span>
+                                                    <span class="d-inline">Background Music</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">No Watermark</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="tier panel vstack justify-between p-2 rounded-1-5 lg:rounded-2 bg-white text-gray-900 text-center">
+                                        <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
+                                            <h5 class="h5 lg:h4 m-0 text-primary">Daily</h5>
+                                            <div class="d-flex gap-narrow items-end mt-1">
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$39</h3>
+                                                <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
+                                            </div>
+                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                                <span>Try Now!</span>
+                                            </a>
+                                            <!-- <p class="details">Free Forever!</p> -->
+                                        </header>
+                                        <div class="tier-body border rounded-1-5 p-2 md:p-4">
+                                            <ul class="nav-y gap-2 text-start">
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Posts once a day</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">1 Series</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Edit & preview videos</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Auto-post to channel</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">HD Video Resolution</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Background Music</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">No Watermark</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="tier panel vstack justify-between p-2 rounded-1-5 lg:rounded-2 bg-white text-gray-900 text-center">
+                                        <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
+                                            <h5 class="h5 lg:h4 m-0 text-primary">Hardcore</h5>
+                                            <div class="d-flex gap-narrow items-end mt-1">
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$69</h3>
+                                                <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
+                                            </div>
+                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                                <span>Try Now!</span>
+                                            </a>
+                                            <!-- <p class="details">Free Forever!</p> -->
+                                        </header>
+                                        <div class="tier-body border rounded-1-5 p-2 md:p-4">
+                                            <ul class="nav-y gap-2 text-start">
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Posts twice a day</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">1 Series</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Edit & preview videos</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Auto-post to channel</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">HD Video Resolution</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">Background Music</span>
+                                                </li>
+                                                <li class="hstack items-start gap-2">
+                                                    <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
+                                                    <span class="d-inline">No Watermark</span>
                                                 </li>
                                             </ul>
                                         </div>
