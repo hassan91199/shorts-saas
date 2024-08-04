@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
+                            <!-- <div class="swiper-slide">
                                 <div class="item-preview panel p-1">
                                     <div class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="swiper-slide">
                                 <div class="item-preview panel p-1">
                                     <div class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
