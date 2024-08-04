@@ -70,6 +70,7 @@
 <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
 
     <!--  Menu panel -->
+    @if($showMenuPanel === true)
     <div id="uc-menu-panel" data-uc-offcanvas="overlay: true;">
         <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
             <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
@@ -122,8 +123,10 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!--  Bottom Actions Sticky -->
+    @if($showBottomActionsSticky === true)
     <div class="backtotop-wrap position-fixed bottom-0 end-0 z-99 m-2 vstack">
         <div class="darkmode-trigger cstack w-40px h-40px rounded-circle text-none bg-gray-100 dark:bg-gray-700 dark:text-white" data-darkmode-toggle="">
             <label class="switch">
@@ -136,8 +139,10 @@
             <i class="icon-2 unicon-chevron-up"></i>
         </a>
     </div>
+    @endif
 
     <!-- Header start -->
+    @if($showHeader)
     <header class="uc-header header-six uc-navbar-sticky-wrap z-999" data-uc-sticky="start: 1200px; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
         <nav class="uc-navbar-container lg:mt-3 rounded-0 lg:rounded-pill uc-navbar-float ft-tertiary z-1" data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
             <div class="uc-navbar-main" style="--uc-nav-height: 80px">
@@ -172,6 +177,7 @@
             </div>
         </nav>
     </header>
+    @endif
 
     <!-- Header end -->
 
@@ -185,6 +191,7 @@
     <!-- Wrapper end -->
 
     <!-- Footer start -->
+    @if($showFooter)
     <footer id="uc-footer" class="uc-footer panel overflow-hidden uc-dark">
         <div class="footer-outer pb-4 lg:pb-6 dark:bg-gray-800 dark:text-white m-2 rounded-2 lg:rounded-3">
             <div class="uc-footer-content pt-6 lg:pt-8">
@@ -261,6 +268,7 @@
             </div>
         </div>
     </footer>
+    @endif
 
     <!-- Footer end -->
 
