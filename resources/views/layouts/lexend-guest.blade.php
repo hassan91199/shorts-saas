@@ -60,6 +60,9 @@
     <!-- include main style -->
     <link rel="stylesheet" href="../assets/css/theme/theme-two.min.purge.css">
 
+    <!-- include custom style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+
     <!-- include scripts -->
     <script src="../assets/js/uni-core/js/uni-core-bundle.min.js"></script>
 </head>
