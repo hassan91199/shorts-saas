@@ -35,22 +35,22 @@
                                 <p class="fs-7 text-black dark:text-white">No credit cards required.</p>
                             </div>
                         </div>
-                        <!-- <div>
+                        <div>
                             <div class="panel" data-anime="targets: >*:not(.dashboard-image); scale: [0.5, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
                                 <div class="dashboard-image max-w-lg mx-auto max-h-250px lg:max-h-550px overflow-hidden" data-anime="translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
-                                    <img class="shadow-md lg:shadow-lg" src="../assets/images/template/app-dashboard.png" alt="app-dashboard">
+                                    <img class="shadow-md lg:shadow-lg rounded-2" src="{{ asset('assets\images\create-short.png') }}" alt="app-dashboard">
                                 </div>
-                                <div class="position-absolute top-50 end-0 translate-middle-y mt-2 lg:me-5">
+                                <!-- <div class="position-absolute top-50 end-0 translate-middle-y mt-2 lg:me-5">
                                     <img class="w-100px text-primary lg:rounded-2 shadow-xl" src="../assets/images/template/app-dashboard-helper-1.png" alt="app-dashboard-helper-1" data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 250;">
-                                </div>
-                                <div class="position-absolute" style="top: 74%; right: 7%">
+                                </div> -->
+                                <!-- <div class="position-absolute" style="top: 74%; right: 7%">
                                     <img class="w-48px lg:w-80px" src="../assets/images/template/user-cursor-2.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 8000; delay: 3000;">
-                                </div>
-                                <div class="position-absolute" style="top: 64%; left: 26.5%">
+                                </div> -->
+                                <!-- <div class="position-absolute" style="top: 64%; left: 26.5%">
                                     <img class="w-48px lg:w-80px" src="../assets/images/template/user-cursor-4.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 7000; delay: 2000;">
-                                </div>
+                                </div> -->
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
