@@ -38,7 +38,7 @@
                         <div>
                             <div class="panel" data-anime="targets: >*:not(.dashboard-image); scale: [0.5, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
                                 <div class="dashboard-image max-w-lg mx-auto max-h-250px lg:max-h-550px overflow-hidden" data-anime="translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
-                                    <img class="shadow-md lg:shadow-lg rounded-2" src="{{ asset('assets\images\create-short.png') }}" alt="app-dashboard">
+                                    <img class="shadow-md lg:shadow-lg rounded-2 filter-black-white" src="{{ asset('assets\images\create-short.png') }}" alt="app-dashboard">
                                 </div>
                                 <!-- <div class="position-absolute top-50 end-0 translate-middle-y mt-2 lg:me-5">
                                     <img class="w-100px text-primary lg:rounded-2 shadow-xl" src="../assets/images/template/app-dashboard-helper-1.png" alt="app-dashboard-helper-1" data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 250;">
@@ -178,7 +178,7 @@
                             <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-1.png') }}" alt="Share tools quickly and confidently in minutes">
+                                        <img src="{{ asset('assets/images/how-it-works-1.png') }}" class="filter-black-white" alt="Share tools quickly and confidently in minutes">
                                     </div>
                                     <div class="panel">
                                         <div class="panel vstack justify-center gap-4 h-100">
@@ -197,7 +197,7 @@
                             <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-2.png') }}" alt="Share tools quickly and confidently in minutes">
+                                        <img src="{{ asset('assets/images/how-it-works-2.png') }}" class="filter-black-white" alt="Share tools quickly and confidently in minutes">
                                     </div>
                                     <div class="panel">
                                         <div class="panel vstack justify-center gap-4 h-100">
@@ -216,7 +216,7 @@
                             <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-3.png') }}" alt="Share tools quickly and confidently in minutes">
+                                        <img src="{{ asset('assets/images/how-it-works-3.png') }}" class="filter-black-white" alt="Share tools quickly and confidently in minutes">
                                     </div>
                                     <div class="panel">
                                         <div class="panel vstack justify-center gap-4 h-100">
