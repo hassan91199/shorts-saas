@@ -165,15 +165,72 @@
     <!-- Section end -->
 
     <!-- Section start -->
-    <div id="how_it_works" class="how-it-works section panel">
-        <div class="section-outer panel" data-anime="onscroll: .how-it-works; onscroll-trigger: 1; translateY: [80, 0]; scale: [0.8, 1]; opacity: [0, 1]; easing: linear;">
-            <div class="container xl:max-w-xl">
-                <div class="panel overflow-hidden ratio ratio-16x9 rounded-2 lg:rounded-3 border border-2 border-white dark:border-gray-700">
-                    <video src="../assets/images/media/lexend_vid_home-6.webm" preload="none" loop="" poster="../assets/images/media/lexend_vid_home-6.jpg" muted="" playsinline="" data-uc-cover data-uc-video="autoplay: true;"></video>
-                    <div class="position-cover bg-black bg-opacity-40" data-uc-lightbox="video-autoplay: true; animation: scale;">
-                        <a href="../assets/images/media/lexend_vid_home-6.webm" data-attrs="width: 720; height: 640;" class="position-absolute top-50 start-50 translate-middle uc-link w-64px lg:w-100px h-64px lg:h-100px rounded-circle cstack bg-white bg-opacity-70 backdrop-2 text-primary">
-                            <i class="icon-3 unicon-play fw-bold"></i>
-                        </a>
+    <div id="how_it_works" class="how-it-works section panel overflow-hidden">
+        <div class="section-outer panel py-6 xl:py-9">
+            <div class="container sm:max-w-lg xl:max-w-xl">
+                <div class="section-inner panel">
+                    <div class="panel vstack items-center gap-2 xl:gap-3 mb-4 sm:mb-8 xl:mb-9 max-w-700px mx-auto text-center" data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
+                        <h2 class="h3 lg:h2 xl:h1 m-0">How does it work?</h2>
+                        <p class="fs-6 xl:fs-5 text-dark dark:text-white text-opacity-70">Faceless channels on auto-pilot</p>
+                    </div>
+                    <div class="row child-cols-12 sm:child-cols-6 xl:child-cols-4 col-match justify-center g-2 lg:g-4">
+                        <div>
+                            <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
+                                <div class="vstack gap-4 h-100">
+                                    <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
+                                        <img src="{{ asset('assets/images/how-it-works-1.png') }}" alt="Share tools quickly and confidently in minutes">
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel vstack justify-center gap-4 h-100">
+                                            <div>
+                                                <div class="panel vstack gap-2">
+                                                    <h3 class="h4 m-0">Step 1 - Create a series</h3>
+                                                    <p class="fs-6 lg:fs-5 opacity-70 dark:opacity-80">Choose a topic for your faceless video series. Select from our preset list or create a custom prompt. Our AI will begin crafting your first unique video immediately.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
+                                <div class="vstack gap-4 h-100">
+                                    <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
+                                        <img src="{{ asset('assets/images/how-it-works-2.png') }}" alt="Share tools quickly and confidently in minutes">
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel vstack justify-center gap-4 h-100">
+                                            <div>
+                                                <div class="panel vstack gap-2">
+                                                    <h3 class="h4 m-0">Step 2 - Preview and Customize</h3>
+                                                    <p class="fs-6 lg:fs-5 opacity-70 dark:opacity-80">Review your AI-generated video before it's posted. Edit the script, title, or background music as needed. Each video is uniquely created for your series.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="feature-item panel px-3 lg:px-4 py-4 rounded-2 bg-secondary dark:bg-gray-800" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
+                                <div class="vstack gap-4 h-100">
+                                    <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
+                                        <img src="{{ asset('assets/images/how-it-works-3.png') }}" alt="Share tools quickly and confidently in minutes">
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel vstack justify-center gap-4 h-100">
+                                            <div>
+                                                <div class="panel vstack gap-2">
+                                                    <h3 class="h4 m-0">Step 3 - Automate and Manage</h3>
+                                                    <p class="fs-6 lg:fs-5 opacity-70 dark:opacity-80">Edit your posting schedule, connect your channels, and let AutoShorts.ai handle the rest.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
