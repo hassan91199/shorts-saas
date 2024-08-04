@@ -416,62 +416,154 @@
                                     <span class="fs-8 fw-bold text-uppercase">FAQs</span>
                                 </div>
                                 <h2 class="h3 lg:h2 m-0">Frequenlty Asked Questions</h2>
-                                <p class="fs-6 lg:fs-5">We’re looking for people who share our vision! most of our time used to be taken up by most of who created new websites for thier businesses.</p>
-                                <a href="page-contact.html" class="btn btn-sm lg:btn-md btn-primary px-3 mt-2">
+                                <p class="fs-6 lg:fs-5">Curious about something? We've got the answers you need.</p>
+                                <!-- <a href="page-contact.html" class="btn btn-sm lg:btn-md btn-primary px-3 mt-2">
                                     <span>Still have a question?</span>
                                     <i class="icon icon-narrow unicon-arrow-right fw-bold rtl:rotate-180"></i>
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                         <div class="lg:col-6">
                             <div class="panel">
                                 <ul class="gap-2" data-uc-accordion="targets: > li; multiple: true">
+                                    <h5 class="h5 text-uppercase">Series & Videos</h5>
+
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Do I need to know about how to code?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">What is a Series?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS as well as JavaScript in order to be able to use Lexend.</p>
+                                            <p>A "Series" in AutoShorts.ai is a set of instructions that tells our AI how to create and post videos automatically. It includes your chosen topic, posting schedule, and target social media accounts, allowing the system to produce and share videos without your manual input.
+                                                <br><br>
+                                                For example, you could create a series called "Scary Stories" that automatically creates content and posts to TikTok and YouTube every day at 9PM EST.
+                                                <br><br>
+                                                Other important things to know:
+                                                <br><br>
+                                                - Each series can link to one TikTok and one YouTube channel.
+                                                <br>
+                                                - You can delete and create a new series to change your topic (up to 10 times per day).
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I use it for commercial projects?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I create videos in any niche?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Feel free to do so. Lexend does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).</p>
+                                            <p>You bet! You can create a series for nearly any topic or niche you want. Either choose from our preset list or use a custom prompt to describe your own.</p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I use it for multiple projects?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">What social media platforms do you support posting to?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Definitely! Please use it however you like; we don’t limit it.</p>
+                                            <p>We currently support posting to TikTok and YouTube. We are working on adding support for other platforms.</p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I use this to create and sell a product?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Are the videos unique?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Do not ever consider doing it.</p>
+                                            <p>Unlike other services that re-use the same video over and over, we create a new video for each series using generative AI. This means that each video is unique and will not be the same as any other video. Even if two videos have the same topic, the script and images will be completely different due to generative AI.</p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">What is your refund policy?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I edit the videos?</a>
                                         <div class="uc-accordion-content">
-                                            <p>We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.</p>
+                                            <p>Yes, you can edit basic details such as your video's script, title, and background music at anytime before it is scheduled to post.</p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Do I need to know about how to code?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">How do custom prompts work?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS as well as JavaScript in order to be able to use Lexend.</p>
+                                            <p>
+                                                Let's say you enter a custom prompt for your series, such as: "Discuss an interesting fact about Genghis Khan". Each video that is created in your series will follow the prompt you gave, while also doing its best to avoid duplicating content from past videos in the same series. So, the first video might be a fact about Genghis Khan's military, the next may be about Genghis Khan's leadership, then his legal code, etc.
+                                                <br><br>
+                                                If you wanted each video in your series to be about something different but still follow the general category of war, then your prompt should be something like: "Please write about a highly interesting event that happened in history related to war." In this case, the first video may be about 300 from Troy, then about The Battle of Gettysburg, etc.
+                                                <br><br>
+                                                If you've ever used ChatGPT before, it's similar to if you gave it your instructions and asked it to write a video script related to that. Each time you ask it, it will come up with something different. The videos in the series behave similarly.
+                                                <br><br>
+                                                Still have questions? Check out our custom prompt guide.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I use it for commercial projects?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">How many videos can I create per day?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Feel free to do so. Lexend does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).</p>
+                                            <p>
+                                                The number of videos created by each series can be seen on our <a href="#pricing">pricing page</a>. Remember, AutoShorts doesn't focus on individual video creation. Instead, you set up a Series that automatically generates videos on a schedule.
+                                                <br><br>
+                                                Features that render a new video such as making script edits, or changing your series do not count against your plan.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="panel p-2 md:p-4 border rounded-1-5">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I use it for multiple projects?</a>
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I replace an existing series with a new one?</a>
                                         <div class="uc-accordion-content">
-                                            <p>Definitely! Please use it however you like; we don’t limit it.</p>
+                                            <p>Absolutely! You can delete any current series and start fresh with a new topic or settings anytime (up to 10 times per day). Note: With our free plan, you're able to create one series per account.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">How do I create a video?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>It's important to know that AutoShorts.ai wasn't designed for single video creation, but instead for creating a series of videos on a regular schedule. First you need to create a <a href="#">series</a>. Once you do, the first video in your series will be automatically be queued for creation.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I adust the video length?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>When creating your series, you can choose between "30 to 60 seconds" or "60 to 90 seconds" length options. For more fine-tuned length control you can manually modify the length of your AI generated script, up to 1,600 characters max.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Do I own the videos?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Yes, the videos are yours to do with as you please. You can download them and use them on other platforms, or even sell them to clients.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Does the platform support multiple languages?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Yes, we currently support the following languages: English, Czech, Danish, Dutch, French, German, Greek, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Swedish, Turkish, and Ukrainian.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Are there any types of content that are not allowed?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>We have a NSFW filter on our generative AI models, but we cannot guarantee that all content will be appropriate for all audiences. We are not responsible for any content that is created by our platform.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can this make long form content?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Not at the moment. We focus on short form content, up to 90 seconds in length. We are working on a long form content feature, but it is not currently available.</p>
+                                        </div>
+                                    </li>
+
+                                    <h5 class="h5 pt-3 text-uppercase">Billing</h5>
+
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Is there a free trial?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>You bet your sweet bippy there is. Simply <a href="#">create an account</a> and you can create your first series for free to test a video. No credit card required.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I cancel at anytime?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Absolutely. We hate services that purposefully make it difficult to cancel. You can cancel at the click of a button from the dashboard's billing page.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">How does the membership work?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Beyond the free plan, we offer different tiers of paid memberships. The paid plans remove the watermark and allow you to post more frequently.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I get a refund?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Unfortunately, we cannot offer refunds as costs incurred for creating AI videos and generating AI photos are extremely high. In turn, our upstream providers do not let us ask for refunds for the GPU processing time used to create your AI videos. This would make it a loss making endeavor for us. During sign up you agree to withhold your right to refund for this reason. You can cancel any time though and your subscription ends.</p>
+                                        </div>
+                                    </li>
+                                    <li class="panel p-2 md:p-4 border rounded-1-5">
+                                        <a class="uc-accordion-title fs-5 sm:fs-4 ltr:pe-4 rtl:ps-4" href="#">Can I upgrade or downgrade my subscription?</a>
+                                        <div class="uc-accordion-content">
+                                            <p>Yes, you can upgrade or downgrade your subscription at any time. Go to the <a href="#">billing tab</a> and select the plan you want to upgrade / downgrade to. If you move to a plan with less series than you currently have, the extra series will be automatically disabled.</p>
                                         </div>
                                     </li>
                                 </ul>
