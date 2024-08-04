@@ -91,6 +91,7 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how_it_works">How it works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQs</a></li>
 
                     <li class="hr opacity-10 my-1"></li>
                     <li><a href="sign-up.html">Create an account</a></li>
@@ -154,6 +155,7 @@
                                 <li><a href="#features">Features</a></li>
                                 <li><a href="#how_it_works">How it works</a></li>
                                 <li><a href="#pricing">Pricing</a></li>
+                                <li><a href="#faq">FAQs</a></li>
                             </ul>
                         </div>
                         <div class="uc-navbar-right">
@@ -215,6 +217,7 @@
                                     <ul class="nav-y gap-2 fw-medium">
                                         <li class="fs-7 text-uppercase dark:text-gray-300">Company</li>
                                         <li><a href="#pricing">Pricing</a></li>
+                                        <li><a href="#faq">FAQs</a></li>
                                         <li><a href="#">Affiliates</a></li>
                                         <li><a href="#">Contact Us</a></li>
                                     </ul>
