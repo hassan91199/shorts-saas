@@ -28,7 +28,7 @@
                                     now or never!
                                 </h1>
                                 <p class="fs-5 xl:fs-4 text-black dark:text-white d-none md:d-block">Our advanced AI video creation platform empowers you to fully automate your faceless channel with ease and efficiency.</p>
-                                <a href="" class="btn btn-md lg:btn-lg btn-primary min-w-150px mt-2">
+                                <a href="#" class="btn btn-md lg:btn-lg btn-primary min-w-150px mt-2">
                                     <span>Try {{ config('app.name') }} for free</span>
                                     <i class="icon icon-narrow unicon-arrow-right fw-bold ltr:ms-narrow rtl:rotate-180 rtl:me-narrow"></i>
                                 </a>
@@ -266,7 +266,7 @@
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
                                                 <span>Try Now!</span>
                                             </a>
                                             <!-- <p class="details">Free Forever!</p> -->
@@ -314,7 +314,7 @@
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
                                                 <span>Try Now!</span>
                                             </a>
                                             <!-- <p class="details">Free Forever!</p> -->
@@ -362,7 +362,7 @@
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
                                                 <span>Try Now!</span>
                                             </a>
                                             <!-- <p class="details">Free Forever!</p> -->
@@ -410,7 +410,7 @@
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="sign-up.html">
+                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
                                                 <span>Try Now!</span>
                                             </a>
                                             <!-- <p class="details">Free Forever!</p> -->
@@ -474,7 +474,7 @@
                                 </div>
                                 <h2 class="h3 lg:h2 m-0">Frequenlty Asked Questions</h2>
                                 <p class="fs-6 lg:fs-5">Curious about something? We've got the answers you need.</p>
-                                <!-- <a href="page-contact.html" class="btn btn-sm lg:btn-md btn-primary px-3 mt-2">
+                                <!-- <a href="#" class="btn btn-sm lg:btn-md btn-primary px-3 mt-2">
                                     <span>Still have a question?</span>
                                     <i class="icon icon-narrow unicon-arrow-right fw-bold rtl:rotate-180"></i>
                                 </a> -->
