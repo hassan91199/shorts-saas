@@ -169,8 +169,11 @@
                             </ul>
                         </div>
                         <div class="uc-navbar-right">
-                            <a href="" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
+                            <a href="{{ route('login') }}" class="fs-5 fw-medium text-none d-none lg:d-inline-flex">
                                 <span>Sign In</span>
+                            </a>
+                            <a href="{{ route('register') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
+                                <span>Register</span>
                             </a>
                             <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
                         </div>
