@@ -15,10 +15,10 @@
                                     <div class="position-cover bg-gradient-to-t from-black to-transparent opacity-50"></div>
                                     <div class="panel z-1">
                                         <div class="vstack gap-3" data-anime="targets: >*; translateY: [-24, 0]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100, {start: 250});">
-                                            <p class="fs-5 xl:fs-4 fw-medium">“This software simplifies the website building process, making it a breeze to manage our online presence.”</p>
+                                            <p class="fs-5 xl:fs-4 fw-medium">“{{ config('app.name') }} makes creating high-quality, faceless shorts easy with AI tools. It's like having a professional editor at my fingertips. Highly recommended!”</p>
                                             <div class="vstack gap-0">
                                                 <p class="fs-6 lg:fs-5 fw-medium">David Handerson</p>
-                                                <span class="fs-7 opacity-80">Founder & CEO</span>
+                                                <span class="fs-7 opacity-80">Content Creator</span>
                                             </div>
                                         </div>
                                     </div>
