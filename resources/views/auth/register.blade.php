@@ -23,8 +23,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="index.html" class="position-absolute top-0 ltr:start-0 rtl:end-0 text-none m-4 lg:m-6" data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100, {start: 150});">
-                                    <img class="w-32px lg:w-40px" src="../assets/images/common/logo-mark.svg" alt="">
+                                <a href="{{ route('home') }}" class="position-absolute top-0 ltr:start-0 rtl:end-0 text-none m-4 lg:m-6" data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100, {start: 150});">
+                                    <img src="{{ asset('assets/images/common/logo-dark.svg') }}" alt="">
                                 </a>
                             </div>
                         </div>
