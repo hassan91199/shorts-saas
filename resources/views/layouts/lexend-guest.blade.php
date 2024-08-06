@@ -99,8 +99,8 @@
                     <li><a href="#faq">FAQs</a></li>
 
                     <li class="hr opacity-10 my-1"></li>
-                    <li><a href="sign-up.html">Create an account</a></li>
-                    <li><a href="sign-in.html">Log in</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('login') }}">Sign In</a></li>
                 </ul>
                 <ul class="social-icons nav-x mt-4">
                     <li>
