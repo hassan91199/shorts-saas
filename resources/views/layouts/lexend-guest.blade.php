@@ -76,7 +76,8 @@
             <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
                 <div class="uc-logo">
                     <a href="{{ config('app.url') }}" class="h5 text-none text-gray-900 dark:text-white">
-                        <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="{{ config('app.name') }}">
+                        <!-- <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="{{ config('app.name') }}"> -->
+                        <img src="{{ asset('assets/images/common/logo-light.svg') }}" alt="{{ config('app.name') }}">
                     </a>
                 </div>
                 <button class="uc-offcanvas-close rtl:end-auto rtl:start-0 m-1 mt-2 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all" type="button">
@@ -149,9 +150,10 @@
                 <div class="container max-w-lg lg:max-w-950px xl:max-w-xl">
                     <div class="uc-navbar min-h-64px lg:min-h-80px px-2 lg:px-0 text-gray-900 dark:text-white" data-uc-navbar="mode: click; animation: uc-animation-slide-top-small; duration: 150;">
                         <div class="uc-navbar-left">
-                            <div class="uc-logo">
-                                <a class="panel text-none" href="index-6.html">
-                                    <img src="../assets/images/common/logo-icon.svg" alt="Lexend">
+                            <div>
+                                <a class="panel text-none fs-5 fw-bold" href="index-6.html">
+                                    <img src="{{ asset('assets/images/common/logo-icon.svg') }}" alt="Lexend">
+                                    <span>lexend</span>
                                 </a>
                             </div>
                         </div>
