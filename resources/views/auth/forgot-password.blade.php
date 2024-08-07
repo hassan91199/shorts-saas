@@ -1,25 +1,15 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<x-auth-layout>
+    <div class="panel vstack gap-3 w-100 sm:w-350px mx-auto text-center" data-anime="targets: >*; translateY: [24, 0]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100);">
+        <h1 class="h4 sm:h2">{{ __('Forgot Password') }}</h1>
+        <form method="POST" action="{{ route('password.email') }}" class="vstack gap-2">
+            @csrf
+            <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="email" name="email" placeholder="Email" required>
+            <!-- <div class="form-check text-start rtl:text-end">
+                <input id="uc_form_not_robot" class="form-check-input rounded bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="checkbox" required>
+                <label for="uc_form_not_robot" class="form-check-label fs-6"> <span>I'm not a robot</span>. </label>
+            </div> -->
+            <button class="btn btn-primary btn-md text-white mt-2" type="submit">{{ __('Email Password Reset Link') }}</button>
+        </form>
+        <p class="mt-2 sm:m-0">{{ __('Remember your password?') }} <a class="uc-link" href="{{ route('login') }}">{{ __('Sign in') }}</a></p>
     </div>
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</x-auth-layout>
