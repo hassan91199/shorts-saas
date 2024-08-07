@@ -99,8 +99,17 @@
                     <li><a href="#faq">FAQs</a></li>
 
                     <li class="hr opacity-10 my-1"></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    @if (Route::has('login'))
+                    @auth
+                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    @else
                     <li><a href="{{ route('login') }}">Sign In</a></li>
+
+                    @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}">Register</a></li>
+                    @endif
+                    @endauth
+                    @endif
                 </ul>
                 <ul class="social-icons nav-x mt-4">
                     <li>
@@ -169,12 +178,16 @@
                             </ul>
                         </div>
                         <div class="uc-navbar-right">
-                            <a href="{{ route('login') }}" class="fs-5 fw-medium text-none d-none lg:d-inline-flex">
-                                <span>Sign In</span>
-                            </a>
-                            <a href="{{ route('register') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex">
-                                <span>Register</span>
-                            </a>
+                            @if (Route::has('login'))
+                            @auth
+                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex"><span>Dashboard</span></a>
+                            @else
+                            <a href="{{ route('login') }}" class="fs-5 fw-medium text-none d-none lg:d-inline-flex"><span>Sign In</span></a>
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex"><span>Register</span></a>
+                            @endif
+                            @endauth
+                            @endif
                             <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
                         </div>
                     </div>
