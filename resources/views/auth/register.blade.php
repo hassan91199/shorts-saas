@@ -84,7 +84,7 @@
                                             </div> -->
                                             <button class="btn btn-primary btn-md text-white mt-2" type="submit">Create my account</button>
                                         </form>
-                                        <p>Already have an account? <a class="uc-link" href="sign-in.html">Sign in</a></p>
+                                        <p>Already have an account? <a class="uc-link" href="{{ route('login') }}">Sign in</a></p>
                                     </div>
                                 </div>
                             </div>
