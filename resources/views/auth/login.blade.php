@@ -57,7 +57,7 @@
                                 <div class="panel py-4 px-2">
                                     <div class="panel vstack gap-3 w-100 sm:w-350px mx-auto text-center" data-anime="targets: >*; translateY: [24, 0]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100);">
                                         <h1 class="h4 sm:h2">Sign in</h1>
-                                        <div class="hstack gap-2">
+                                        <!-- <div class="hstack gap-2">
                                             <a href="#github" class="hstack items-center justify-center flex-1 gap-1 h-48px text-none rounded bg-dark text-white dark:bg-white dark:text-dark">
                                                 <i class="icon icon-1 unicon-logo-github"></i>
                                             </a>
@@ -68,20 +68,21 @@
                                         <div class="panel my-2">
                                             <hr class="m-0">
                                             <span class="position-absolute top-50 start-50 translate-middle p-1 fs-7 text-uppercase bg-secondary dark:bg-gray-900">Or</span>
-                                        </div>
-                                        <form class="vstack gap-2">
-                                            <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="email" placeholder="Your email" required>
-                                            <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="password" placeholder="Password" required>
+                                        </div> -->
+                                        <form method="POST" action="{{ route('login') }}" class="vstack gap-2">
+                                            @csrf
+                                            <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="email" name="email" placeholder="Email" required>
+                                            <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="password" name="password" placeholder="Password" required>
                                             <div class="hstack justify-between text-start">
                                                 <div class="form-check text-start rtl:text-end">
-                                                    <input id="uc_form_remember_me" class="form-check-input rounded bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="checkbox">
+                                                    <input id="uc_form_remember_me" class="form-check-input rounded bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="checkbox" name="remember">
                                                     <label for="uc_form_remember_me" class="hstack justify-between form-check-label fs-6">Remember me?</label>
                                                 </div>
-                                                <a href="reset-password.html" class="uc-link">Forgot password</a>
+                                                <a href="{{ route('password.request') }}" class="uc-link">Forgot password</a>
                                             </div>
                                             <button class="btn btn-primary btn-md text-white mt-2" type="submit">Log in</button>
                                         </form>
-                                        <p>Have no account yet? <a class="uc-link" href="sign-up.html">Sign up</a></p>
+                                        <p>Have no account yet? <a class="uc-link" href="{{ route('register') }}">Sign up</a></p>
                                     </div>
                                 </div>
                             </div>
