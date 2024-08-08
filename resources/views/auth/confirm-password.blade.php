@@ -7,6 +7,7 @@
 
             <!-- Password -->
             <input class="form-control h-48px w-full bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="password" name="password" placeholder="{{ __('Password') }}" required>
+            <x-input-error :messages="$errors->get('password')" />
 
             <button class="btn btn-primary btn-md text-white mt-2" type="submit">{{ __('Confirm') }}</button>
         </form>
