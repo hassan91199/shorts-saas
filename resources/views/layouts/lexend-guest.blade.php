@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
 
     <!-- include main style -->
-    <link rel="stylesheet" href="../assets/css/theme/theme-two.min.purge.css">
+    <link rel="stylesheet" href="../assets/css/theme/theme-two.css">
 
     <!-- include custom style -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
