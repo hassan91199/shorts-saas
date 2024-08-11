@@ -4,6 +4,15 @@
             <img src="{{ asset('assets/images/common/logo-dark.svg') }}" alt="Lexend">
         </a>
 
+        <ul class="navbar-nav flex-row d-none d-md-flex">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link mx-2 fs-6 text-white" href="#">Affiliates</a>
+            </li>
+            <li class="nav-item text-nowrap">
+                <a class="nav-link mx-2 fs-6 text-white" href="#">Logout</a>
+            </li>
+        </ul>
+
         <ul class="navbar-nav flex-row d-md-none">
             <li class="nav-item text-nowrap">
                 <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" data-uc-navbar-toggle-icon>
@@ -56,6 +65,22 @@
                                     Account
                                 </a>
                             </li>
+
+                            <div class="d-md-none">
+                                <!-- Affiliates -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        Affiliates
+                                    </a>
+                                </li>
+
+                                <!-- Logout -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        Logout
+                                    </a>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
