@@ -9,7 +9,7 @@ class AppLayout extends Component
 {
     public $pageTitle;
 
-    public function __construct($pageTitle = 'Please set the page title')
+    public function __construct($pageTitle = null)
     {
         $this->pageTitle = $pageTitle;
     }
