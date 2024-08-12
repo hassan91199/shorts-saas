@@ -1,36 +1,99 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<x-lexend-guest-layout :show-menu-panel="false" :show-bottom-actions-sticky="false" :show-header="false" :show-footer="false">
+    <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 py-1 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white panel text-none" href="{{ route('dashboard') }}" style="width: 140px">
+            <img src="{{ asset('assets/images/common/logo-dark.svg') }}" alt="Lexend">
+        </a>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <ul class="navbar-nav flex-row d-none d-md-flex">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link mx-2 fs-6 text-white" href="#">Affiliates</a>
+            </li>
+            <li class="nav-item text-nowrap">
+                <a class="nav-link mx-2 fs-6 text-white" href="#">Logout</a>
+            </li>
+        </ul>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" data-uc-navbar-toggle-icon>
+                </button>
+            </li>
+        </ul>
+    </header>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+                <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Lexend</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                </header>
-            @endif
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <!-- Series with Sub-items -->
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" data-bs-toggle="collapse" href="#seriesSubMenu" role="button" aria-expanded="false" aria-controls="seriesSubMenu">
+                                    Series
+                                </a>
+                                <div class="collapse" id="seriesSubMenu">
+                                    <ul class="nav flex-column ms-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                                View Series
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                                Create Series
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-            <!-- Page Content -->
-            <main>
+                            <!-- Billing -->
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    Billing
+                                </a>
+                            </li>
+
+                            <!-- Account -->
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    Account
+                                </a>
+                            </li>
+
+                            <div class="d-md-none">
+                                <!-- Affiliates -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        Affiliates
+                                    </a>
+                                </li>
+
+                                <!-- Logout -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        Logout
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">{{ $pageTitle }}</h1>
+                </div>
+
                 {{ $slot }}
             </main>
         </div>
-    </body>
-</html>
+    </div>
+
+</x-lexend-guest-layout>
