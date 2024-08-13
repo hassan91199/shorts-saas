@@ -99,7 +99,7 @@
     </div>
 
 
-    @if($script)
+    @if(isset($script))
     <x-slot name="script">
         {{ $script }}
     </x-slot>

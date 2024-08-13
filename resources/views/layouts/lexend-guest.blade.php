@@ -319,7 +319,7 @@
         }
     </script>
 
-    @if($script)
+    @if(isset($script))
     {{ $script }}
     @endif
 </body>
