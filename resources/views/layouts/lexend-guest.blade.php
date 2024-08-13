@@ -291,7 +291,7 @@
     <!-- Footer end -->
 
     <!-- include jquery & bootstrap js -->
-    <script defer src="../assets/js/libs/jquery.min.js"></script>
+    <script src="../assets/js/libs/jquery.min.js"></script>
     <script defer src="../assets/js/libs/bootstrap.min.js"></script>
 
     <!-- include scripts -->
@@ -318,6 +318,10 @@
             setDarkMode(0);
         }
     </script>
+
+    @if($script)
+    {{ $script }}
+    @endif
 </body>
 
 </html>

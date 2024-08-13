@@ -98,4 +98,10 @@
         </div>
     </div>
 
+
+    @if($script)
+    <x-slot name="script">
+        {{ $script }}
+    </x-slot>
+    @endif
 </x-lexend-guest-layout>
