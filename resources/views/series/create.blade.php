@@ -57,7 +57,7 @@
                                     <div id="create-video-div" class="mt-2 d-none">
                                         <h2 class="h3 m-0">{{ __('Step 3 - Create') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('You will be able to preview your upcoming videos before posting') }}</p>
-                                        <button class="btn btn-primary text-white mt-1" type="submit">{{ __('Create Series +') }}</button>
+                                        <button class="btn btn-primary text-white mt-1 w-100" type="submit">{{ __('Create Series +') }}</button>
                                     </div>
                                 </form>
                             </div>
