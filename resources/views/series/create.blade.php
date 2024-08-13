@@ -45,12 +45,12 @@
                                             <option>Urban Legends</option>
                                             <option>Motivational</option>
                                             <option>Fun Fact</option>
-                                            <option>Long From Jokes/option>
-                                            <option>Like Pro Tips/option>
-                                            <option>ELJL5/option>
-                                            <option>philogospec/option>
-                                            <option>Product Marketing/option>
-                                            <option>Custom Topic/option>
+                                            <option>Long From Jokes</option>
+                                            <option>Like Pro Tips</option>
+                                            <option>ELJL5</option>
+                                            <option>philogospec</option>
+                                            <option>Product Marketing</option>
+                                            <option>Custom Topic</option>
                                         </select>
                                     </div>
 
