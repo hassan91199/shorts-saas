@@ -19,8 +19,8 @@
                     <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800">
                         <div class="panel">
                             <div>
-                                <form class="vstack gap-2 p-3 sm:p-6 xl:p-8">
-                                    <div id="set-destination-div">
+                                <form class="vstack gap-3 p-3 sm:p-6 xl:p-8">
+                                    <div id="set-destination-div" class="vstack gap-1">
                                         <h2 class="h3 m-0">{{ __('Step 1 - Destination') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('The account where your video series will be posted') }}</p>
 
@@ -32,7 +32,7 @@
                                         </select>
                                     </div>
 
-                                    <div id="set-content-div" class="mt-2 d-none">
+                                    <div id="set-content-div" class="mt-2 d-none vstack gap-1">
                                         <h2 class="h3 m-0">{{ __('Step 2 - Content') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('What will your video series be about?') }}</p>
 
@@ -54,7 +54,7 @@
                                         </select>
                                     </div>
 
-                                    <div id="create-video-div" class="mt-2 d-none">
+                                    <div id="create-video-div" class="mt-2 d-none vstack gap-1">
                                         <h2 class="h3 m-0">{{ __('Step 3 - Create') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('You will be able to preview your upcoming videos before posting') }}</p>
                                         <button class="btn btn-primary text-white mt-1 w-100" type="submit">{{ __('Create Series +') }}</button>
