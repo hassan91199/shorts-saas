@@ -19,12 +19,14 @@
                     <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800">
                         <div class="panel">
                             <div>
-                                <form class="vstack gap-3 p-3 sm:p-6 xl:p-8">
+                                <form method="POST" action="{{ route('series.store') }}" class="vstack gap-3 p-3 sm:p-6 xl:p-8">
+                                    @csrf
+
                                     <div id="set-destination-div" class="vstack gap-1">
                                         <h2 class="h3 m-0">{{ __('Step 1 - Destination') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('The account where your video series will be posted') }}</p>
 
-                                        <select id="set-destination-select" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
+                                        <select id="set-destination-select" name="destination" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
                                             <option value="" disabled selected>Select an option</option>
                                             <option value="email">Email Me Instead</option>
                                             <option value="tiktok">Link a Tik Tok Account +</option>
@@ -36,7 +38,7 @@
                                         <h2 class="h3 m-0">{{ __('Step 2 - Content') }}</h2>
                                         <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('What will your video series be about?') }}</p>
 
-                                        <select id="set-content-select" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
+                                        <select id="set-content-select" name="content" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
                                             <option value="" disabled selected>Select an option</option>
                                             <option>Random AI Story</option>
                                             <option>Scary Stories</option>
