@@ -11,6 +11,14 @@ class SeriesController extends Controller
     /**
      * Display the page to create a series.
      */
+    public function index(Request $request): View
+    {
+        return view('series.view');
+    }
+    
+    /**
+     * Display the page to create a series.
+     */
     public function create(Request $request): View
     {
         return view('series.create');
