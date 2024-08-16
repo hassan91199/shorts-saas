@@ -48,6 +48,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <h2 class="h3 mt-5">{{ __('Past Videos') }}</h2>
+
+                    <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-1 sm:p-4 xl:p-6">
+                        <div class="row">
+                            <div class="col-11">
+                                <p class="fs-4 fw-medium text-opacity-70">The Vanishing of Roanoke Colony</p>
+                                <p class="fs-4 fw-normal text-opacity-70">What happened to the lost colony of Roanoke? A tale of mystery, survival, and unanswered questions awaits you! #Roanoke #HistoryMystery #LostColony #AmericanHistory #Exploration</p>
+                                <p class="fs-4 fw-ultra-light text-opacity-70">Created on 8/16/2024</p>
+                            </div>
+                            <div class="col-1 d-flex justify-center items-center">
+                                <i class="icon-2 unicon-download-cloud"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
