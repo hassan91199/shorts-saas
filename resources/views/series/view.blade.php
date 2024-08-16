@@ -45,50 +45,6 @@
                                         <p class="mt-1"><span class="fw-bold">Note:</span> Always verify AI generated scripts for accuracy.</p>
                                     </div>
                                 </div>
-
-                                <!-- <form method="POST" action="{{ route('series.store') }}" class="vstack gap-3 p-3 sm:p-6 xl:p-8">
-                                    @csrf
-
-                                    <div id="set-destination-div" class="vstack gap-1">
-                                        <h2 class="h3 m-0">{{ __('Step 1 - Destination') }}</h2>
-                                        <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('The account where your video series will be posted') }}</p>
-
-                                        <select id="set-destination-select" name="destination" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
-                                            <option value="" disabled selected>Select an option</option>
-                                            <option value="email">Email Me Instead</option>
-                                            <option value="tiktok">Link a Tik Tok Account +</option>
-                                            <option value="youtube">Link a Youtube Account +</option>
-                                        </select>
-                                    </div>
-
-                                    <div id="set-content-div" class="mt-2 d-none vstack gap-1">
-                                        <h2 class="h3 m-0">{{ __('Step 2 - Content') }}</h2>
-                                        <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('What will your video series be about?') }}</p>
-
-                                        <select id="set-content-select" name="content" class="form-control bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white">
-                                            <option value="" disabled selected>Select an option</option>
-                                            <option>Random AI Story</option>
-                                            <option>Scary Stories</option>
-                                            <option>Bedtime Stories</option>
-                                            <option>Interesting History</option>
-                                            <option>Urban Legends</option>
-                                            <option>Motivational</option>
-                                            <option>Fun Fact</option>
-                                            <option>Long From Jokes</option>
-                                            <option>Like Pro Tips</option>
-                                            <option>ELJL5</option>
-                                            <option>philogospec</option>
-                                            <option>Product Marketing</option>
-                                            <option>Custom Topic</option>
-                                        </select>
-                                    </div>
-
-                                    <div id="create-video-div" class="mt-2 d-none vstack gap-1">
-                                        <h2 class="h3 m-0">{{ __('Step 3 - Create') }}</h2>
-                                        <p class="fs-6 text-dark dark:text-white text-opacity-70">{{ __('You will be able to preview your upcoming videos before posting') }}</p>
-                                        <button class="btn btn-primary text-white mt-1 w-100" type="submit">{{ __('Create Series +') }}</button>
-                                    </div>
-                                </form> -->
                             </div>
                         </div>
                     </div>
