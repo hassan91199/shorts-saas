@@ -22,6 +22,30 @@
 
                                 <hr class="w-100 m-0">
 
+                                <div class="panel row mt-2">
+                                    <div class="col-12 col-md-4">
+                                        <video src="{{ asset('assets/videos/short-2.mp4') }}" class="bg-primary p-1 rounded" controls></video>
+                                    </div>
+                                    <div class="panel col-12 col-md-8">
+                                        <form class="panel vstack gap-2 lg:gap-3" action="?">
+                                            <div class="form-group">
+                                                <label class="form-label ft-tertiary" for="video-title">Title</label>
+                                                <input type="text" id="video-title" class="form-control dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" name="video_title" maxlength="100" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label ft-tertiary" for="video-caption">Caption</label>
+                                                <input type="text" id="video-caption" class="form-control dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" name="video_caption" maxlength="200" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label ft-tertiary" for="video-script">Script</label>
+                                                <textarea name="video_script" id="video-script" class="form-control dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" maxlength="1600" rows="10"></textarea>
+                                            </div>
+                                        </form>
+
+                                        <p class="mt-1"><span class="fw-bold">Note:</span> Always verify AI generated scripts for accuracy.</p>
+                                    </div>
+                                </div>
+
                                 <!-- <form method="POST" action="{{ route('series.store') }}" class="vstack gap-3 p-3 sm:p-6 xl:p-8">
                                     @csrf
 
