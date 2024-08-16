@@ -66,7 +66,11 @@
                                 </a>
                             </li>
 
+
                             <div class="d-md-none">
+
+                                <hr class="w-100 m-0">
+
                                 <!-- Affiliates -->
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center gap-2" href="#">
