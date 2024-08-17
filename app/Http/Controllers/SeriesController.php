@@ -70,4 +70,26 @@ class SeriesController extends Controller
 
         return redirect()->route('series.index');
     }
+
+    /**
+     * Display the page to show details of series.
+     */
+    public function show(Request $request, Series $series): View
+    {
+        $user = auth()->user();
+
+        $userSeries = $user->series;
+
+        $currentVideo = $series->currentVideo();
+        $pastVideos = $series->pastVideos();
+
+
+        return view('series.show', [
+            'user' => $user,
+            'userSeries' => $userSeries,
+            'currentVideo' => $currentVideo,
+            'pastVideos' => $pastVideos,
+            'series' => $series,
+        ]);
+    }
 }
