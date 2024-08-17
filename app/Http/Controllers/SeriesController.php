@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
+use App\Models\Series;
+use Illuminate\Http\RedirectResponse;
 
 class SeriesController extends Controller
 {
@@ -15,7 +17,7 @@ class SeriesController extends Controller
     {
         return view('series.view');
     }
-    
+
     /**
      * Display the page to create a series.
      */
@@ -28,24 +30,44 @@ class SeriesController extends Controller
      * Store a newly created series in the database.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\View\View
+     * @return Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): View
+    public function store(Request $request): RedirectResponse
     {
-        // $destination = $request->get('destination');
-        // $category = $request->get('category');
+        $destination = $request->get('destination');
+        $category = $request->get('category');
+        $title = ucwords(str_replace('_', ' ', $category));
 
-        // $description = "Create a dynamic and engaging short video that captures the essence of $category. The video should be visually appealing, with a mix of vibrant colors, smooth transitions, and energetic background music. Incorporate key elements and visuals that represent the core themes of $category, while maintaining a playful and entertaining tone. The video should be concise yet impactful, with a focus on creating a memorable experience for the viewer.";
+        $descriptions = [
+            'interesting_history' => 'Please share a concise and captivating account of a highly interesting, yet lesser-known historical event. The event MUST be real, factual, and found on Wikipedia. Begin with a captivating introduction or question to hook the audience. Your goal is to fascinate and inform the audience on interesting history.'
+        ];
 
-        // $url = 'http://localhost:31415/vid-gen';
-        // $data = [
-        //     'description' => $description
-        // ];
+        // Send the video generation request to VidGen Module
+        $url = 'http://localhost:31415/vid-gen';
+        $data = [
+            'description' => $descriptions[$category]
+        ];
+        $response = Http::post($url, $data);
+        $responseData  = $response->json();
 
-        // $response = Http::post($url, $data);
+        $videoData = [
+            'vid_gen_id' => $responseData['video_id'] ?? null,
+            'title' => $responseData['title'] ?? '',
+            'caption' => $responseData['caption'] ?? '',
+            'script' => $responseData['script'] ?? '',
+        ];
 
-        // dd($response);
+        // Create a new Series record
+        $series = Series::create([
+            'user_id' => auth()->id(),
+            'title' => $title,
+            'category' => $category,
+            'destination' => $destination,
+        ]);
 
-        return view('series.view');
+        // Create new video and associate it with series
+        $series->videos()->create($videoData);
+
+        return redirect()->route('series.index');
     }
 }
