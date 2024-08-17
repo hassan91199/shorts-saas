@@ -29,4 +29,14 @@ class Series extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function currentVideo()
+    {
+        return $this->videos()->where('is_current', true)->first();
+    }
+
+    public function pastVideos()
+    {
+        return $this->videos()->where('is_current', false)->get();
+    }
 }
