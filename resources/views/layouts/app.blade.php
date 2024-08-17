@@ -39,7 +39,7 @@
                                 <div class="collapse" id="seriesSubMenu">
                                     <ul class="nav flex-column ms-3">
                                         <li class="nav-item">
-                                            <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                            <a class="nav-link d-flex align-items-center gap-2" href="{{ route('series.index') }}">
                                                 View Series
                                             </a>
                                         </li>
