@@ -53,11 +53,9 @@
                                         </div>
                                         @else
                                         <video src="" class="bg-primary p-1 rounded d-none"></video>
-                                        <div class="bg-primary p-10 rounded text-center text-white">
-                                            <div class="spinner-border">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                            <!-- <span class="text-white">Rendering - 10%</span> -->
+                                        <div class="text-black">
+                                            <div class="spinner-border icon-1"></div>
+                                            <span class="" role="status">Rendering Video - 10%</span>
                                         </div>
                                         <div class="d-flex align-items-center mt-2 d-none">
                                             <a href="" class="text-none d-flex align-items-center" download>
