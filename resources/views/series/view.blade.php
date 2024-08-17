@@ -25,6 +25,10 @@
                                 <div class="panel row mt-2">
                                     <div class="col-12 col-md-4">
                                         <video src="{{ asset('assets/videos/short-2.mp4') }}" class="bg-primary p-1 rounded" controls></video>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <i class="icon-1 unicon-download"></i>
+                                            <p class="fs-6 text-dark dark:text-white text-opacity-70 ms-1">{{ __('Download Video') }}</p>
+                                        </div>
                                     </div>
                                     <div class="panel col-12 col-md-8">
                                         <form class="panel vstack gap-2 lg:gap-3" action="?">
@@ -38,7 +42,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label ft-tertiary" for="video-script">Script</label>
-                                                <textarea name="video_script" id="video-script" class="form-control dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" maxlength="1600" rows="10"></textarea>
+                                                <textarea name="video_script" id="video-script" class="form-control dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" maxlength="1600" rows="15"></textarea>
                                             </div>
                                         </form>
 
