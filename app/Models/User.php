@@ -42,4 +42,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function series()
+    {
+        return $this->hasMany(Series::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasManyThrough(
+            Video::class,
+            Series::class,
+            'user_id',
+            'series_id',
+            'id',
+            'id'
+        );
+    }
 }
