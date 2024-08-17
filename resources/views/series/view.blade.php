@@ -59,7 +59,7 @@
                                 <p class="fs-4 fw-ultra-light text-opacity-70">Created on 8/16/2024</p>
                             </div>
                             <div class="col-1 d-flex justify-center items-center">
-                                <i class="icon-2 unicon-download-cloud"></i>
+                                <i class="icon-2 unicon-download"></i>
                             </div>
                         </div>
                     </div>
