@@ -28,8 +28,8 @@
                                         <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-destination-select" name="destination" aria-label="set-destination-select" required>
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
                                             <option value="email">{{__('Email Me Instead')}}</option>
-                                            <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
-                                            <option value="youtube">{{__('Link a Youtube Account +')}}</option>
+                                            <!-- <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
+                                            <option value="youtube">{{__('Link a Youtube Account +')}}</option> -->
                                         </select>
                                     </div>
 
@@ -39,16 +39,16 @@
 
                                         <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-content-select" name="category" aria-label="set-content-select" required>
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
-                                            <option value="random_ai_story">{{__('Random AI Story')}}</option>
-                                            <option value="scary_stories">{{__('Scary Stories')}}</option>
-                                            <option value="bedtime_stories">{{__('Bedtime Stories')}}</option>
+                                            <!-- <option value="random_ai_story">{{__('Random AI Story')}}</option> -->
+                                            <!-- <option value="scary_stories">{{__('Scary Stories')}}</option> -->
+                                            <!-- <option value="bedtime_stories">{{__('Bedtime Stories')}}</option> -->
                                             <option value="interesting_history">{{__('Interesting History')}}</option>
-                                            <option value="urban_legends">{{__('Urban Legends')}}</option>
-                                            <option value="motivational">{{__('Motivational')}}</option>
-                                            <option value="fun_fact">{{__('Fun Fact')}}</option>
-                                            <option value="long_from_jokes">{{__('Long From Jokes')}}</option>
-                                            <option value="like_pro_tips">{{__('Like Pro Tips')}}</option>
-                                            <option value="product_marketing">{{__('Product Marketing')}}</option>
+                                            <!-- <option value="urban_legends">{{__('Urban Legends')}}</option> -->
+                                            <!-- <option value="motivational">{{__('Motivational')}}</option> -->
+                                            <!-- <option value="fun_fact">{{__('Fun Fact')}}</option> -->
+                                            <!-- <option value="long_from_jokes">{{__('Long From Jokes')}}</option> -->
+                                            <!-- <option value="like_pro_tips">{{__('Like Pro Tips')}}</option> -->
+                                            <!-- <option value="product_marketing">{{__('Product Marketing')}}</option> -->
                                         </select>
                                     </div>
 
