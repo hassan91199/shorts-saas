@@ -25,7 +25,7 @@
                                     <div id="set-destination-div" class="form-group vstack gap-1">
                                         <h2 class="h3 m-0">{{ __('Step 1 - Destination') }}</h2>
                                         <label class="form-label ft-tertiary" for="set-destination-select">{{ __('The account where your video series will be posted') }}</label>
-                                        <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-destination-select" aria-label="set-destination-select" required>
+                                        <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-destination-select" name="destination" aria-label="set-destination-select" required>
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
                                             <option value="email">{{__('Email Me Instead')}}</option>
                                             <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
@@ -37,7 +37,7 @@
                                         <h2 class="h3 m-0">{{ __('Step 2 - Content') }}</h2>
                                         <label class="form-label ft-tertiary" for="set-content-select">{{ __('What will your video series be about?') }}</label>
 
-                                        <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-content-select" aria-label="set-content-select" required>
+                                        <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-content-select" name="category" aria-label="set-content-select" required>
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
                                             <option value="random_ai_story">{{__('Random AI Story')}}</option>
                                             <option value="scary_stories">{{__('Scary Stories')}}</option>
