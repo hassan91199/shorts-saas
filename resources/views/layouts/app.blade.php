@@ -9,7 +9,15 @@
                 <a class="nav-link mx-2 fs-6 text-white" href="#">Affiliates</a>
             </li>
             <li class="nav-item text-nowrap">
-                <a class="nav-link mx-2 fs-6 text-white" href="#">Logout</a>
+                <!-- <a class="" href="#">Logout</a> -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="nav-link mx-2 fs-6 text-white" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </a>
+                </form>
             </li>
         </ul>
 
@@ -80,9 +88,14 @@
 
                                 <!-- Logout -->
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                        Logout
-                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </a>
+                                    </form>
                                 </li>
                             </div>
                         </ul>
