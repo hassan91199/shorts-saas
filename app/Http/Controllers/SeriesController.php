@@ -11,11 +11,23 @@ use Illuminate\Http\RedirectResponse;
 class SeriesController extends Controller
 {
     /**
-     * Display the page to create a series.
+     * Redirects the user to their first series 
+     * page, or displays the index page if no 
+     * series are found.
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function index(Request $request): View
+    public function index(): RedirectResponse|View
     {
-        return view('series.view');
+        $user = auth()->user();
+
+        $userSeries = $user->series->first();
+
+        if ($userSeries) {
+            return redirect()->route('series.show', ['series' => $userSeries->id]);
+        } else {
+            return view('series.index');
+        }
     }
 
     /**
