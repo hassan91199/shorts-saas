@@ -136,8 +136,6 @@
 
                 // Check if the 'src' attribute is set and not empty
                 if (!currentVideoSrc) {
-                    console.log('Video source is not set.');
-
                     const vidGenInfoUrl = API_BASE_URL + '/vid-gen-info';
 
                     // Variable to hold the interval ID
@@ -152,8 +150,6 @@
                                 'vid_gen_id': '{{ $currentVideo->vid_gen_id }}',
                             },
                             success: function(response) {
-                                console.log('Response:', response);
-
                                 const renderPercentage = response.render_percentage;
                                 const videoUrl = response.video_url;
 
@@ -184,8 +180,6 @@
 
                     // Set interval to call the fetchAndUpdate function every 10 seconds (10000 milliseconds)
                     intervalId = setInterval(fetchAndUpdate, 10000);
-                } else {
-                    console.log('Video source is set:', currentVideoElem.attr('src'));
                 }
             });
         </script>
