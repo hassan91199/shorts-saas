@@ -44,9 +44,9 @@
                                     <div class="col-12 col-md-4">
 
                                         @if(isset($currentVideo->video_url))
-                                        <video src="{{ $currentVideo->video_url }}" class="bg-primary p-1 rounded" controls></video>
+                                        <video src="{{ asset($currentVideo->video_url) }}" class="bg-primary p-1 rounded" controls></video>
                                         <div class="d-flex align-items-center mt-2">
-                                            <a href="{{ $currentVideo->video_url }}" class="text-none d-flex align-items-center" download>
+                                            <a href="{{ asset($currentVideo->video_url) }}" class="text-none d-flex align-items-center" download>
                                                 <i class="icon-2 unicon-download"></i>
                                                 <span class="fs-6 text-dark dark:text-white text-opacity-70 ms-1">{{ __('Download Video') }}</span>
                                             </a>
