@@ -30,7 +30,8 @@ class VidGenController extends Controller
                 'video_url' => $video->video_url,
             ]);
         } else {
-            $videoInfoResponse = Http::post('http://localhost:31415/video-info', [
+            $videoInfoApiUrl = config('vidgen.api_base_url') . '/video-info';
+            $videoInfoResponse = Http::post($videoInfoApiUrl, [
                 'video_id' => $vidGenId
             ]);
             $videoInfoResponseData = $videoInfoResponse->json();
@@ -44,7 +45,8 @@ class VidGenController extends Controller
                 $extension = substr($videoPath, ((strrpos($videoPath, '.')) + 1));
 
                 // getting the file of the video
-                $getVideoResponse = Http::post('http://localhost:31415/get-video', [
+                $getVideoApiUrl = config('vidgen.api_base_url') . '/get-video';
+                $getVideoResponse = Http::post($getVideoApiUrl, [
                     'video_id' => $vidGenId
                 ]);
 

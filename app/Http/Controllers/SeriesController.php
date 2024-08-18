@@ -55,7 +55,7 @@ class SeriesController extends Controller
         ];
 
         // Send the video generation request to VidGen Module
-        $url = 'http://localhost:31415/vid-gen';
+        $url = config('vidgen.api_base_url') . '/vid-gen';
         $data = [
             'description' => $descriptions[$category]
         ];
