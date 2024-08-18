@@ -44,21 +44,21 @@
                                     <div class="col-12 col-md-4">
 
                                         @if(isset($currentVideo->video_url))
-                                        <video src="{{ asset($currentVideo->video_url) }}" class="bg-primary p-1 rounded" controls></video>
-                                        <div class="d-flex align-items-center mt-2">
-                                            <a href="{{ asset($currentVideo->video_url) }}" class="text-none d-flex align-items-center" download>
+                                        <video id="current-video-element" src="{{ asset($currentVideo->video_url) }}" class="bg-primary p-1 rounded" controls></video>
+                                        <div id="download-video-div" class="d-flex align-items-center mt-2">
+                                            <a id="download-current-video-link" href="{{ asset($currentVideo->video_url) }}" class="text-none d-flex align-items-center" download>
                                                 <i class="icon-2 unicon-download"></i>
                                                 <span class="fs-6 text-dark dark:text-white text-opacity-70 ms-1">{{ __('Download Video') }}</span>
                                             </a>
                                         </div>
                                         @else
-                                        <video src="" class="bg-primary p-1 rounded d-none"></video>
-                                        <div class="text-black">
+                                        <video id="current-video-element" src="" class="bg-primary p-1 rounded d-none" controls></video>
+                                        <div id="render-info-div" class="text-black">
                                             <div class="spinner-border icon-1"></div>
-                                            <span class="" role="status">Rendering Video - 10%</span>
+                                            <span class="" role="status">Rendering Video - <span id="render-percentage">0</span>%</span>
                                         </div>
-                                        <div class="d-flex align-items-center mt-2 d-none">
-                                            <a href="" class="text-none d-flex align-items-center" download>
+                                        <div id="download-video-div" class="d-flex align-items-center mt-2 d-none">
+                                            <a id="download-current-video-link" href="" class="text-none d-flex align-items-center" download>
                                                 <i class="icon-2 unicon-download"></i>
                                                 <span class="fs-6 text-dark dark:text-white text-opacity-70 ms-1">{{ __('Download Video') }}</span>
                                             </a>
@@ -128,13 +128,65 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#set-destination-select').change(function() {
-                    $('#set-content-div').removeClass('d-none');
-                });
+                const BASE_URL = window.location.origin;
+                const API_BASE_URL = BASE_URL + '/api';
 
-                $('#set-content-select').change(function() {
-                    $('#create-video-div').removeClass('d-none');
-                });
+                const currentVideoElem = $('#current-video-element');
+                const currentVideoSrc = currentVideoElem.attr('src');
+
+                // Check if the 'src' attribute is set and not empty
+                if (!currentVideoSrc) {
+                    console.log('Video source is not set.');
+
+                    const vidGenInfoUrl = API_BASE_URL + '/vid-gen-info';
+
+                    // Variable to hold the interval ID
+                    let intervalId;
+
+                    // Function to be called repeatedly
+                    function fetchAndUpdate() {
+                        $.ajax({
+                            url: vidGenInfoUrl,
+                            type: 'GET',
+                            data: {
+                                'vid_gen_id': '{{ $currentVideo->vid_gen_id }}',
+                            },
+                            success: function(response) {
+                                console.log('Response:', response);
+
+                                const renderPercentage = response.render_percentage;
+                                const videoUrl = response.video_url;
+
+                                // Show the updated render percentage to the user
+                                const renderPercentageSpan = $('#render-percentage');
+                                renderPercentageSpan.text(renderPercentage);
+
+                                if (renderPercentage == 100) {
+                                    const fullVideoUrl = BASE_URL + '/' + videoUrl;
+                                    currentVideoElem.attr('src', fullVideoUrl);
+                                    $('#download-current-video-link').attr('href', fullVideoUrl);
+                                    currentVideoElem.removeClass('d-none');
+                                    $('#render-info-div').addClass('d-none');
+                                    $('#download-video-div').removeClass('d-none');
+
+                                    // Stop the interval once rendering is complete
+                                    clearInterval(intervalId);
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.log('Error occurred:', error);
+                            },
+                        });
+                    }
+
+                    // Fetch and update immediately
+                    fetchAndUpdate();
+
+                    // Set interval to call the fetchAndUpdate function every 10 seconds (10000 milliseconds)
+                    intervalId = setInterval(fetchAndUpdate, 10000);
+                } else {
+                    console.log('Video source is set:', currentVideoElem.attr('src'));
+                }
             });
         </script>
     </x-slot>
