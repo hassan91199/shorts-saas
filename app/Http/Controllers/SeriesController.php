@@ -80,7 +80,7 @@ class SeriesController extends Controller
         // Create new video and associate it with series
         $series->videos()->create($videoData);
 
-        return redirect()->route('series.index');
+        return redirect()->route('series.show', ['series' => $series->id]);
     }
 
     /**
