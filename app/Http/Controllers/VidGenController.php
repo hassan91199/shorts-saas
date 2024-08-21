@@ -7,6 +7,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use InvalidArgumentException;
+use RuntimeException;
 
 class VidGenController extends Controller
 {
@@ -85,6 +87,61 @@ class VidGenController extends Controller
                     'video_url' => $video->video_url,
                 ]);
             }
+        }
+    }
+
+    public static function getVideoInfo($vidGenId)
+    {
+        $videoInfoApiUrl = config('vidgen.api_base_url') . '/video-info';
+        $videoInfoResponse = Http::post($videoInfoApiUrl, [
+            'video_id' => $vidGenId
+        ]);
+
+        $videoInfoResponseData = $videoInfoResponse->json();
+
+        if (isset($videoInfoResponseData['video'])) {
+            return $videoInfoResponseData['video'];
+        } else {
+            return null;
+        }
+    }
+
+    public static function getVideoFile($vidGenId)
+    {
+        // Getting the file of the video
+        $getVideoApiUrl = config('vidgen.api_base_url') . '/get-video';
+        $getVideoResponse = Http::post($getVideoApiUrl, [
+            'video_id' => $vidGenId
+        ]);
+
+        if ($getVideoResponse->successful()) {
+            return $getVideoResponse->body();
+        } else {
+            return null;
+        }
+    }
+
+    public static function storeFile($folderName, $extension, $file, $disk = 'public')
+    {
+        // Validate extension
+        $validExtensions = ['jpg', 'jpeg', 'png', 'pdf', 'docx', 'mp4'];
+        if (!in_array($extension, $validExtensions)) {
+            throw new InvalidArgumentException("Invalid file extension.");
+        }
+
+        // Generate a unique file name
+        $fileName = time() . '.' . $extension; // TODO: Change it from timestamp to uuid
+
+        // Construct the file path
+        $filePath = $folderName . '/' . $fileName;
+
+        // Store the file and handle potential exceptions
+        $stored = Storage::disk($disk)->put($filePath, $file);
+
+        if ($stored) {
+            return 'storage/' . $filePath;
+        } else {
+            return null;
         }
     }
 }
