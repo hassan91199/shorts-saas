@@ -106,7 +106,7 @@
                                 <p class="fs-5 fw-ultra-light text-opacity-70">{{ __('Created on') }} {{ $pastVideo->created_at->format('n/j/Y') }}</p>
                             </div>
                             <div class="col-1 d-flex justify-content-center align-items-center">
-                                <a href="{{ asset('$pastVideo->video_url') }}" download>
+                                <a href="{{ asset($pastVideo->video_url) }}" class="text-none" download>
                                     <i class="icon-2 unicon-download"></i>
                                 </a>
                             </div>
