@@ -20,6 +20,10 @@ class Series extends Model
         'destination',
     ];
 
+    public const CATEGORY_PROMPTS = [
+        'interesting_history' => 'Please share a concise and captivating account of a highly interesting, yet lesser-known historical event. The event MUST be real, factual, and found on Wikipedia. Begin with a captivating introduction or question to hook the audience. Your goal is to fascinate and inform the audience on interesting history.',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
