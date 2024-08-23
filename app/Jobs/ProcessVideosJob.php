@@ -31,11 +31,11 @@ class ProcessVideosJob implements ShouldQueue
 
         Log::info("Creating video for all users");
 
-        foreach ($users as $user) {
-            foreach ($user->series as $series) {
-                // Dispatch a job for each series
-                CreateVideoJob::dispatch($user, $series)->onQueue('create_video_queue');
-            }
-        }
+        // foreach ($users as $user) {
+        //     foreach ($user->series as $series) {
+        //         // Dispatch a job for each series
+        //         CreateVideoJob::dispatch($user, $series)->onQueue('create_video_queue');
+        //     }
+        // }
     }
 }
