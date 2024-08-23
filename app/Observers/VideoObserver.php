@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Events\VideoRendered;
 use App\Models\Video;
 
 class VideoObserver
@@ -34,7 +35,11 @@ class VideoObserver
      */
     public function updated(Video $video): void
     {
-        //
+        // The video_url is changed only when 
+        // video is rendered successfully
+        if ($video->wasChanged('video_url')) {
+            event(new VideoRendered($video));
+        }
     }
 
     /**
