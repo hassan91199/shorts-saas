@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             ProcessVideosJob::dispatch();
-        })->everyMinute();
+        })->twiceDaily(0, 12);
     }
 
     /**
