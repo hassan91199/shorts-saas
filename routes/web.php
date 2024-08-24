@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\YouTubeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/series', [SeriesController::class, 'store'])->name('series.store');
     Route::get('/series', [SeriesController::class, 'index'])->name('series.index');
     Route::get('/series/{series}', [SeriesController::class, 'show'])->name('series.show');
+
+    Route::get('/auth/youtube', [YouTubeController::class, 'redirectToYoutube'])->name('youtube.auth');
+    Route::get('/auth/youtube/callback', [YouTubeController::class, 'handleYoutubeCallback'])->name('youtube.callback');
 });
 
 require __DIR__ . '/auth.php';
