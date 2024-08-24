@@ -20,6 +20,7 @@ class Video extends Model
         'caption',
         'script',
         'video_url',
+        'youtube_video_id',
         'render_percentage',
         'is_current',
     ];
