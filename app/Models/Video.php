@@ -29,4 +29,9 @@ class Video extends Model
     {
         return $this->belongsTo(Series::class);
     }
+
+    public function user()
+    {
+        return $this->hasOneThrough(User::class, Series::class, 'id', 'id', 'series_id', 'user_id');
+    }
 }
