@@ -109,8 +109,18 @@ class YouTubeController extends Controller
 
             $client->setDefer(false);
 
-            // Returning the uploaded video id
-            return $status['id'];
+            $statusId = $status['id'] ?? null;
+
+            if (isset($statusId)) {
+                // Save the youtube video id for 
+                // future requirements
+                $video->youtube_video_id = $statusId;
+                $video->save();
+
+                return $statusId;
+            } else {
+                return null;
+            }
         } catch (Google_Service_Exception $e) {
             return 'Caught google service exception: ' . htmlspecialchars($e->getMessage());
         } catch (Google_Exception $e) {
