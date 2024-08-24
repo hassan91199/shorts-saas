@@ -28,8 +28,8 @@
                                         <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-destination-select" name="destination" aria-label="set-destination-select" required>
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
                                             <option value="email">{{__('Email Me Instead')}}</option>
-                                            <!-- <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
-                                            <option value="youtube">{{__('Link a Youtube Account +')}}</option> -->
+                                            <option value="youtube" data-is-youtube-linked="{{ auth()->user() && auth()->user()->youtube_token ? 'true' : 'false' }}">{{__('Link a Youtube Account +')}}</option>
+                                            <!-- <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option> -->
                                         </select>
                                     </div>
 
@@ -72,7 +72,15 @@
         <script>
             $(document).ready(function() {
                 $('#set-destination-select').change(function() {
-                    $('#set-content-div').removeClass('d-none');
+
+                    var selectedOption = $(this).find('option:selected');
+                    var isYoutubeLinked = selectedOption.data('is-youtube-linked');
+
+                    if (selectedOption.val() === 'youtube' && !isYoutubeLinked) {
+                        window.location.href = "{{ route('youtube.auth') }}";
+                    } else {
+                        $('#set-content-div').removeClass('d-none');
+                    }
                 });
 
                 $('#set-content-select').change(function() {

@@ -12,6 +12,7 @@ use Google_Exception;
 use Google_Http_MediaFileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class YouTubeController extends Controller
 {
@@ -41,14 +42,16 @@ class YouTubeController extends Controller
 
     public function uploadVideoToYouTube($video)
     {
+        Log::info('Inside uplaodVideoToYouTube() function');
         $client = $this->getGoogleClient();
 
-        $user = Auth::user();
+        $user = $video->user;
         $accessToken = json_decode($user->youtube_token, true);
         $client->setAccessToken($accessToken);
 
         // Refresh the token if it has expired
         if ($client->isAccessTokenExpired()) {
+            Log::info('Access token is expired');
             $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
             $user->youtube_token = json_encode($client->getAccessToken());
             $user->save();
