@@ -26,9 +26,9 @@ class TikTokController extends Controller
         $url = 'https://www.tiktok.com/v2/auth/authorize/';
         $params = [
             'client_key' => config('tiktok.client_key'),
-            'scope' => 'user.info.basic',
+            'scope' => implode(',', config('tiktok.scopes')),
             'response_type' => 'code',
-            'redirect_uri' => 'https://6vgfj1l.localto.net/auth/tiktok/callback/',
+            'redirect_uri' => config('tiktok.redirect_uri'),
             'state' => $csrfState,
             'code_challenge' => $codeChallenge,
             'code_challenge_method' => 'S256'
