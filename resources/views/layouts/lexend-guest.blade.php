@@ -101,7 +101,7 @@
                     <li class="hr opacity-10 my-1"></li>
                     @if (Route::has('login'))
                     @auth
-                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ route('series.index') }}">Dashboard</a></li>
                     @else
                     <li><a href="{{ route('login') }}">Sign In</a></li>
 
@@ -180,7 +180,7 @@
                         <div class="uc-navbar-right">
                             @if (Route::has('login'))
                             @auth
-                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex"><span>Dashboard</span></a>
+                            <a href="{{ route('series.index') }}" class="btn btn-sm btn-primary px-3 d-none lg:d-inline-flex"><span>Dashboard</span></a>
                             @else
                             <a href="{{ route('login') }}" class="fs-5 fw-medium text-none d-none lg:d-inline-flex"><span>Sign In</span></a>
                             @if (Route::has('register'))
