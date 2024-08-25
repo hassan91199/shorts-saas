@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\TikTokController;
 use App\Http\Controllers\YouTubeController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/auth/youtube', [YouTubeController::class, 'redirectToYoutube'])->name('youtube.auth');
     Route::get('/auth/youtube/callback', [YouTubeController::class, 'handleYoutubeCallback'])->name('youtube.callback');
+
+    Route::get('/auth/tiktok', [TikTokController::class, 'redirectToTikTok'])->name('tiktok.auth');
+    Route::get('/auth/tiktok/callback', [TikTokController::class, 'handleTikTokCallback'])->name('tiktok.callback');
 });
 
 require __DIR__ . '/auth.php';
