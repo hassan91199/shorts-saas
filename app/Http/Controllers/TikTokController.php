@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TikTokController extends Controller
 {
@@ -42,6 +45,52 @@ class TikTokController extends Controller
 
     public function handleTikTokCallback(Request $request)
     {
-        //
+        // Retrieve the authorization code from the query parameters
+        $authorizationCode = $request->query('code');
+        if (!$authorizationCode) {
+            return redirect()->route('home')->with('error', 'Authorization code is missing');
+        }
+
+        $csrfState = $request->query('state');
+        // Validate the state parameter to prevent CSRF attacks
+        $savedCsrf = Cookie::get('csrfState');
+        if ($csrfState != $savedCsrf) {
+            return response('Invalid state parameter', 400);
+        }
+
+        // Prepare the parameters for the token request
+        $params = [
+            'client_key' => config('tiktok.client_key'),
+            'client_secret' => config('tiktok.client_secret'),
+            'code' => $authorizationCode,
+            'grant_type' => 'authorization_code',
+            'redirect_uri' => config('tiktok.redirect_uri')
+        ];
+
+        try {
+            // Exchange authorization code for access token
+            $response = Http::asForm()->post('https://open.tiktokapis.com/v2/oauth/token/', $params);
+
+            if ($response->successful()) {
+                $data = $response->json();
+
+                $user = Auth::user();
+                $user->tiktok_creds = json_encode($data);
+                $user->save();
+
+                return redirect()->route('series.index')->with('success', 'Tiktok account linked successfully.');
+            } else {
+                $error = $response->json('error', 'Failed to retrieve access token.');
+                // Log the error response
+                Log::error('TikTok token exchange failed', ['response' => $response->body(), 'error' => $error]);
+
+                return redirect()->route('series.index')->with('error', $error);
+            }
+        } catch (\Exception $e) {
+            // Log any exceptions
+            Log::error('Exception during TikTok token exchange', ['exception' => $e->getMessage()]);
+
+            return redirect()->route('series.index')->with('error', 'An error occurred while linking your TikTok account.');
+        }
     }
 }
