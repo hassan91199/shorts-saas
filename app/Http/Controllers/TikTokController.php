@@ -93,4 +93,44 @@ class TikTokController extends Controller
             return redirect()->route('series.index')->with('error', 'An error occurred while linking your TikTok account.');
         }
     }
+
+    public function uploadVideoToTikTok($video)
+    {
+        // Help me upload the publish the video using file upload
+        // getting error "The total chunk count is invalid"
+
+        $user = $video->user;
+        $accessToken = $user->getTikTokAccessToken();
+
+        $videoFilePath = public_path($video->video_url);
+        $videoFileSize = filesize($videoFilePath);
+
+        $maxChunkSize = 64000000;
+        $minChunkSize = 5000000;
+
+        $chunkSize = 10000000;
+        $totalChunkCount = (int) floor($videoFileSize / $chunkSize);
+
+        $initializeVideoPublishResponse = Http::withHeaders([
+            'Authorization' => "Bearer $accessToken",
+            'Content-Type' => 'application/json; charset=UTF-8'
+        ])->post('https://open.tiktokapis.com/v2/post/publish/video/init/', [
+            'post_info' => [
+                'title' => $video->title,
+                'privacy_level' => 'MUTUAL_FOLLOW_FRIENDS',
+                'disable_duet' => false,
+                'disable_comment' => true,
+                'disable_stitch' => false,
+                'video_cover_timestamp_ms' => 1000
+            ],
+            'source_info' => [
+                'source' => 'FILE_UPLOAD',
+                'video_size' => $videoFileSize,
+                'chunk_size' => $chunkSize,
+                'total_chunk_count' => $totalChunkCount,
+            ]
+        ]);
+
+        return $initializeVideoPublishResponse->json();
+    }
 }
