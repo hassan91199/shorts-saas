@@ -105,11 +105,21 @@ class TikTokController extends Controller
         $videoFilePath = public_path($video->video_url);
         $videoFileSize = filesize($videoFilePath);
 
-        $maxChunkSize = 64000000;
-        $minChunkSize = 5000000;
-
         $chunkSize = 10000000;
         $totalChunkCount = (int) floor($videoFileSize / $chunkSize);
+
+        if ($videoFileSize < 20000000) {
+            // Video file size is less than 20MB so 
+            // upload it as one chunk
+            $chunkSize = $videoFileSize;
+            $totalChunkCount = (int) floor($videoFileSize / $chunkSize);
+        }
+
+        // return [
+        //     'video_size' => $videoFileSize,
+        //     'chunk_size' => $chunkSize,
+        //     'total_chunk_count' => $totalChunkCount,
+        // ];
 
         $initializeVideoPublishResponse = Http::withHeaders([
             'Authorization' => "Bearer $accessToken",
@@ -117,7 +127,7 @@ class TikTokController extends Controller
         ])->post('https://open.tiktokapis.com/v2/post/publish/video/init/', [
             'post_info' => [
                 'title' => $video->title,
-                'privacy_level' => 'MUTUAL_FOLLOW_FRIENDS',
+                'privacy_level' => 'SELF_ONLY',
                 'disable_duet' => false,
                 'disable_comment' => true,
                 'disable_stitch' => false,
