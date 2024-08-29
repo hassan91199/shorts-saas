@@ -141,6 +141,35 @@ class TikTokController extends Controller
             ]
         ]);
 
-        return $initializeVideoPublishResponse->json();
+        $initializeVideoPublishResponseData = $initializeVideoPublishResponse->json();
+
+        if ($initializeVideoPublishResponse->successful()) {
+            $publishId = $initializeVideoPublishResponseData['data']['publish_id'];
+            $uploadUrl = $initializeVideoPublishResponseData['data']['upload_url'];
+
+            $startByte = 0;
+            $currentChunk = 1; // Initialize it to first chunk
+            $trailingBytes = $videoFileSize % $chunkSize;
+            while (true) {
+                $endByte = $startByte + $chunkSize;
+
+                if ($currentChunk === $totalChunkCount) {
+                    // This is the last chunk so download all the trailing bytes
+                    $endByte += $trailingBytes;
+                }
+
+                $uploadVideoChunkResponse = Http::withHeaders([
+                    'Content-Range' => "bytes $startByte-$endByte/$videoFileSize",
+                    'Content-Type' => 'video/mp4'
+                ])->put($uploadUrl, $videoFilePath);
+                $uploadVideoChunkResponseData = $uploadVideoChunkResponse->json();
+
+                Log::info("$uploadVideoChunkResponseData");
+
+                $startByte = $endByte + 1;
+                if ($currentChunk === $totalChunkCount) break;
+                $currentChunk++;
+            }
+        }
     }
 }
