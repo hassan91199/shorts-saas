@@ -29,7 +29,7 @@
                                             <option value="" disabled selected>{{__('Select an option')}}</option>
                                             <option value="email">{{__('Email Me Instead')}}</option>
                                             <option value="youtube" data-is-youtube-linked="{{ auth()->user() && auth()->user()->youtube_token ? 'true' : 'false' }}">{{__('Link a Youtube Account +')}}</option>
-                                            <!-- <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option> -->
+                                            <option value="tiktok" data-is-tiktok-linked="{{ auth()->user() && auth()->user()->tiktok_creds ? 'true' : 'false' }}">{{__('Link a Tik Tok Account +')}}</option>
                                         </select>
                                     </div>
 
@@ -75,9 +75,12 @@
 
                     var selectedOption = $(this).find('option:selected');
                     var isYoutubeLinked = selectedOption.data('is-youtube-linked');
+                    var isTikTokLinked = selectedOption.data('is-tiktok-linked');
 
                     if (selectedOption.val() === 'youtube' && !isYoutubeLinked) {
                         window.location.href = "{{ route('youtube.auth') }}";
+                    } else if (selectedOption.val() === 'tiktok' && !isTikTokLinked) {
+                        window.location.href = "{{ route('tiktok.auth') }}";
                     } else {
                         $('#set-content-div').removeClass('d-none');
                     }
