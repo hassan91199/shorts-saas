@@ -96,9 +96,6 @@ class TikTokController extends Controller
 
     public function uploadVideoToTikTok($video)
     {
-        // Help me upload the publish the video using file upload
-        // getting error "The total chunk count is invalid"
-
         $user = $video->user;
         $accessToken = $user->getTikTokAccessToken();
 
@@ -114,12 +111,6 @@ class TikTokController extends Controller
             $chunkSize = $videoFileSize;
             $totalChunkCount = (int) floor($videoFileSize / $chunkSize);
         }
-
-        // return [
-        //     'video_size' => $videoFileSize,
-        //     'chunk_size' => $chunkSize,
-        //     'total_chunk_count' => $totalChunkCount,
-        // ];
 
         $initializeVideoPublishResponse = Http::withHeaders([
             'Authorization' => "Bearer $accessToken",
@@ -142,9 +133,6 @@ class TikTokController extends Controller
         ]);
 
         $initializeVideoPublishResponseData = $initializeVideoPublishResponse->json();
-
-        for ($i = 1; $i <= $totalChunkCount; $i++) {
-        }
 
         if ($initializeVideoPublishResponse->successful()) {
             $publishId = $initializeVideoPublishResponseData['data']['publish_id'];
