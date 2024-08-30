@@ -138,6 +138,11 @@ class TikTokController extends Controller
             $publishId = $initializeVideoPublishResponseData['data']['publish_id'];
             $uploadUrl = $initializeVideoPublishResponseData['data']['upload_url'];
 
+            // Save the tiktok publish id to the videos table
+            $video->tiktok_publish_id = $publishId;
+            $video->save();
+
+            // Start the upload of the video to tiktok server
             $startByte = 0;
             $trailingBytes = $videoFileSize % $chunkSize;
 
