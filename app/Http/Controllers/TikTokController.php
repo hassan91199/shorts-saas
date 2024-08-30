@@ -143,33 +143,52 @@ class TikTokController extends Controller
 
         $initializeVideoPublishResponseData = $initializeVideoPublishResponse->json();
 
+        for ($i = 1; $i <= $totalChunkCount; $i++) {
+        }
+
         if ($initializeVideoPublishResponse->successful()) {
             $publishId = $initializeVideoPublishResponseData['data']['publish_id'];
             $uploadUrl = $initializeVideoPublishResponseData['data']['upload_url'];
 
             $startByte = 0;
-            $currentChunk = 1; // Initialize it to first chunk
             $trailingBytes = $videoFileSize % $chunkSize;
-            while (true) {
-                $endByte = $startByte + $chunkSize;
 
+            $fileHandle = fopen($videoFilePath, 'rb');
+
+            for ($currentChunk = 1; $currentChunk <= $totalChunkCount; $currentChunk++) {
+                // Determine the number of bytes to read for the current chunk
+                $bytesToUpload = $chunkSize;
                 if ($currentChunk === $totalChunkCount) {
-                    // This is the last chunk so download all the trailing bytes
-                    $endByte += $trailingBytes;
+                    // Adjust the size of the last chunk to include trailing bytes
+                    $bytesToUpload += $trailingBytes;
                 }
+
+                // Read the specific chunk from the file
+                fseek($fileHandle, $startByte);
+                $fileContent = fread($fileHandle, $bytesToUpload);
+
+                $endByte = $startByte + $bytesToUpload - 1;
 
                 $uploadVideoChunkResponse = Http::withHeaders([
                     'Content-Range' => "bytes $startByte-$endByte/$videoFileSize",
+                    'Content-Length' => $bytesToUpload,
                     'Content-Type' => 'video/mp4'
-                ])->put($uploadUrl, $videoFilePath);
-                $uploadVideoChunkResponseData = $uploadVideoChunkResponse->json();
+                ])->timeout(0)
+                    ->withBody($fileContent, 'video/mp4')
+                    ->put($uploadUrl);
 
-                Log::info("$uploadVideoChunkResponseData");
+                if (!$uploadVideoChunkResponse->successful()) {
+                    fclose($fileHandle);
+                    // Handle error if the upload fails
+                    return 'Upload failed at chunk ' . $currentChunk;
+                }
 
+                // Update the start byte for the next chunk
                 $startByte = $endByte + 1;
-                if ($currentChunk === $totalChunkCount) break;
-                $currentChunk++;
             }
+
+            fclose($fileHandle);
         }
+        return $publishId;
     }
 }
