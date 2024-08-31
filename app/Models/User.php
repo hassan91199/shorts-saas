@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -62,29 +63,38 @@ class User extends Authenticatable
         );
     }
 
-    public function getTikTokAccessToken(): String|null
+    public function getTikTokAccessToken(): ?string
     {
-        $tiktokCreds = json_decode($this->tiktok_creds) ?? null;
-        $accessToken = $tiktokCreds->access_token ?? null;
+        $tiktokCreds = json_decode($this->tiktok_creds);
 
-        // Getting info of the user to check whether the access token is valid.
+        if (is_null($tiktokCreds) || empty($tiktokCreds->access_token)) {
+            return null;
+        }
+
+        $accessToken = $tiktokCreds->access_token;
+
+        // Getting info of the user to check whether the access token is valid
         $creatorInfoResponse = Http::asForm()->withHeaders([
             'Authorization' => "Bearer $accessToken",
-            'Content-Type' => 'application/json; charset=UTF-8'
+            'Content-Type' => 'application/json; charset=UTF-8',
         ])->post('https://open.tiktokapis.com/v2/post/publish/creator_info/query/');
 
         if ($creatorInfoResponse->successful()) {
             return $accessToken;
         } else {
-            // There was some problem getting the user info.
-            // Getting the error code
-            $creatorInfoResponseError = $creatorInfoResponse->json();
-            $errorCode = $creatorInfoResponseError['error']['code'];
+            // There was some problem getting the user info
+            $creatorInfoResponseData = $creatorInfoResponse->json();
 
-            // If error code is access_token_invalid it 
-            // means that access token is expired and 
-            // we need to refresh it.
+            // Check if the error data is correctly structured and get the error code
+            $errorCode = $creatorInfoResponseData['error']['code'] ?? null;
+
+            // If error code is access_token_invalid, refresh the token
             if ($errorCode === 'access_token_invalid') {
+                // Ensure refresh token exists before proceeding
+                if (empty($tiktokCreds->refresh_token)) {
+                    return null;
+                }
+
                 $refreshTokenResponse = Http::asForm()->post('https://open.tiktokapis.com/v2/oauth/token/', [
                     'client_key' => config('tiktok.client_key'),
                     'client_secret' => config('tiktok.client_secret'),
@@ -93,16 +103,16 @@ class User extends Authenticatable
                 ]);
 
                 if ($refreshTokenResponse->successful()) {
-                    // Save the refreshed token in the users 
-                    // table and return it.
+                    // Save the refreshed token in the users table and return it
                     $refreshTokenResponseData = $refreshTokenResponse->json();
                     $this->tiktok_creds = json_encode($refreshTokenResponseData);
                     $this->save();
 
-                    return $refreshTokenResponseData->access_token;
+                    return $refreshTokenResponseData['access_token'] ?? null;
                 }
             }
         }
+
         return null;
     }
 }
