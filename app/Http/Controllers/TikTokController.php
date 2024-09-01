@@ -181,7 +181,8 @@ class TikTokController extends Controller
             }
 
             fclose($fileHandle);
+            return $publishId;
         }
-        return $publishId;
+        return null;
     }
 }
