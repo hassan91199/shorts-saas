@@ -105,6 +105,7 @@ class User extends Authenticatable
                 if ($refreshTokenResponse->successful()) {
                     // Save the refreshed token in the users table and return it
                     $refreshTokenResponseData = $refreshTokenResponse->json();
+                    $refreshTokenResponseData['created'] = time();
                     $this->tiktok_creds = json_encode($refreshTokenResponseData);
                     $this->save();
 

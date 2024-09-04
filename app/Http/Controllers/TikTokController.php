@@ -73,6 +73,7 @@ class TikTokController extends Controller
 
             if ($response->successful()) {
                 $data = $response->json();
+                $data['created'] = time();
 
                 $user = Auth::user();
                 $user->tiktok_creds = json_encode($data);
