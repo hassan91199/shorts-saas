@@ -65,55 +65,47 @@ class User extends Authenticatable
 
     public function getTikTokAccessToken(): ?string
     {
-        $tiktokCreds = json_decode($this->tiktok_creds);
+        $tiktokCreds = json_decode($this->tiktok_creds, true);
 
-        if (is_null($tiktokCreds) || empty($tiktokCreds->access_token)) {
-            return null;
-        }
+        if (
+            empty($tiktokCreds) ||
+            !array_key_exists('access_token', $tiktokCreds) ||
+            empty($tiktokCreds['access_token'])
+        ) return null;
 
-        $accessToken = $tiktokCreds->access_token;
+        $accessToken = $tiktokCreds['access_token'];
 
-        // Getting info of the user to check whether the access token is valid
-        $creatorInfoResponse = Http::asForm()->withHeaders([
-            'Authorization' => "Bearer $accessToken",
-            'Content-Type' => 'application/json; charset=UTF-8',
-        ])->post('https://open.tiktokapis.com/v2/post/publish/creator_info/query/');
+        $accessTokenExpiryTime = $tiktokCreds['created'] + $tiktokCreds['expires_in'];
+        $isAccessTokenExpired = time() > $accessTokenExpiryTime;
 
-        if ($creatorInfoResponse->successful()) {
-            return $accessToken;
-        } else {
-            // There was some problem getting the user info
-            $creatorInfoResponseData = $creatorInfoResponse->json();
+        if ($isAccessTokenExpired) {
+            // Ensure refresh token exists before proceeding
+            if (empty($tiktokCreds['refresh_token'])) return null;
 
-            // Check if the error data is correctly structured and get the error code
-            $errorCode = $creatorInfoResponseData['error']['code'] ?? null;
+            $refreshTokenExpiryTime = $tiktokCreds['created'] + $tiktokCreds['refresh_expires_in'];
+            $isRefreshTokenExpired = time() > $refreshTokenExpiryTime;
 
-            // If error code is access_token_invalid, refresh the token
-            if ($errorCode === 'access_token_invalid') {
-                // Ensure refresh token exists before proceeding
-                if (empty($tiktokCreds->refresh_token)) {
-                    return null;
-                }
+            if ($isRefreshTokenExpired) return null;
 
-                $refreshTokenResponse = Http::asForm()->post('https://open.tiktokapis.com/v2/oauth/token/', [
-                    'client_key' => config('tiktok.client_key'),
-                    'client_secret' => config('tiktok.client_secret'),
-                    'grant_type' => 'refresh_token',
-                    'refresh_token' => $tiktokCreds->refresh_token,
-                ]);
+            $refreshTokenResponse = Http::asForm()->post('https://open.tiktokapis.com/v2/oauth/token/', [
+                'client_key' => config('tiktok.client_key'),
+                'client_secret' => config('tiktok.client_secret'),
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $tiktokCreds['refresh_token'],
+            ]);
 
-                if ($refreshTokenResponse->successful()) {
-                    // Save the refreshed token in the users table and return it
-                    $refreshTokenResponseData = $refreshTokenResponse->json();
-                    $refreshTokenResponseData['created'] = time();
-                    $this->tiktok_creds = json_encode($refreshTokenResponseData);
-                    $this->save();
+            if ($refreshTokenResponse->successful()) {
+                // Save the refreshed token in the users table and return it
+                $refreshTokenResponseData = $refreshTokenResponse->json();
+                $refreshTokenResponseData['created'] = time();
+                $this->tiktok_creds = json_encode($refreshTokenResponseData);
+                $this->save();
 
-                    return $refreshTokenResponseData['access_token'] ?? null;
-                }
+                return $refreshTokenResponseData['access_token'] ?? null;
             }
+        } else {
+            return $accessToken;
         }
-
         return null;
     }
 }
