@@ -35,9 +35,17 @@ class VideoObserver
      */
     public function updated(Video $video): void
     {
+        //
+    }
+
+    /**
+     * Handle the Video "updating" event.
+     */
+    public function updating(Video $video): void
+    {
         // The video_url is changed only when 
         // video is rendered successfully
-        if ($video->getOriginal('video_url') !== $video->video_url) {
+        if ($video->isDirty('video_url')) {
             event(new VideoRendered($video));
         }
     }
