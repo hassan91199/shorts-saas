@@ -37,7 +37,7 @@ class VideoObserver
     {
         // The video_url is changed only when 
         // video is rendered successfully
-        if ($video->wasChanged('video_url')) {
+        if ($video->getOriginal('video_url') !== $video->video_url) {
             event(new VideoRendered($video));
         }
     }
