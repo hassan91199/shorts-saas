@@ -141,7 +141,7 @@ class TikTokController extends Controller
 
             // Save the tiktok publish id to the videos table
             $video->tiktok_publish_id = $publishId;
-            $video->save();
+            $video->saveQuietly(); // Avoiding the VideoRender event to dispatch again
 
             // Start the upload of the video to tiktok server
             $startByte = 0;

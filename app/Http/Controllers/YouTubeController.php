@@ -118,7 +118,7 @@ class YouTubeController extends Controller
                 // Save the youtube video id for 
                 // future requirements
                 $video->youtube_video_id = $statusId;
-                $video->save();
+                $video->saveQuietly(); // Avoiding dispatching the VideoRender event again
 
                 return $statusId;
             } else {
