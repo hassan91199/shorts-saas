@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Events\VideoRendered;
 use App\Models\Video;
+use Illuminate\Support\Facades\Log;
 
 class VideoObserver
 {
@@ -35,17 +36,9 @@ class VideoObserver
      */
     public function updated(Video $video): void
     {
-        //
-    }
-
-    /**
-     * Handle the Video "updating" event.
-     */
-    public function updating(Video $video): void
-    {
         // The video_url is changed only when 
         // video is rendered successfully
-        if ($video->isDirty('video_url')) {
+        if ($video->wasChanged('video_url')) {
             event(new VideoRendered($video));
         }
     }
