@@ -103,4 +103,21 @@ class SeriesController extends Controller
             'series' => $series,
         ]);
     }
+
+    /**
+     * Soft delete the series and its related videos
+     * 
+     * @param Series $series The series to delete
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Series $series): RedirectResponse
+    {
+        // Soft delete all the related videos in the series
+        $series->videos()->delete();
+
+        // Soft delete the series
+        $series->delete();
+
+        return redirect()->route('series.index')->with('success', 'Series deleted successfully');
+    }
 }

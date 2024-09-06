@@ -23,7 +23,14 @@
                             @endforeach
                         </div>
                         <div class="col-12 col-md-2">
-                            <button class="btn btn-danger text-white">{{ __('Delete') }}</button>
+                            <form
+                                action="{{ route('series.destroy', ['series' => $series->id]) }}"
+                                method="POST"
+                                onsubmit="return confirmDelete()">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger text-white">{{ __('Delete') }}</button>
+                            </form>
                         </div>
                     </div>
                     <div>
@@ -127,6 +134,10 @@
 
     <x-slot name="script">
         <script>
+            function confirmDelete() {
+                return confirm("Are you sure you want to delete this series and all related videos?");
+            }
+
             $(document).ready(function() {
                 const BASE_URL = window.location.origin;
                 const API_BASE_URL = BASE_URL + '/api';

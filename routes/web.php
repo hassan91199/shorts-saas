@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/series', [SeriesController::class, 'store'])->name('series.store');
     Route::get('/series', [SeriesController::class, 'index'])->name('series.index');
     Route::get('/series/{series}', [SeriesController::class, 'show'])->name('series.show');
+    Route::delete('/series/{series}', [SeriesController::class, 'destroy'])->name('series.destroy');
 
     Route::get('/auth/youtube', [YouTubeController::class, 'redirectToYoutube'])->name('youtube.auth');
     Route::get('/auth/youtube/callback', [YouTubeController::class, 'handleYoutubeCallback'])->name('youtube.callback');
