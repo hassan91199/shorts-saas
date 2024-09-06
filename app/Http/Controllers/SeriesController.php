@@ -51,9 +51,7 @@ class SeriesController extends Controller
         $category = $request->get('category');
         $title = ucwords(str_replace('_', ' ', $category));
 
-        $descriptions = [
-            'interesting_history' => 'Please share a concise and captivating account of a highly interesting, yet lesser-known historical event. The event MUST be real, factual, and found on Wikipedia. Begin with a captivating introduction or question to hook the audience. Your goal is to fascinate and inform the audience on interesting history.'
-        ];
+        $descriptions = Series::CATEGORY_PROMPTS;
 
         // Send the video generation request to VidGen Module
         $url = config('vidgen.api_base_url') . '/vid-gen';
