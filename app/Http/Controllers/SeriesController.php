@@ -35,7 +35,8 @@ class SeriesController extends Controller
      */
     public function create(Request $request): View
     {
-        return view('series.create');
+        $seriesCategories = Series::CATEGORY_PROMPTS;
+        return view('series.create', ['seriesCategories' => $seriesCategories]);
     }
 
     /**
