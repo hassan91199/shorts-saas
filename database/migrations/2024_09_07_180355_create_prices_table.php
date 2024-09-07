@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('plan_id')->constrained()->onDelete('cascade');
             $table->string('stripe_price_id')->unique();
-            $table->enum('billing_cycle', ['monthly', 'annual']);
+            $table->enum('billing_cycle', ['month', 'year']);
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });
