@@ -86,6 +86,22 @@ class SubscriptionController extends Controller
             ]);
     }
 
+    public function unsubscribe()
+    {
+        $user = auth()->user();
+
+        $subscriptions = $user->subscriptions()->active()->get();
+
+        if ($subscriptions->count() > 0) {
+            // Cancel all subscriptions of the logged-in user
+            foreach ($subscriptions as $subscription) {
+                $subscription->cancelNow();
+            }
+        }
+
+        return redirect()->back()->with('success', 'You have successfully selected the free plan.');
+    }
+
     private function getStripeProductByName($productName)
     {
         $products = Product::all(['limit' => 100]);

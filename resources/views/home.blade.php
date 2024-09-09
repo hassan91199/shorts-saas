@@ -265,11 +265,13 @@
                                                 <h3 class="h1 lg:display-6 price m-0 text-dark">$0</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
-                                                <span>Try Now!</span>
-                                            </a>
-                                            <!-- <p class="details">Free Forever!</p> -->
+                                            <form action="{{ route('unsubscribe') }}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                    @if(auth()->check() && auth()->user()->subscriptions()->active()->count() == 0) disabled @endif>
+                                                    <span>Try Now!</span>
+                                                </button>
+                                            </form>
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
