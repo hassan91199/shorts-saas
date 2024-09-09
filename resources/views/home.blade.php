@@ -313,11 +313,16 @@
                                                 <h3 class="h1 lg:display-6 price m-0 text-dark">$19</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
-                                                <span>Try Now!</span>
-                                            </a>
-                                            <!-- <p class="details">Free Forever!</p> -->
+                                            <form action="{{ route('subscribe') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="plan_name" value="starter">
+                                                <input type="hidden" name="billing_cycle" value="month">
+                                                <input type="hidden" name="num_series" value="1">
+
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                    <span>Try Now!</span>
+                                                </button>
+                                            </form>
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
@@ -361,11 +366,16 @@
                                                 <h3 class="h1 lg:display-6 price m-0 text-dark">$39</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
-                                                <span>Try Now!</span>
-                                            </a>
-                                            <!-- <p class="details">Free Forever!</p> -->
+                                            <form action="{{ route('subscribe') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="plan_name" value="daily">
+                                                <input type="hidden" name="billing_cycle" value="month">
+                                                <input type="hidden" name="num_series" value="1">
+
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                    <span>Try Now!</span>
+                                                </button>
+                                            </form>
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
@@ -409,11 +419,16 @@
                                                 <h3 class="h1 lg:display-6 price m-0 text-dark">$69</h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
-                                            <!-- <p class="desc lg:fs-5">Build a <b>hobby site</b> with every basic features.</p> -->
-                                            <a class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" href="#">
-                                                <span>Try Now!</span>
-                                            </a>
-                                            <!-- <p class="details">Free Forever!</p> -->
+                                            <form action="{{ route('subscribe') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="plan_name" value="hardcore">
+                                                <input type="hidden" name="billing_cycle" value="month">
+                                                <input type="hidden" name="num_series" value="1">
+
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                    <span>Try Now!</span>
+                                                </button>
+                                            </form>
                                         </header>
                                         <div class="tier-body border rounded-1-5 p-2 md:p-4">
                                             <ul class="nav-y gap-2 text-start">
