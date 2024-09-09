@@ -321,7 +321,8 @@
                                                 <input type="hidden" name="billing_cycle" value="month">
                                                 <input type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                    @if(auth()->check() && auth()->user()->subscribed('starter')) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
@@ -374,7 +375,8 @@
                                                 <input type="hidden" name="billing_cycle" value="month">
                                                 <input type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                    @if(auth()->check() && auth()->user()->subscribed('daily')) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
@@ -427,7 +429,8 @@
                                                 <input type="hidden" name="billing_cycle" value="month">
                                                 <input type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
+                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                    @if(auth()->check() && auth()->user()->subscribed('hardcore')) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
