@@ -41,7 +41,7 @@ class SubscriptionController extends Controller
         }
 
         // Check or create the price
-        $priceAmount = $this->calculatePrice($planName, $numSeries, $billingCycle);
+        $priceAmount = $this->calculatePrice($planName, $billingCycle);
         $price = PriceModel::where('plan_id', $plan->id)
             ->where('billing_cycle', $billingCycle)
             ->where('price', $priceAmount)
