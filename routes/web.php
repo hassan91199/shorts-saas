@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TikTokController;
 use App\Http\Controllers\YouTubeController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Cashier\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/auth/tiktok', [TikTokController::class, 'redirectToTikTok'])->name('tiktok.auth');
     Route::get('/auth/tiktok/callback', [TikTokController::class, 'handleTikTokCallback'])->name('tiktok.callback');
+    
+    Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
 });
+
+
+Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook'])->name('cashier.webhookapp/Http/Controllers/SubscriptionController.php');
 
 require __DIR__ . '/auth.php';

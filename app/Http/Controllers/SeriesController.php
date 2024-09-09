@@ -17,9 +17,25 @@ class SeriesController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function index(): RedirectResponse|View
+    public function index(Request $request): RedirectResponse|View
     {
         $user = auth()->user();
+
+        if ($request->has('checkout') && $request->input('checkout') === 'success') {
+            $subscriptions = $user->subscriptions;
+
+            if ($subscriptions->count() > 1) {
+                // Get the latest subscription
+                $latestSubscription = $subscriptions->sortByDesc('created_at')->first();
+
+                // Cancel all subscriptions except the latest one
+                foreach ($subscriptions as $subscription) {
+                    if ($subscription->id !== $latestSubscription->id) {
+                        $subscription->cancelNow();
+                    }
+                }
+            }
+        }
 
         $userSeries = $user->series->first();
 
