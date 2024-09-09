@@ -22,7 +22,7 @@ class SeriesController extends Controller
         $user = auth()->user();
 
         if ($request->has('checkout') && $request->input('checkout') === 'success') {
-            $subscriptions = $user->subscriptions;
+            $subscriptions = $user->subscriptions()->active()->get();
 
             if ($subscriptions->count() > 1) {
                 // Get the latest subscription
