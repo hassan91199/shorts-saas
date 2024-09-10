@@ -333,9 +333,17 @@
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">Posts 3 times a week</span>
                                                 </li>
-                                                <li class="hstack items-start gap-2">
+                                                <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">1 Series</span>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-add fs-5'></i>
+                                                    </button>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-subtract fs-5'></i>
+                                                    </button>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
@@ -387,9 +395,17 @@
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">Posts once a day</span>
                                                 </li>
-                                                <li class="hstack items-start gap-2">
+                                                <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">1 Series</span>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-add fs-5'></i>
+                                                    </button>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-subtract fs-5'></i>
+                                                    </button>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
@@ -441,9 +457,17 @@
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">Posts twice a day</span>
                                                 </li>
-                                                <li class="hstack items-start gap-2">
+                                                <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
                                                     <span class="d-inline">1 Series</span>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-add fs-5'></i>
+                                                    </button>
+
+                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                        <i class='unicon-subtract fs-5'></i>
+                                                    </button>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
