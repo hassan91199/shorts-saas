@@ -312,17 +312,16 @@
                                         <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
                                             <h5 class="h5 lg:h4 m-0 text-primary">Starter</h5>
                                             <div class="d-flex gap-narrow items-end mt-1">
-                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$19</h3>
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$<span id="starter-price">19</span></h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <form action="{{ route('subscribe') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="plan_name" value="starter">
                                                 <input type="hidden" name="billing_cycle" value="month">
-                                                <input type="hidden" name="num_series" value="1">
+                                                <input id="starter-series-input" type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
-                                                    @if(auth()->check() && auth()->user()->subscribed('starter')) disabled @endif>
+                                                <button id="starter-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
@@ -335,13 +334,13 @@
                                                 </li>
                                                 <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">1 Series</span>
+                                                    <span class="d-inline"><span id="starter-series-count">1</span> Series</span>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="starter-series-increment-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('starter', 'increment')">
                                                         <i class='unicon-add fs-5'></i>
                                                     </button>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="starter-series-decrement-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('starter', 'decrement')">
                                                         <i class='unicon-subtract fs-5'></i>
                                                     </button>
                                                 </li>
@@ -374,16 +373,16 @@
                                         <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
                                             <h5 class="h5 lg:h4 m-0 text-primary">Daily</h5>
                                             <div class="d-flex gap-narrow items-end mt-1">
-                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$39</h3>
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$<span id="daily-price">39</span></h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <form action="{{ route('subscribe') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="plan_name" value="daily">
                                                 <input type="hidden" name="billing_cycle" value="month">
-                                                <input type="hidden" name="num_series" value="1">
+                                                <input id="daily-series-input" type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                <button id="daily-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
                                                     @if(auth()->check() && auth()->user()->subscribed('daily')) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
@@ -397,13 +396,13 @@
                                                 </li>
                                                 <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">1 Series</span>
+                                                    <span class="d-inline"><span id="daily-series-count">1</span> Series</span>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="daily-series-increment-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('daily', 'increment')">
                                                         <i class='unicon-add fs-5'></i>
                                                     </button>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="daily-series-decrement-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('daily', 'decrement')">
                                                         <i class='unicon-subtract fs-5'></i>
                                                     </button>
                                                 </li>
@@ -436,16 +435,16 @@
                                         <header class="tier-header vstack gap-2 items-center p-2 md:p-4">
                                             <h5 class="h5 lg:h4 m-0 text-primary">Hardcore</h5>
                                             <div class="d-flex gap-narrow items-end mt-1">
-                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$69</h3>
+                                                <h3 class="h1 lg:display-6 price m-0 text-dark">$<span id="hardcore-price">69</span></h3>
                                                 <span class="h6 lg:h3 m-0 pb-narrow text-dark">/ mo</span>
                                             </div>
                                             <form action="{{ route('subscribe') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="plan_name" value="hardcore">
                                                 <input type="hidden" name="billing_cycle" value="month">
-                                                <input type="hidden" name="num_series" value="1">
+                                                <input id="hardcore-series-input" type="hidden" name="num_series" value="1">
 
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                <button id="hardcore-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
                                                     @if(auth()->check() && auth()->user()->subscribed('hardcore')) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
@@ -459,13 +458,13 @@
                                                 </li>
                                                 <li class="hstack items-start gap-1">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">1 Series</span>
+                                                    <span class="d-inline"><span id="hardcore-series-count">1</span> Series</span>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="hardcore-series-increment-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('hardcore', 'increment')">
                                                         <i class='unicon-add fs-5'></i>
                                                     </button>
 
-                                                    <button class="btn btn-outline-primary rounded-circle h-1 w-1 p-0">
+                                                    <button id="hardcore-series-decrement-button" class="btn btn-outline-primary rounded-circle h-1 w-1 p-0" onclick="updateSeriesCount('hardcore', 'decrement')">
                                                         <i class='unicon-subtract fs-5'></i>
                                                     </button>
                                                 </li>
@@ -675,6 +674,52 @@
             </div>
         </div>
     </div>
+
+
+    <x-slot name="script">
+        <script>
+            function updateSeriesCount(planName, operation) {
+                const seriesCountElement = document.getElementById(`${planName}-series-count`);
+                let seriesCount = Number(seriesCountElement.innerText);
+
+                if (operation === 'increment' && seriesCount < 10) {
+                    seriesCount++;
+                } else if (operation === 'decrement' && seriesCount > 1) {
+                    seriesCount--;
+                }
+
+                // Updating the series count on the user interface
+                seriesCountElement.innerText = seriesCount;
+
+                // Updaing the series count in the subcription form
+                const seriesInputElement = document.getElementById(`${planName}-series-input`);
+                seriesInputElement.value = seriesCount;
+
+                const basePrices = {
+                    'starter': 19,
+                    'daily': 39,
+                    'hardcore': 69,
+                };
+
+                // Updating the plan price according to the selected number of series
+                const planPriceElement = document.getElementById(`${planName}-price`);
+                planPriceElement.innerText = basePrices[planName] * seriesCount;
+
+                const userSubscribedPlan = 'daily';
+                const userSubecribeQuantity = 3;
+                const planButtonElement = document.getElementById(`${planName}-subscribe-button`);
+
+                if (userSubcribeQuantity == seriesCount) {
+                    const dailySubscribeButton = document.getElementById(`daily-subscribe-button`);
+                    dailySubscribeButton.disabled = true;
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+            });
+        </script>
+    </x-slot>
 
     <!-- Section end -->
 </x-lexend-guest-layout>
