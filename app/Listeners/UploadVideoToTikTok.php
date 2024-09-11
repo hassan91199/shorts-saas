@@ -24,8 +24,10 @@ class UploadVideoToTikTok
     public function handle(VideoRendered $event): void
     {
         $videoSeries = $event->video->series;
+        $user = $event->video->user;
+        $isUserSubscribed = $user->subscribed('starter') || $user->subscribed('daily') || $user->subscribed('hardcore');
 
-        if ($videoSeries->destination === 'tiktok') {
+        if ($videoSeries->destination === 'tiktok' && $isUserSubscribed) {
             Log::info('Catched video rendered event, uploading video to tiktok.');
 
             $tiktokController = new TikTokController();
