@@ -3,12 +3,12 @@
 namespace App\Jobs;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
 class ProcessVideosJob implements ShouldQueue
 {
@@ -28,13 +28,33 @@ class ProcessVideosJob implements ShouldQueue
     public function handle(): void
     {
         $users = User::all();
-
-        Log::info("Creating video for all users");
+        $currentTime = time();
 
         foreach ($users as $user) {
-            foreach ($user->series as $series) {
-                // Dispatch a job for each series
-                CreateVideoJob::dispatch($user, $series)->onQueue('create_video_queue');
+            $isUserSubscribed = $user->subscribed('starter') || $user->subscribed('daily') || $user->subscribed('hardcore');
+
+            if ($isUserSubscribed) {
+                foreach ($user->series as $series) {
+                    $currentVideo = $series->currentVideo();
+                    $currentVideoCreationTimestamp = Carbon::parse($currentVideo->created_at)->timestamp;
+
+                    $currentVideoTimeSpent = $currentTime - $currentVideoCreationTimestamp;
+                    $currentVideoTimeSpentInHours = floor($currentVideoTimeSpent / 3600);
+
+                    $videoCreationTimeGapByPlan = [
+                        'starter' => 56,
+                        'daily' => 24,
+                        'hardcore' => 12,
+                    ];
+
+                    $userSubscribedPlan = $user->subscriptions()?->active()?->first()->type;
+                    $timeGapForSubscribedPlan = $videoCreationTimeGapByPlan[$userSubscribedPlan];
+
+                    if ($currentVideoTimeSpentInHours >= $timeGapForSubscribedPlan) {
+                        // Dispatch a job to create video for that series
+                        CreateVideoJob::dispatch($user, $series)->onQueue('create_video_queue');
+                    }
+                }
             }
         }
     }
