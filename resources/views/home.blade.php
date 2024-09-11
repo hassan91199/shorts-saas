@@ -267,8 +267,7 @@
                                             </div>
                                             <form action="{{ route('unsubscribe') }}" method="POST">
                                                 @csrf
-                                                <button id="free-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
-                                                    @if(auth()->check() && auth()->user()->subscriptions()->active()->count() == 0) disabled @endif>
+                                                <button id="free-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
@@ -382,8 +381,7 @@
                                                 <input type="hidden" name="billing_cycle" value="month">
                                                 <input id="daily-series-input" type="hidden" name="num_series" value="1">
 
-                                                <button id="daily-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
-                                                    @if(auth()->check() && auth()->user()->subscribed('daily')) disabled @endif>
+                                                <button id="daily-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
@@ -444,8 +442,7 @@
                                                 <input type="hidden" name="billing_cycle" value="month">
                                                 <input id="hardcore-series-input" type="hidden" name="num_series" value="1">
 
-                                                <button id="hardcore-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
-                                                    @if(auth()->check() && auth()->user()->subscribed('hardcore')) disabled @endif>
+                                                <button id="hardcore-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit">
                                                     <span>Try Now!</span>
                                                 </button>
                                             </form>
