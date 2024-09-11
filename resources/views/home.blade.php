@@ -267,7 +267,7 @@
                                             </div>
                                             <form action="{{ route('unsubscribe') }}" method="POST">
                                                 @csrf
-                                                <button class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
+                                                <button id="free-subscribe-button" class="btn btn-md lg:btn-lg btn-secondary w-100 mt-2" type="submit"
                                                     @if(auth()->check() && auth()->user()->subscriptions()->active()->count() == 0) disabled @endif>
                                                     <span>Try Now!</span>
                                                 </button>
@@ -281,7 +281,7 @@
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
-                                                    <span class="d-inline">1 Series</span>
+                                                    <span class="d-inline"><span id="free-series-count">1</span> Series</span>
                                                 </li>
                                                 <li class="hstack items-start gap-2">
                                                     <i class="cstack w-24px h-24px bg-secondary text-primary rounded-circle unicon-checkmark fw-bold"></i>
@@ -675,9 +675,36 @@
         </div>
     </div>
 
+    @php
+    $userSubscribedPlan = auth()->user()?->subscriptions()?->active()?->first()->type ?? 'free';
+    $userSubscribedPlanQuantity = auth()->user()?->subscriptions()?->active()?->first()->quantity ?? 1;
+    $isUserLoggedIn = auth()->user() ? 'true' : 'false';
+    @endphp
 
     <x-slot name="script">
         <script>
+            function handleSubscribeButtonDisable(){
+                const isLoggedIn = {{ $isUserLoggedIn }};
+
+                if(!isLoggedIn) return;
+                
+                const userSubscribedPlan = '{{ $userSubscribedPlan ?? '' }}';
+                const userSubscribedQuantity = {{ $userSubscribedPlanQuantity ?? '' }};
+                
+                const seriesCountElement = document.getElementById(`${userSubscribedPlan}-series-count`);
+                let seriesCount = Number(seriesCountElement.innerText);
+
+                if (userSubscribedPlan != '' && userSubscribedQuantity != '') {
+                    const planButtonElement = document.getElementById(`${userSubscribedPlan}-subscribe-button`);
+
+                    if (userSubscribedQuantity == seriesCount) {
+                        planButtonElement.disabled = true;
+                    } else {
+                        planButtonElement.disabled = false;
+                    }
+                }
+            }
+            
             function updateSeriesCount(planName, operation) {
                 const seriesCountElement = document.getElementById(`${planName}-series-count`);
                 let seriesCount = Number(seriesCountElement.innerText);
@@ -705,18 +732,11 @@
                 const planPriceElement = document.getElementById(`${planName}-price`);
                 planPriceElement.innerText = basePrices[planName] * seriesCount;
 
-                const userSubscribedPlan = 'daily';
-                const userSubecribeQuantity = 3;
-                const planButtonElement = document.getElementById(`${planName}-subscribe-button`);
-
-                if (userSubcribeQuantity == seriesCount) {
-                    const dailySubscribeButton = document.getElementById(`daily-subscribe-button`);
-                    dailySubscribeButton.disabled = true;
-                }
+                handleSubscribeButtonDisable();
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-
+                handleSubscribeButtonDisable();
             });
         </script>
     </x-slot>
