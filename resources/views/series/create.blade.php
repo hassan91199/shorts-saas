@@ -1,4 +1,22 @@
 <x-app-layout>
+    @if($seriesLimitReached)
+    <!-- Section start -->
+    <div id="hero_header" class="hero-header section panel overflow-hidden">
+        <div class="section-outer panel pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9">
+            <div class="container max-w-xl">
+                <div class="section-inner panel mt-2 sm:mt-4 lg:mt-0" data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
+                    <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-5 vstack gap-3">
+                        <h3 class="h4 m-0">{{ __("You've reached the maximum series limit for your current plan!") }}</h3>
+                        <p class="fs-4 fw-medium text-opacity-70">{{ __("To create more series, please upgrade your plan. Unlock more features and continue adding amazing content.") }}</p>
+                        <a href="{{ route('home') . '/#pricing' }}" class="btn btn-primary">{{ __('Upgrade Your Plan') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section end -->
+    @else
     <!-- Section start -->
     <div id="hero_header" class="hero-header section panel overflow-hidden">
         <div class="position-absolute top-0 start-0 end-0 min-h-screen overflow-hidden d-none lg:d-block" data-anime="targets: >*; scale: [0, 1]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 750});">
@@ -60,6 +78,7 @@
     </div>
 
     <!-- Section end -->
+    @endif
 
     <x-slot name="script">
         <script>

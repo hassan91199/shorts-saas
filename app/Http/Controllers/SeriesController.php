@@ -51,8 +51,19 @@ class SeriesController extends Controller
      */
     public function create(Request $request): View
     {
+        $user = auth()->user();
+
         $seriesCategories = Series::CATEGORY_PROMPTS;
-        return view('series.create', ['seriesCategories' => $seriesCategories]);
+
+        $maxSeries = $user->subscriptions()?->active()?->first()->quantity ?? 1;
+        $userSeries = $user->series()->withTrashed()->count();
+
+        $seriesLimitReached = $userSeries >= $maxSeries;
+
+        return view('series.create', [
+            'seriesCategories' => $seriesCategories,
+            'seriesLimitReached' => $seriesLimitReached
+        ]);
     }
 
     /**
