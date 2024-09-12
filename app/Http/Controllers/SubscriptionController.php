@@ -14,6 +14,35 @@ use Illuminate\Support\Facades\Log;
 
 class SubscriptionController extends Controller
 {
+    /**
+     * Display the page to show details 
+     * of current plan and billing.
+     */
+    public function billing()
+    {
+        $user = auth()->user();
+        $isUserLoggedIn = isset($user) ? 'true' : 'false';
+
+        $subscription = $user?->subscriptions()?->active()?->first() ?? null;
+
+        if (isset($subscription)) {
+            $userSubscribedPlan = $subscription->type;
+            $userSubscribedPlanBillingCycle = PriceModel::where('stripe_price_id', $subscription->stripe_price)->first()->billing_cycle;
+            $userSubscribedPlanQuantity = $subscription->quantity;
+        } else {
+            $userSubscribedPlan = '';
+            $userSubscribedPlanBillingCycle = '';
+            $userSubscribedPlanQuantity = '';
+        }
+
+        return view('subscription.billing', [
+            'userSubscribedPlan' => $userSubscribedPlan,
+            'userSubscribedPlanBillingCycle' => $userSubscribedPlanBillingCycle,
+            'userSubscribedPlanQuantity' => $userSubscribedPlanQuantity,
+            'isUserLoggedIn' => $isUserLoggedIn,
+        ]);
+    }
+
     public function subscribe(Request $request)
     {
         $user = $request->user();

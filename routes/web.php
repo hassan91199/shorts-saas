@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
     Route::post('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+    Route::get('/billing', [SubscriptionController::class, 'billing'])->name('billing');
 });
 
 
