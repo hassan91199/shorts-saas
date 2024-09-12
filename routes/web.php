@@ -5,6 +5,7 @@ use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TikTokController;
 use App\Http\Controllers\YouTubeController;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Controllers\WebhookController;
 
@@ -43,10 +44,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/auth/tiktok', [TikTokController::class, 'redirectToTikTok'])->name('tiktok.auth');
     Route::get('/auth/tiktok/callback', [TikTokController::class, 'handleTikTokCallback'])->name('tiktok.callback');
-    
+
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
     Route::post('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
     Route::get('/billing', [SubscriptionController::class, 'billing'])->name('billing');
+
+    Route::get('/billing-portal', function (Request $request) {
+        return auth()->user()->redirectToBillingPortal(route('billing'));
+    })->name('billing.portal');
 });
 
 

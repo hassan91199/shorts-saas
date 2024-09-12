@@ -23,15 +23,17 @@
             <div class="panel rounded-3 overflow-hidden bg-secondary p-3 h-100">
                 <p class="fs-5 fw-medium">{{ __('Manage Billing') }}</p>
                 <div class="mt-1">
-                    <a href="" class="text-primary text-none">
+                    <!-- <a href="" class="text-primary text-none">
                         <i class="unicon-document"></i>
                         <span class="fs-5 fw-normal">{{ __('View Invoices') }}</span>
-                    </a>
-                    <br>
-                    <a href="" class="text-primary text-none">
+                    </a> -->
+                    <!-- <br> -->
+                    @if($isStripeCustomer)
+                    <a href="{{ route('billing.portal') }}" class="text-primary text-none">
                         <i class="unicon-wallet"></i>
-                        <span class="fs-5 fw-normal">{{ __('Update Card') }}</span>
+                        <span class="fs-5 fw-normal">{{ __('Billing Portal') }}</span>
                     </a>
+                    @endif
                 </div>
             </div>
         </div>

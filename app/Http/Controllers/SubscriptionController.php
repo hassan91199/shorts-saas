@@ -28,6 +28,7 @@ class SubscriptionController extends Controller
         ];
 
         $user = auth()->user();
+        $isStripeCustomer = $user->hasStripeId();
         $isUserLoggedIn = isset($user) ? 'true' : 'false';
         $isUserSubscribed = $user->subscribed('starter') || $user->subscribed('daily') || $user->subscribed('hardcore');
 
@@ -67,6 +68,8 @@ class SubscriptionController extends Controller
         }
 
         return view('subscription.billing', [
+            'isStripeCustomer' => $isStripeCustomer,
+
             'isUserLoggedIn' => $isUserLoggedIn,
             'isUserSubscribed' => $isUserSubscribed,
 
