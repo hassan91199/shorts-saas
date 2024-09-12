@@ -6,14 +6,17 @@
     <div class="row g-1">
         <div class="col-md-12 col-lg-9">
             <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
-                <p class="fs-5 fw-medium">{{ __('Current Plan: ') }}<span class="fs-5 fw-normal">{{ __('Hardcore (monthly)') }}</span></p>
-                <p class="fs-5 fw-medium">{{ __('Max Series: ') }}<span class="fs-5 fw-normal">{{ __('1') }}</span></p>
-                <p class="fs-5 fw-medium">{{ __('Frequency: ') }}<span class="fs-5 fw-normal">{{ __('Twice a day') }}</span></p>
-                <p class="fs-5 fw-medium">{{ __('Subscription Status: ') }}<span class="fs-5 fw-normal">{{ __('Active') }}</span></p>
-                <p class="fs-5 fw-medium">{{ __('Next Billing Date: ') }}<span class="fs-5 fw-normal">{{ __('Oct 8, 2024') }}</span></p>
-                <p class="fs-5 fw-medium">{{ __('Price: ') }}<span class="fs-5 fw-normal">{{ __('$69') }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Current Plan: ') }}<span class="fs-5 fw-normal">{{ __($currentPlan) }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Max Series: ') }}<span class="fs-5 fw-normal">{{ __($maxSeries) }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Frequency: ') }}<span class="fs-5 fw-normal">{{ __($frequency) }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Subscription Status: ') }}<span class="fs-5 fw-normal">{{ __($subscriptionStatus) }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Next Billing Date: ') }}<span class="fs-5 fw-normal">{{ __($nextBillingDate) }}</span></p>
+                <p class="fs-5 fw-medium">{{ __('Price: ') }}<span class="fs-5 fw-normal">{{ __('$' . $price) }}</span></p>
 
-                <button type="submit" class="btn btn-primary text-white mt-3">{{ __('Cancel Plan') }}</button>
+                <form action="{{ route('unsubscribe') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary text-white mt-3" {{ !$isUserSubscribed ? 'disabled' : '' }}>{{ __('Cancel Plan') }}</button>
+                </form>
             </div>
         </div>
         <div class="col-md-12 col-lg-3">

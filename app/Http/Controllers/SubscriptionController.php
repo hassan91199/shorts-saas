@@ -9,6 +9,7 @@ use Stripe\Price as StripePrice;
 use Stripe\Stripe;
 use App\Models\Plan;
 use App\Models\Price as PriceModel;
+use Carbon\Carbon;
 use Stripe\Customer;
 use Illuminate\Support\Facades\Log;
 
@@ -20,26 +21,65 @@ class SubscriptionController extends Controller
      */
     public function billing()
     {
+        $frequencyByPlan = [
+            'starter' => 'Three times a week',
+            'daily' => 'Once a day',
+            'hardcore' => 'Twice a day',
+        ];
+
         $user = auth()->user();
         $isUserLoggedIn = isset($user) ? 'true' : 'false';
+        $isUserSubscribed = $user->subscribed('starter') || $user->subscribed('daily') || $user->subscribed('hardcore');
 
         $subscription = $user?->subscriptions()?->active()?->first() ?? null;
 
         if (isset($subscription)) {
             $userSubscribedPlan = $subscription->type;
-            $userSubscribedPlanBillingCycle = PriceModel::where('stripe_price_id', $subscription->stripe_price)->first()->billing_cycle;
+            $planPrice = PriceModel::where('stripe_price_id', $subscription->stripe_price)->first();
+            $userSubscribedPlanBillingCycle = $planPrice->billing_cycle;
             $userSubscribedPlanQuantity = $subscription->quantity;
+
+            $currentPlan = ucwords($userSubscribedPlan) . ' (' . ($userSubscribedPlanBillingCycle == 'month' ? 'Monthly' : 'Yearly') . ')';
+            $maxSeries = $userSubscribedPlanQuantity;
+            $frequency = $frequencyByPlan[$userSubscribedPlan];
+            $subscriptionStatus = 'Active';
+
+            $nextBillingDate = Carbon::parse($subscription->created_at);
+            if ($userSubscribedPlanBillingCycle == 'year') {
+                $nextBillingDate->addYear();
+            } else {
+                $nextBillingDate->addMonth();
+            }
+            $nextBillingDate = $nextBillingDate->format('M j, Y');
+
+            $price = (int) $planPrice->price * $maxSeries;
         } else {
             $userSubscribedPlan = '';
             $userSubscribedPlanBillingCycle = '';
             $userSubscribedPlanQuantity = '';
+
+            $currentPlan = 'Free';
+            $maxSeries = 1;
+            $frequency = 'Never';
+            $subscriptionStatus = 'Inactive';
+            $nextBillingDate = 'N/A';
+            $price = 0;
         }
 
         return view('subscription.billing', [
+            'isUserLoggedIn' => $isUserLoggedIn,
+            'isUserSubscribed' => $isUserSubscribed,
+
             'userSubscribedPlan' => $userSubscribedPlan,
             'userSubscribedPlanBillingCycle' => $userSubscribedPlanBillingCycle,
             'userSubscribedPlanQuantity' => $userSubscribedPlanQuantity,
-            'isUserLoggedIn' => $isUserLoggedIn,
+
+            'currentPlan' => $currentPlan,
+            'maxSeries' => $maxSeries,
+            'frequency' => $frequency,
+            'subscriptionStatus' => $subscriptionStatus,
+            'nextBillingDate' => $nextBillingDate,
+            'price' => $price,
         ]);
     }
 
