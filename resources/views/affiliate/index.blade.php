@@ -49,7 +49,7 @@
         <!-- Section start -->
         <h2 class="h3 mt-5">{{ __('Your Affiliate URL') }}</h2>
         <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
-            <input type="text" value="{{ config('app.url') }}/?ref=jjo"
+            <input type="text" value="{{ $affiliateUrl }}"
                 class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700" readonly>
         </div>
         <!-- Section end -->
@@ -57,7 +57,7 @@
         <!-- Section start -->
         <h2 class="h3 mt-5">{{ __('PayPal Email') }}</h2>
         <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
-            <form method="post" action="" class="vstack gap-1">
+            <form method="post" action="{{ route('affiliate.update') }}" class="vstack gap-1">
                 @csrf
                 @method('patch')
 
@@ -66,7 +66,7 @@
                         class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700"
                         placeholder="PayPal Email">
                     <div class="">
-                        @if (session('status') === 'paypal-email-updated')
+                        @if (session('status') === 'affiliate-info-updated')
                         <span id="saved-message" class="fs-6 text-primary">{{ __('Updated!') }}</span>
                         @endif
 
@@ -146,7 +146,14 @@
 
     <x-slot name="script">
         <script>
-            // 
+            document.addEventListener("DOMContentLoaded", function() {
+                const savedMessageElement = document.getElementById('saved-message');
+                setTimeout(function() {
+                    if (savedMessageElement) {
+                        savedMessageElement.style.display = 'none';
+                    }
+                }, 3000);
+            });
         </script>
     </x-slot>
 </x-app-layout>

@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     })->name('billing.portal');
 
     Route::get('/affiliate', [AffiliateController::class, 'index'])->name('affiliate');
+    Route::patch('/affiliate', [AffiliateController::class, 'update'])->name('affiliate.update');
 });
 
 
