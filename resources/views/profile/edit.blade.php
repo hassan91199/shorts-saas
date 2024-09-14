@@ -92,8 +92,11 @@ Example: &quot;Subscribe to our channel for more videos!&quot;"></textarea>
     <x-slot name="script">
         <script>
             document.addEventListener("DOMContentLoaded", function() {
+                const savedMessageElement = document.getElementById('saved-message');
                 setTimeout(function() {
-                    document.getElementById('saved-message').style.display = 'none';
+                    if (savedMessageElement) {
+                        savedMessageElement.style.display = 'none';
+                    }
                 }, 3000);
             });
         </script>
