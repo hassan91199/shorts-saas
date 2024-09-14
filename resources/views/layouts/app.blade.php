@@ -6,7 +6,7 @@
 
         <ul class="navbar-nav flex-row d-none d-md-flex">
             <li class="nav-item text-nowrap">
-                <a class="nav-link mx-2 fs-6 text-white" href="#">Affiliates</a>
+                <a class="nav-link mx-2 fs-6 text-white" href="{{ route('affiliate') }}">Affiliates</a>
             </li>
             <li class="nav-item text-nowrap">
                 <!-- <a class="" href="#">Logout</a> -->
@@ -81,7 +81,7 @@
 
                                 <!-- Affiliates -->
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('affiliate') }}">
                                         Affiliates
                                     </a>
                                 </li>

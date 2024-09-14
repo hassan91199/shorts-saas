@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SubscriptionController;
@@ -53,6 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/billing-portal', function (Request $request) {
         return auth()->user()->redirectToBillingPortal(route('billing'));
     })->name('billing.portal');
+
+    Route::get('/affiliate', [AffiliateController::class, 'index'])->name('affiliate');
 });
 
 
