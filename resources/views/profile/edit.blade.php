@@ -69,7 +69,8 @@
                 <label class="fs-5 fw-medium form-label" for="set-account-select">{{ __('Account') }} <i class="unicon-information" data-uc-tooltip="Select where you want the videos in your series to be uploaded or sent"></i></label>
                 <select id="set-account-select" class="form-select form-control-sm rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" name="" aria-label="" required>
                     <option value="" disabled selected>{{__('Select account')}}</option>
-                    <!-- <option value="email">{{__('Email Me Instead')}}</option> -->
+                    <option value="youtube">{{__('Link a Youtube Account +')}}</option>
+                    <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
                 </select>
             </div>
 
@@ -98,6 +99,18 @@ Example: &quot;Subscribe to our channel for more videos!&quot;"></textarea>
                         savedMessageElement.style.display = 'none';
                     }
                 }, 3000);
+
+                document.getElementById('set-account-select').addEventListener('change', function() {
+                    var selectedOption = this.options[this.selectedIndex];
+
+                    if (selectedOption.value === 'youtube') {
+                        window.location.href = "{{ route('youtube.auth') }}";
+                    }
+
+                    if (selectedOption.value === 'tiktok') {
+                        window.location.href = "{{ route('tiktok.auth') }}";
+                    }   
+                });
             });
         </script>
     </x-slot>
