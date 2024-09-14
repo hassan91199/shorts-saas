@@ -57,4 +57,17 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    /**
+     * Update the user's linked account.
+     */
+    public function updateAccount(Request $request): RedirectResponse
+    {
+        $user = $request->user();
+
+        $user->description_footer = $request->get('description_footer');
+        $user->save();
+
+        return Redirect::route('profile.edit')->with('status', 'account-updated');
+    }
 }

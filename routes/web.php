@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/update-account', [ProfileController::class, 'updateAccount'])->name('account.update');
 
     Route::get('/series/create', [SeriesController::class, 'create'])->name('series.create');
     Route::post('/series', [SeriesController::class, 'store'])->name('series.store');

@@ -64,10 +64,13 @@
     <!-- Section start -->
     <h2 class="h3 mt-5">{{ __('Linked Accounts') }}</h2>
     <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
-        <form class="vstack gap-1">
+        <form method="post" action="{{ route('account.update') }}" class="vstack gap-1">
+            @csrf
+            @method('patch')
+
             <div id="" class="form-group vstack gap-1">
                 <label class="fs-5 fw-medium form-label" for="set-account-select">{{ __('Account') }} <i class="unicon-information" data-uc-tooltip="Select where you want the videos in your series to be uploaded or sent"></i></label>
-                <select id="set-account-select" class="form-select form-control-sm rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" name="" aria-label="" required>
+                <select id="set-account-select" class="form-select form-control-sm rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" name="" aria-label="">
                     <option value="" disabled selected>{{__('Select account')}}</option>
                     <option value="youtube">{{__('Link a Youtube Account +')}}</option>
                     <option value="tiktok">{{__('Link a Tik Tok Account +')}}</option>
@@ -76,15 +79,15 @@
 
             <div id="" class="form-group vstack gap-1">
                 <label class="fs-5 fw-medium form-label" for="description-footer-textarea">{{ __('Description Footer') }} <i class="unicon-information" data-uc-tooltip="This text will be added to the end of the description of every video uploaded to this account."></i></label>
-                <textarea for="description-footer-textarea" class="form-control min-h-100px h-auto w-full bg-white dark:border-white dark:text-dark" placeholder="Appears at the end of every video description / caption. 
+                <textarea id="description-footer-textarea" class="form-control min-h-100px h-auto w-full bg-white dark:border-white dark:text-dark" name="description_footer" placeholder="Appears at the end of every video description / caption. 
                 
-Example: &quot;Subscribe to our channel for more videos!&quot;"></textarea>
+Example: &quot;Subscribe to our channel for more videos!&quot;">{{ old('description_footer', $user->description_footer) }}</textarea>
             </div>
 
 
             <div class="d-flex justify-between align-items-center mt-1">
                 <button type="submit" class="btn btn-sm btn-primary" disabled>Unlink Account</button>
-                <button type="submit" class="btn btn-sm btn-primary" disabled>Save</button>
+                <button id="update-account-save-button" type="submit" class="btn btn-sm btn-primary" disabled>Save</button>
             </div>
         </form>
     </div>
@@ -109,7 +112,11 @@ Example: &quot;Subscribe to our channel for more videos!&quot;"></textarea>
 
                     if (selectedOption.value === 'tiktok') {
                         window.location.href = "{{ route('tiktok.auth') }}";
-                    }   
+                    }
+                });
+
+                document.getElementById('description-footer-textarea').addEventListener('input', function() {
+                    document.getElementById('update-account-save-button').disabled = false;
                 });
             });
         </script>
