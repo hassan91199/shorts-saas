@@ -32,17 +32,30 @@
     <!-- Section start -->
     <h2 class="h3 mt-5">{{ __('Change Password') }}</h2>
     <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
-        <form class="vstack gap-1">
-            <input type="password"
-                class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700"
-                placeholder="New Password">
+        <form method="post" action="{{ route('password.update') }}" class="vstack gap-1">
+            @csrf
+            @method('put')
 
-            <input type="password"
+            <input type="password" name="current_password"
                 class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700"
-                placeholder="Confirm Password">
+                placeholder="{{ __('Current Password') }}">
+            <x-input-error :messages="$errors->updatePassword->get('current_password')" />
+
+            <input type="password" name="password"
+                class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700"
+                placeholder="{{ __('New Password') }}">
+            <x-input-error :messages="$errors->updatePassword->get('password')" />
+
+            <input type="password" name="password_confirmation"
+                class="form-control form-control-sm w-full fs-6 bg-white dark:border-white dark:border-gray-700"
+                placeholder="{{ __('Confirm Password') }}">
+            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" />
 
             <div class="text-end mt-1">
-                <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                @if (session('status') === 'password-updated')
+                <span id="saved-message" class="fs-6 text-primary">{{ __('Saved!') }}</span>
+                @endif
+                <button type="submit" class="btn btn-sm btn-primary">{{ __('Save') }}</button>
             </div>
         </form>
     </div>
