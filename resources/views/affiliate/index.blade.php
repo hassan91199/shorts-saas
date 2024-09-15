@@ -10,31 +10,31 @@
                             <div class="row child-cols col-match items-center justify-center text-center gy-4 lg:gy-8" data-anime="onview: -200; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 500});">
                                 <div>
                                     <div class="fact-item panel vstack gap-1">
-                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">1</h5>
+                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">{{ $user->referral_clicks }}</h5>
                                         <p class="fw-medium">{{ __('Clicks') }}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="fact-item panel vstack gap-1">
-                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">0</h5>
+                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">{{ $user->referral_signups }}</h5>
                                         <p class="fw-medium">{{ __('Sign Ups') }}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="fact-item panel vstack gap-1">
-                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">0</h5>
+                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">{{ $user->referral_conversions }}</h5>
                                         <p class="fw-medium">{{ __('Conversions') }}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="fact-item panel vstack gap-1">
-                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">$0</h5>
+                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">${{ floor($user->unpaid_commission) }}</h5>
                                         <p class="fw-medium">{{ __('Unpaid Commission') }}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="fact-item panel vstack gap-1">
-                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">$0</h5>
+                                        <h5 class="h3 md:h2 lg:h1 xl:display-5 m-0 text-primary dark:text-secondary">${{ floor($user->paid_commission) ?? 0 }}</h5>
                                         <p class="fw-medium">{{ __('Paid Commission') }}</p>
                                     </div>
                                 </div>
