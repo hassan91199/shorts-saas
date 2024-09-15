@@ -6,7 +6,9 @@ use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TikTokController;
 use App\Http\Controllers\YouTubeController;
-use Illuminate\Support\Facades\Request;
+use App\Models\User;
+use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\Http\Controllers\WebhookController;
 
@@ -21,7 +23,19 @@ use Laravel\Cashier\Http\Controllers\WebhookController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    $referralCode = $request->query('ref');
+
+    if (isset($referralCode)) {
+        session(['referral_code' => $referralCode]);
+
+        $referrer = User::where('referral_code', $referralCode)->first();
+
+        if ($referrer) {
+            $referrer->increment('referral_clicks');
+        }
+    }
+
     return view('home');
 })->name('home');
 

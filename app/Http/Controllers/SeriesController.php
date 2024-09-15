@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use App\Models\Series;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 
 class SeriesController extends Controller
@@ -32,6 +33,28 @@ class SeriesController extends Controller
                 foreach ($subscriptions as $subscription) {
                     if ($subscription->id !== $latestSubscription->id) {
                         $subscription->cancelNow();
+                    }
+                }
+            }
+
+            $allSubscriptions = $user->subscriptions()->get();
+
+            // Check if this is the user's first subscription
+            if ($allSubscriptions->count() === 1) {
+                // User has subscribed for the first time
+                $referrer = $user->referrer;
+
+                if ($referrer) {
+                    // Check if the user registered within the last 30 days
+                    $registeredWithin30Days = $user->created_at >= Carbon::now()->subDays(30);
+
+                    if ($registeredWithin30Days) {
+                        // Increment the conversions count of the referrer
+                        $referrer->increment('referral_conversions');
+
+                        // Mark this as the successful conversion for the referrer
+                        $user->referrer_successful_conversion = true;
+                        $user->save();
                     }
                 }
             }

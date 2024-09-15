@@ -42,6 +42,20 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $referralCode = session('referral_code');
+
+        if ($referralCode) {
+            $referrer = User::where('referral_code', $referralCode)->first();
+
+            if ($referrer) {
+                $user->referred_by = $referrer->id;
+
+                $referrer->increment('referral_signups');
+            }
+        }
+
+        $user->save();
+
         event(new Registered($user));
 
         Auth::login($user);
