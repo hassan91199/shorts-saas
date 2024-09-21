@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LinkedAccount;
 use Google_Client;
 use Google_Service_Youtube;
 use Google_Service_Youtube_Video;
@@ -28,16 +29,46 @@ class YouTubeController extends Controller
 
     public function handleYoutubeCallback(Request $request)
     {
-        $client = $this->getGoogleClient();
-        $authCode = $request->get('code');
-        $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+        try {
+            $client = $this->getGoogleClient();
+            $authCode = $request->get('code');
+            $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
 
-        // Save the access token to the user's account (e.g, in the database)
-        $user = Auth::user();
-        $user->youtube_token = json_encode($accessToken);
-        $user->save();
+            // Save the access token to the user's account
+            $user = Auth::user();
+            $user->youtube_token = json_encode($accessToken);
+            $user->save();
 
-        return redirect()->route('series.index');
+            $client->setAccessToken($accessToken);
+
+            // Get the user's channel info
+            $youtubeService = new \Google_Service_Youtube($client);
+            $channelsResponse = $youtubeService->channels->listChannels('id', ['mine' => true]);
+
+            if (count($channelsResponse['items']) > 0) {
+                $channelId = $channelsResponse['items'][0]['id'];
+
+                LinkedAccount::updateOrCreate(
+                    [
+                        'user_id' => $user->id,
+                        'provider_name' => 'youtube',
+                        'provider_account_id' => $channelId,
+                    ],
+                    [
+                        'access_token' => $accessToken['access_token'],
+                        'refresh_token' => $accessToken['refresh_token'] ?? null,
+                        'token_expires_at' => isset($accessToken['expires_in']) ? now()->addSeconds($accessToken['expires_in']) : null,
+                    ]
+                );
+            } else {
+                Log::error('No channels found for this user.');
+            }
+
+            return redirect()->route('series.index');
+        } catch (\Exception $e) {
+            Log::error('YouTube callback error: ' . $e->getMessage());
+            return redirect()->route('series.index')->with('error', 'Failed to link YouTube account.');
+        }
     }
 
     public function uploadVideoToYouTube($video)
