@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LinkedAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -58,6 +59,9 @@ class TikTokController extends Controller
             return response('Invalid state parameter', 400);
         }
 
+        // Clear the CSRF token from the cookie to prevent reuse
+        Cookie::queue(Cookie::forget('csrfState'));
+
         // Prepare the parameters for the token request
         $params = [
             'client_key' => config('tiktok.client_key'),
@@ -78,6 +82,20 @@ class TikTokController extends Controller
                 $user = Auth::user();
                 $user->tiktok_creds = json_encode($data);
                 $user->save();
+
+                LinkedAccount::updateOrCreate(
+                    [
+                        'user_id' => $user->id,
+                        'provider_name' => 'tiktok',
+                        'provider_account_id' => $data['open_id'] ?? null,
+                    ],
+                    [
+                        'access_token' => $data['access_token'],
+                        'refresh_token' => $data['refresh_token'] ?? null,
+                        'access_token_expires_at' => now()->addSeconds($data['expires_in']),
+                        'refresh_token_expires_at' => now()->addSeconds($data['refresh_expires_in']),
+                    ]
+                );
 
                 return redirect()->route('series.index')->with('success', 'Tiktok account linked successfully.');
             } else {
