@@ -120,4 +120,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(User::class, 'referred_by');
     }
+
+    public function linkedAccounts()
+    {
+        return $this->hasMany(LinkedAccount::class);
+    }
 }
