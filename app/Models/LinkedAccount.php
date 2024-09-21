@@ -15,7 +15,8 @@ class LinkedAccount extends Model
         'provider_account_id',
         'access_token',
         'refresh_token',
-        'token_expires_at'
+        'access_token_expires_at',
+        'refresh_token_expires_at'
     ];
 
     public function user()
@@ -25,6 +26,11 @@ class LinkedAccount extends Model
 
     public function isTokenExpired()
     {
-        return $this->token_expires_at && $this->token_expires_at <= now();
+        return $this->access_token_expires_at && $this->access_token_expires_at <= now();
+    }
+
+    public function isRefreshTokenExpired()
+    {
+        return $this->refresh_token_expires_at && $this->refresh_token_expires_at <= now();
     }
 }

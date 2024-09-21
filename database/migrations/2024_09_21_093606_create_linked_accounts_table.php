@@ -19,7 +19,8 @@ return new class extends Migration
             $table->text('description_footer')->nullable();
             $table->string('access_token');
             $table->string('refresh_token')->nullable();
-            $table->timestamp('token_expires_at')->nullable();
+            $table->timestamp('access_token_expires_at')->nullable();
+            $table->timestamp('refresh_token_expires_at')->nullable();
             $table->timestamps();
 
             // Foreign key constraint
