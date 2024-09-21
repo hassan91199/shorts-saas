@@ -57,7 +57,7 @@ class YouTubeController extends Controller
                     [
                         'access_token' => $accessToken['access_token'],
                         'refresh_token' => $accessToken['refresh_token'] ?? null,
-                        'token_expires_at' => isset($accessToken['expires_in']) ? now()->addSeconds($accessToken['expires_in']) : null,
+                        'access_token_expires_at' => isset($accessToken['expires_in']) ? now()->addSeconds($accessToken['expires_in']) : null,
                     ]
                 );
             } else {
