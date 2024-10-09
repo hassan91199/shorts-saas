@@ -63,8 +63,56 @@
                                         </select>
                                     </div>
 
+                                    <div id="series-settings-div" class="form-group vstack gap-1 mt-2">
+                                        <h2 class="h3 m-0">{{ __('Step 3 - Series Settings') }}</h2>
+                                        <p for="create-video-btn">{{ __('Preferences for every video in your series') }}</p>
+
+                                        <div class="d-flex bg-white w-100 p-1 rounded overflow-auto">
+                                            <!-- <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
+                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200"> -->
+
+                                            <!-- <div class="position-relative d-inline-block mx-1">
+                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
+                                                <div class="position-absolute p-1 text-center bottom-0 start-0 w-100 h-25 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.5);">
+                                                    <span class="text-white fs-8 fw-bold text-uppercase text-center">Overlay Text</span>
+                                                </div>
+                                            </div> -->
+
+                                            <!-- <div class="position-relative d-inline-block mx-1">
+                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-1" style="background-color: rgba(0, 0, 0, 0.5);">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <span class="text-white fs-8 fw-bold text-uppercase text-center">Overlay Text</span>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="position-relative d-inline-block mx-1">
+                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
+                                                <div class="position-absolute bottom-0 start-0 w-100 h-25" style="background-color: rgba(0, 0, 0, 0.5);">
+                                                    <div class="d-flex justify-content-center align-items-center h-100 text-center">
+                                                        <span class="text-white fs-8 fw-semibold text-uppercase">Overlay Text</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
                                     <div id="create-video-div" class="form-group vstack gap-1 mt-2 d-none">
-                                        <h2 class="h3 m-0">{{ __('Step 3 - Create') }}</h2>
+                                        <h2 class="h3 m-0">{{ __('Step 4 - Create') }}</h2>
                                         <label class="form-label ft-tertiary" for="create-video-btn">{{ __('You will be able to preview your upcoming videos before posting') }}</label>
                                         <button id="create-video-btn" class="btn btn-primary text-white w-100" type="submit">{{ __('Create Series +') }}</button>
                                     </div>
