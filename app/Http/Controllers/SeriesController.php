@@ -83,9 +83,25 @@ class SeriesController extends Controller
 
         $seriesLimitReached = $userSeries >= $maxSeries;
 
+        $artStyles = [
+            'normal',
+            'comic_book',
+            'disney_toon',
+            'studio_ghibli',
+            'childrens_book',
+            'photo_realism',
+            'minecraft',
+            'watercolor',
+            'expressionism',
+            'charcoal',
+            'anime',
+            'normal_v2',
+        ];
+
         return view('series.create', [
             'seriesCategories' => $seriesCategories,
-            'seriesLimitReached' => $seriesLimitReached
+            'seriesLimitReached' => $seriesLimitReached,
+            'artStyles' => $artStyles,
         ]);
     }
 

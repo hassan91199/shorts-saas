@@ -66,48 +66,15 @@
                                     <div id="series-settings-div" class="form-group vstack gap-1 mt-2">
                                         <h2 class="h3 m-0">{{ __('Step 3 - Series Settings') }}</h2>
                                         <p for="create-video-btn">{{ __('Preferences for every video in your series') }}</p>
-
-                                        <div class="d-flex bg-white w-100 p-1 rounded overflow-auto">
-                                            <!-- <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200">
-                                            <img class="rounded mx-1 shadow" src="{{ asset('assets\images\normal.png') }}" loading="lazy" width="117" height="200"> -->
-
-                                            <!-- <div class="position-relative d-inline-block mx-1">
-                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
-                                                <div class="position-absolute p-1 text-center bottom-0 start-0 w-100 h-25 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.5);">
-                                                    <span class="text-white fs-8 fw-bold text-uppercase text-center">Overlay Text</span>
-                                                </div>
-                                            </div> -->
-
-                                            <!-- <div class="position-relative d-inline-block mx-1">
-                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
-                                                <div class="position-absolute bottom-0 start-0 w-100 p-1" style="background-color: rgba(0, 0, 0, 0.5);">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <span class="text-white fs-8 fw-bold text-uppercase text-center">Overlay Text</span>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-                                            <div class="position-relative d-inline-block mx-1">
-                                                <img class="rounded shadow" src="{{ asset('assets/images/normal.png') }}" loading="lazy" width="117" height="200">
-                                                <div class="position-absolute bottom-0 start-0 w-100 h-25" style="background-color: rgba(0, 0, 0, 0.5);">
-                                                    <div class="d-flex justify-content-center align-items-center h-100 text-center">
-                                                        <span class="text-white fs-8 fw-semibold text-uppercase">Overlay Text</span>
-                                                    </div>
+                                        <div class="d-flex gap-1 bg-white w-100 p-2 rounded overflow-auto flex-nowrap">
+                                            @foreach($artStyles as $artStyle)
+                                            <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer rounded shadow transition-all duration-250 hover:-translate-y-1" style="min-width: 117px; min-height: 208px; cursor: pointer;" data-art-style="{{ $artStyle }}" onclick="selectArtStyle(this)">
+                                                <img class="cursor-pointer shadow rounded" src="{{ asset("assets/images/$artStyle.png") }}" loading="lazy" width="117" height="208">
+                                                <div class="position-absolute bottom-0 start-0 w-100 py-1 rounded-bottom text-white text-center text-uppercase fs-8 fw-medium" style="background-color: rgba(0, 0, 0, 0.8);">
+                                                    {{ str_replace('_', ' ', $artStyle) }}
                                                 </div>
                                             </div>
-
-
-
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -130,7 +97,49 @@
 
     <x-slot name="script">
         <script>
+            let selectedArtStyleElement = null; // Holds the currently selected art style element
+            let selectedArtStyle = null; // Currently selected art style
+
+            // Creating a checkmark icon for denoting the selected art style
+            const checkIconElement = document.createElement("i");
+            checkIconElement.className = 'position-absolute top-2 end-2 bg-white rounded-circle p-0 border border-1 unicon-checkmark-outline-filled fs-4 text-primary';
+
+            function selectArtStyle(artStyleElement) {
+                // If there is already a art style selected then first
+                // remove the border and checkmark from that element
+                if (selectedArtStyleElement) {
+                    const artStyleImgElement = selectedArtStyleElement.getElementsByTagName("img")[0];
+                    const artStyleNameElement = selectedArtStyleElement.getElementsByTagName("div")[0];
+
+                    selectedArtStyleElement.classList.remove("border", "border-primary", "border-5");
+                    artStyleImgElement.classList.add("rounded");
+                    artStyleNameElement.classList.add("rounded");
+                    selectedArtStyleElement.removeChild(checkIconElement);
+                }
+
+                selectedArtStyleElement = artStyleElement;
+                selectedArtStyle = selectedArtStyleElement.dataset.artStyle;
+
+                const artStyleImgElement = selectedArtStyleElement.getElementsByTagName("img")[0];
+                const artStyleNameElement = selectedArtStyleElement.getElementsByTagName("div")[0];
+
+                // Give the border and check mark icon to
+                // the selected art style
+                selectedArtStyleElement.classList.add("border", "border-primary", "border-5");
+                artStyleImgElement.classList.remove("rounded");
+                artStyleNameElement.classList.remove("rounded");
+                selectedArtStyleElement.append(checkIconElement);
+            }
+
             $(document).ready(function() {
+                // Check if there is already an art style selected
+                // i.e. from backend. If so make it look selected 
+                // on front-end.
+                if (selectedArtStyle) {
+                    const element = document.querySelector(`[data-art-style="${selectedArtStyle}"]`);
+                    selectArtStyle(element);
+                }
+
                 $('#set-destination-select').change(function() {
 
                     var selectedOption = $(this).find('option:selected');
