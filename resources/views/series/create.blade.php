@@ -63,18 +63,31 @@
                                         </select>
                                     </div>
 
-                                    <div id="series-settings-div" class="form-group vstack gap-1 mt-2">
+                                    <div id="set-series-settings-div" class="form-group vstack gap-1 mt-2 d-none">
                                         <h2 class="h3 m-0">{{ __('Step 3 - Series Settings') }}</h2>
-                                        <p for="create-video-btn">{{ __('Preferences for every video in your series') }}</p>
-                                        <div class="d-flex gap-1 bg-white w-100 p-2 rounded overflow-auto flex-nowrap">
-                                            @foreach($artStyles as $artStyle)
-                                            <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer rounded shadow transition-all duration-250 hover:-translate-y-1" style="min-width: 117px; min-height: 208px; cursor: pointer;" data-art-style="{{ $artStyle }}" onclick="selectArtStyle(this)">
-                                                <img class="cursor-pointer shadow rounded" src="{{ asset("assets/images/$artStyle.png") }}" loading="lazy" width="117" height="208">
-                                                <div class="position-absolute bottom-0 start-0 w-100 py-1 rounded-bottom text-white text-center text-uppercase fs-8 fw-medium" style="background-color: rgba(0, 0, 0, 0.8);">
-                                                    {{ str_replace('_', ' ', $artStyle) }}
+                                        <p>{{ __('Preferences for every video in your series') }}</p>
+
+                                        <div class="mt-2">
+                                            <p class="fs-7 mb-1"> <i class="unicon-image-filled"></i> {{ __('Art Style') }}</p>
+                                            <div class="d-flex gap-1 bg-white w-100 p-2 rounded overflow-auto flex-nowrap">
+                                                @foreach($artStyles as $artStyle)
+                                                <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer rounded shadow transition-all duration-250 hover:-translate-y-1" style="min-width: 117px; min-height: 208px; cursor: pointer;" data-art-style="{{ $artStyle }}" onclick="selectArtStyle(this)">
+                                                    <img class="cursor-pointer shadow rounded" src="{{ asset("assets/images/$artStyle.png") }}" loading="lazy" width="117" height="208">
+                                                    <div class="position-absolute bottom-0 start-0 w-100 py-1 rounded-bottom text-white text-center text-uppercase fs-8 fw-medium" style="background-color: rgba(0, 0, 0, 0.8);">
+                                                        {{ str_replace('_', ' ', $artStyle) }}
+                                                    </div>
                                                 </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
+                                            <input id="art-style-input" type="hidden" name="art_style" value="" required>
+                                        </div>
+
+                                        <div class="form-group vstack gap-1 mt-2">
+                                            <p class="fs-7"> <i class="unicon-time"></i> {{ __('Duration Preferance') }}</p>
+                                            <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-video-duration" name="video_duratinon" aria-label="video_duration_select" required>
+                                                <option value="30-60">{{__('30 to 60 seconds')}}</option>
+                                                <option value="60-90" selected>{{__('60 to 90 seconds')}}</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -119,6 +132,7 @@
 
                 selectedArtStyleElement = artStyleElement;
                 selectedArtStyle = selectedArtStyleElement.dataset.artStyle;
+                document.getElementById('art-style-input').value = selectedArtStyle;
 
                 const artStyleImgElement = selectedArtStyleElement.getElementsByTagName("img")[0];
                 const artStyleNameElement = selectedArtStyleElement.getElementsByTagName("div")[0];
@@ -156,6 +170,7 @@
                 });
 
                 $('#set-content-select').change(function() {
+                    $('#set-series-settings-div').removeClass('d-none');
                     $('#create-video-div').removeClass('d-none');
                 });
             });
