@@ -101,6 +101,70 @@
                         </div>
                     </div>
 
+                    <h2 class="h3 mt-5">{{ __('Series Settings') }}</h2>
+
+                    <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800 p-3">
+                        <div class="mb-1">
+                            <div class="fs-5 fw-medium mb-1">
+                                <i class="unicon-image-filled"></i>
+                                <span class="ms-1">{{ __('Art Style') }}</span>
+                            </div>
+                            <div id="art-style-setting-value-div" class="fs-7">
+                                <span class="mb-1 ms-4 clickable-text text-capitalize" onclick="showSetting('art-style')">{{ str_replace('_', ' ', $series->artStyle->name) }}</span>
+                                <i class="unicon-pen ms-1"></i>
+                            </div>
+                            <div id="art-style-setting-div" class="fs-7 d-none">
+                                <div class="d-flex gap-1 bg-white w-100 p-2 rounded overflow-auto flex-nowrap">
+                                    @foreach($artStyles as $artStyle)
+                                    <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer rounded shadow transition-all duration-250 hover:-translate-y-1" style="min-width: 117px; min-height: 208px; cursor: pointer;" data-art-style="{{ $artStyle }}" onclick="selectArtStyle(this)">
+                                        <img class="cursor-pointer shadow rounded" src="{{ asset("assets/images/$artStyle.png") }}" loading="lazy" width="117" height="208">
+                                        <div class="position-absolute bottom-0 start-0 w-100 py-1 rounded-bottom text-white text-center text-uppercase fs-8 fw-medium" style="background-color: rgba(0, 0, 0, 0.8);">
+                                            {{ str_replace('_', ' ', $artStyle) }}
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                                <input id="art-style-input" type="hidden" name="art_style" value="" required>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <div class="fs-5 fw-medium mb-1">
+                                <i class="unicon-time"></i>
+                                <span class="ms-1">{{ __('Video Duration') }}</span>
+                            </div>
+                            <div id="video-duration-setting-value-div" class="fs-7">
+                                <span class="mb-1 ms-4 clickable-text" onclick="showSetting('video-duration')">{{ str_replace('-', ' to ', $series->video_duration) . ' seconds'; }}</span>
+                                <i class="unicon-pen ms-1"></i>
+                            </div>
+                            <div id="video-duration-setting-div" class="fs-7 d-none">
+                                <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-video-duration" name="video_duration" aria-label="video_duration_select" required>
+                                    <option value="30-60" {{ $series->video_duration === '30-60' ? 'selected' : '' }}>{{__('30 to 60 seconds')}}</option>
+                                    <option value="60-90" {{ $series->video_duration === '60-90' ? 'selected' : '' }}>{{__('60 to 90 seconds')}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <div class="fs-5 fw-medium mb-1">
+                                <i class="unicon-music"></i>
+                                <span class="ms-1">{{ __('Background Music') }}</span>
+                            </div>
+                            <div id="background-music-setting-value-div" class="fs-7">
+                                <span class="mb-1 ms-4 clickable-text" onclick="showSetting('background-music')">{{ __($series->apply_background_music === true ? 'Enabled' : 'Disabled') }}</span>
+                                <i class="unicon-pen ms-1"></i>
+                            </div>
+                            <div id="background-music-setting-div" class="fs-7 d-none">
+                                <div class="vstack items-start gap-3 lg:gap-4 mb-3 text-center">
+                                    <ul class="uc-switcher-nav nav-x gap-0 p-narrow border rounded-2 fs-7 fw-medium" data-uc-switcher="connect: .pricing-switcher;">
+                                        <li><a href="#" id="disable-background-music" class="text-none w-128px cstack p-1" onclick="switchBackgroundMusic('off')">Off</a></li>
+                                        <li><a href="#" id="enable-background-music" class="text-none w-128px cstack p-1" onclick="switchBackgroundMusic('on')">On</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input id="background-music-input" type="hidden" name="apply_background_music" value="" required>
+                        </div>
+                        <button class="btn btn-primary text-white" disabled>{{ __('Update Series') }}</button>
+                    </div>
+
                     <h2 class="h3 mt-5">{{ __('Past Videos') }}</h2>
 
                     @if(isset($pastVideos) && $pastVideos->count() > 0)
@@ -134,8 +198,59 @@
 
     <x-slot name="script">
         <script>
+            let selectedArtStyleElement = null; // Holds the currently selected art style element
+
+            // Currently selected art style. Use this to
+            // have the style selected on page load.
+            let selectedArtStyle = '{{ $series->artStyle->name }}';
+
+            // Creating a checkmark icon for denoting the selected art style
+            const checkIconElement = document.createElement("i");
+            checkIconElement.className = 'position-absolute top-2 end-2 bg-white rounded-circle p-0 border border-1 unicon-checkmark-outline-filled fs-4 text-primary';
+
+            function selectArtStyle(artStyleElement) {
+                // If there is already a art style selected then first
+                // remove the border and checkmark from that element
+                if (selectedArtStyleElement) {
+                    const artStyleImgElement = selectedArtStyleElement.getElementsByTagName("img")[0];
+                    const artStyleNameElement = selectedArtStyleElement.getElementsByTagName("div")[0];
+
+                    selectedArtStyleElement.classList.remove("border", "border-primary", "border-5");
+                    artStyleImgElement.classList.add("rounded");
+                    artStyleNameElement.classList.add("rounded");
+                    selectedArtStyleElement.removeChild(checkIconElement);
+                }
+
+                selectedArtStyleElement = artStyleElement;
+                selectedArtStyle = selectedArtStyleElement.dataset.artStyle;
+                document.getElementById('art-style-input').value = selectedArtStyle;
+
+                const artStyleImgElement = selectedArtStyleElement.getElementsByTagName("img")[0];
+                const artStyleNameElement = selectedArtStyleElement.getElementsByTagName("div")[0];
+
+                // Give the border and check mark icon to
+                // the selected art style
+                selectedArtStyleElement.classList.add("border", "border-primary", "border-5");
+                artStyleImgElement.classList.remove("rounded");
+                artStyleNameElement.classList.remove("rounded");
+                selectedArtStyleElement.append(checkIconElement);
+            }
+
+            function switchBackgroundMusic(newStatus) {
+                const backgroundMusicInputElement = document.getElementById('background-music-input');
+                backgroundMusicInputElement.value = newStatus == 'on' ? true : false;
+            }
+
             function confirmDelete() {
                 return confirm("Are you sure you want to delete this series and all related videos?");
+            }
+
+            function showSetting(settingName) {
+                const settingValueDivElement = document.getElementById(`${settingName}-setting-value-div`);
+                const settingDivElement = document.getElementById(`${settingName}-setting-div`);
+
+                settingValueDivElement.classList.add('d-none');
+                settingDivElement.classList.remove('d-none');
             }
 
             $(document).ready(function() {
@@ -144,6 +259,25 @@
 
                 const currentVideoElem = $('#current-video-element');
                 const currentVideoSrc = currentVideoElem.attr('src');
+
+                // This code checks the current background music setting
+                // for the series ('on' or 'off'). Based on the result, 
+                // it triggers a click event on the selected element to 
+                // ensure the switcher reflects the correct state 
+                // programmatically.
+                const currentBackgroundMusicSetting = '{{ $series->apply_background_music === true ? "on" : "off" }}';
+                const currentBackgoundMusicSettingElement = document.getElementById(
+                    currentBackgroundMusicSetting == 'on' ? 'enable-background-music' : 'disable-background-music'
+                );
+                currentBackgoundMusicSettingElement.click();
+
+                // Check if there is already an art style selected
+                // i.e. from backend. If so make it look selected 
+                // on front-end.
+                if (selectedArtStyle) {
+                    const element = document.querySelector(`[data-art-style="${selectedArtStyle}"]`);
+                    selectArtStyle(element);
+                }
 
                 // Check if the 'src' attribute is set and not empty
                 if (!currentVideoSrc) {

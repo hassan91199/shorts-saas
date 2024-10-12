@@ -157,6 +157,7 @@ class SeriesController extends Controller
         $currentVideo = $series->currentVideo();
         $pastVideos = $series->pastVideos();
 
+        $artStyles = ArtStyle::pluck('name')->toArray();
 
         return view('series.show', [
             'user' => $user,
@@ -164,6 +165,7 @@ class SeriesController extends Controller
             'currentVideo' => $currentVideo,
             'pastVideos' => $pastVideos,
             'series' => $series,
+            'artStyles' => $artStyles,
         ]);
     }
 

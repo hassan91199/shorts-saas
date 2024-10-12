@@ -1,3 +1,15 @@
 .filter-black-white {
     filter: grayscale(100%);
 }
+
+.clickable-text {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.clickable-text:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
