@@ -111,7 +111,10 @@
     <x-slot name="script">
         <script>
             let selectedArtStyleElement = null; // Holds the currently selected art style element
-            let selectedArtStyle = null; // Currently selected art style
+            
+            // Currently selected art style. Use this to
+            // have the style selected on page load.
+            let selectedArtStyle = 'normal';
 
             // Creating a checkmark icon for denoting the selected art style
             const checkIconElement = document.createElement("i");
