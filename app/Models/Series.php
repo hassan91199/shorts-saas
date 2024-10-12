@@ -18,6 +18,9 @@ class Series extends Model
         'title',
         'category',
         'destination',
+        'video_duration',
+        'apply_background_music',
+        'art_style_id'
     ];
 
     public const CATEGORY_PROMPTS = [
@@ -52,5 +55,13 @@ class Series extends Model
     public function pastVideos()
     {
         return $this->videos()->where('is_current', false)->get();
+    }
+
+    /**
+     * Get the art style associated with the series.
+     */
+    public function artStyle()
+    {
+        return $this->belongsTo(ArtStyle::class);
     }
 }

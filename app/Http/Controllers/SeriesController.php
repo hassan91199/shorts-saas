@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArtStyle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
@@ -83,20 +84,7 @@ class SeriesController extends Controller
 
         $seriesLimitReached = $userSeries >= $maxSeries;
 
-        $artStyles = [
-            'normal',
-            'comic_book',
-            'disney_toon',
-            'studio_ghibli',
-            'childrens_book',
-            'photo_realism',
-            'minecraft',
-            'watercolor',
-            'expressionism',
-            'charcoal',
-            'anime',
-            'normal_v2',
-        ];
+        $artStyles = ArtStyle::pluck('name')->toArray();
 
         return view('series.create', [
             'seriesCategories' => $seriesCategories,
@@ -115,14 +103,20 @@ class SeriesController extends Controller
     {
         $destination = $request->get('destination');
         $category = $request->get('category');
+        $artStyle = ArtStyle::where('name', $request->get('art_style'))->first();
+        $videoDuration = $request->get('video_duration');
+        $applyBackgroundMusic = false;
         $title = ucwords(str_replace('_', ' ', $category));
 
-        $descriptions = Series::CATEGORY_PROMPTS;
+        $prompts = Series::CATEGORY_PROMPTS;
 
         // Send the video generation request to VidGen Module
         $url = config('vidgen.api_base_url') . '/vid-gen';
         $data = [
-            'description' => $descriptions[$category]
+            'prompt' => $prompts[$category],
+            'art_style' => $artStyle->name,
+            'video_duration' => $videoDuration,
+            'apply_background_music' => $applyBackgroundMusic
         ];
         $response = Http::post($url, $data);
         $responseData  = $response->json();
@@ -140,6 +134,9 @@ class SeriesController extends Controller
             'title' => $title,
             'category' => $category,
             'destination' => $destination,
+            'video_duration' => $videoDuration,
+            'apply_background_music' => $applyBackgroundMusic,
+            'art_style_id' => $artStyle->id,
         ]);
 
         // Create new video and associate it with series

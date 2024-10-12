@@ -84,7 +84,7 @@
 
                                         <div class="form-group vstack gap-1 mt-2">
                                             <p class="fs-7"> <i class="unicon-time"></i> {{ __('Duration Preferance') }}</p>
-                                            <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-video-duration" name="video_duratinon" aria-label="video_duration_select" required>
+                                            <select class="form-select form-control-lg rounded dark:bg-gray-100 dark:bg-opacity-5 dark:text-white dark:border-gray-800" id="set-video-duration" name="video_duration" aria-label="video_duration_select" required>
                                                 <option value="30-60">{{__('30 to 60 seconds')}}</option>
                                                 <option value="60-90" selected>{{__('60 to 90 seconds')}}</option>
                                             </select>

@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Http\Controllers\VidGenController;
+use App\Models\ArtStyle;
 use App\Models\Series;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -36,10 +37,14 @@ class CreateVideoJob implements ShouldQueue
     {
         Log::info("Starting video creation for user {$this->user->id} and series {$this->series->id}");
 
+        $artStyle = ArtStyle::find($this->series->art_style_id);
         // Send the video generation request to VidGen Module
         $url = config('vidgen.api_base_url') . '/vid-gen';
         $data = [
-            'description' => Series::CATEGORY_PROMPTS[$this->series->category]
+            'prompt' => Series::CATEGORY_PROMPTS[$this->series->category],
+            'art_style' => $artStyle->name,
+            'video_duration' => $this->series->video_duration,
+            'apply_background_music' => $this->series->apply_background_music
         ];
         $vidGenResponse = Http::post($url, $data);
         $vidGenResponseData  = $vidGenResponse->json();
