@@ -170,6 +170,60 @@ class SeriesController extends Controller
     }
 
     /**
+     * Display the page to show details of series.
+     */
+    public function update(Request $request, Series $series): RedirectResponse
+    {
+        dd($request->all());
+
+        $currentVideo = $series->currentVideo();
+
+        $newArtStyle = $request->get('art_style');
+        $newVideoDuration = $request->get('video_duration');
+        $newApplyBackgroundMusic = $request->get('apply_background_music');
+
+        $reRenderVideo = false;
+
+        $vidgenPayload = [
+            'script' => $currentVideo->script,
+            'art_style' => $series->artStyle->name,
+            'video_duration' => $series->video_duration,
+            'apply_background_music' => $series->apply_background_music
+        ];
+
+        if ($newArtStyle != $series->artStyle->name) {
+            $series->art_style_id = ArtStyle::where('name', $newArtStyle)->first()->id;
+            $reRenderVideo = true;
+
+            $vidgenPayload['art_style'] = $newArtStyle;
+        }
+
+        if ($newVideoDuration != $series->video_duration) {
+            $series->video_duration = $newVideoDuration;
+            $reRenderVideo = true;
+
+            $vidgenPayload['video_duration'] = $newVideoDuration;
+        }
+
+        if ($newApplyBackgroundMusic != $series->apply_background_music) {
+            $series->apply_background_music = $newApplyBackgroundMusic;
+            $reRenderVideo = true;
+
+            $vidgenPayload['apply_background_music'] = $applyBackgroundMusic;
+        }
+
+        if ($reRenderVideo === true) {
+            $series->video_url = null;
+
+            dd($vidgenPayload);
+        }
+
+        $series->save();
+
+        return redirect()->back();
+    }
+
+    /**
      * Soft delete the series and its related videos
      * 
      * @param Series $series The series to delete
