@@ -174,13 +174,11 @@ class SeriesController extends Controller
      */
     public function update(Request $request, Series $series): RedirectResponse
     {
-        dd($request->all());
-
         $currentVideo = $series->currentVideo();
 
         $newArtStyle = $request->get('art_style');
         $newVideoDuration = $request->get('video_duration');
-        $newApplyBackgroundMusic = $request->get('apply_background_music');
+        $newApplyBackgroundMusic = $request->boolean('apply_background_music');
 
         $reRenderVideo = false;
 
@@ -203,21 +201,30 @@ class SeriesController extends Controller
             $reRenderVideo = true;
 
             $vidgenPayload['video_duration'] = $newVideoDuration;
+            $vidgenPayload['prompt'] = Series::CATEGORY_PROMPTS[$series->category];
+
+            unset($vidgenPayload['script']);
         }
 
         if ($newApplyBackgroundMusic != $series->apply_background_music) {
             $series->apply_background_music = $newApplyBackgroundMusic;
             $reRenderVideo = true;
 
-            $vidgenPayload['apply_background_music'] = $applyBackgroundMusic;
+            $vidgenPayload['apply_background_music'] = $newApplyBackgroundMusic;
         }
 
         if ($reRenderVideo === true) {
-            $series->video_url = null;
+            $currentVideo->video_url = null;
 
-            dd($vidgenPayload);
+            $url = config('vidgen.api_base_url') . '/vid-gen';
+            $vidGenResponse = Http::post($url, $vidgenPayload);
+            $vidGenResponseData = $vidGenResponse->json();
+
+            $currentVideo->vid_gen_id = $vidGenResponseData['video_id'];
+            $currentVideo->script = $vidGenResponseData['script'];
         }
 
+        $currentVideo->save();
         $series->save();
 
         return redirect()->back();
