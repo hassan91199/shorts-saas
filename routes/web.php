@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TikTokController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\YouTubeController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -55,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/series/{series}', [SeriesController::class, 'show'])->name('series.show');
     Route::put('/series/{series}', [SeriesController::class, 'update'])->name('series.update');
     Route::delete('/series/{series}', [SeriesController::class, 'destroy'])->name('series.destroy');
+
+    Route::put('/video/{video}', [VideoController::class, 'update'])->name('video.update');
 
     Route::get('/auth/youtube', [YouTubeController::class, 'redirectToYoutube'])->name('youtube.auth');
     Route::get('/auth/youtube/callback', [YouTubeController::class, 'handleYoutubeCallback'])->name('youtube.callback');
