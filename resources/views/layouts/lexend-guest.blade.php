@@ -10,24 +10,6 @@
     <link rel="canonical" href="{{ config('app.url') }}">
     <meta name="theme-color" content="#178d72">
 
-    <!-- Open Graph Tags -->
-    <!-- <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Lexend">
-    <meta property="og:description" content="Full-featured, Professional-looking SaaS, Software and Startup Site Template.">
-    <meta property="og:url" content="https://unistudio.co/html/lexend/">
-    <meta property="og:site_name" content="Lexend">
-    <meta property="og:image" content="https://unistudio.co/html/lexend/assets/images/common/seo-image.jpg">
-    <meta property="og:image:width" content="1180">
-    <meta property="og:image:height" content="600">
-    <meta property="og:image:type" content="image/png"> -->
-
-    <!-- Twitter Card Tags -->
-    <!-- <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lexend">
-    <meta name="twitter:description" content="Full-featured, Professional-looking SaaS, Software and Startup Site Template.">
-    <meta name="twitter:image" content="https://unistudio.co/html/lexend/assets/images/common/seo-image.jpg"> -->
-
     <link rel="canonical" href="{{ config('app.url') }}">
 
     <!-- preload head styles -->
@@ -86,12 +68,6 @@
             </header>
 
             <div class="panel">
-                <!-- <form id="search-panel" class="form-icon-group vstack gap-1 mb-2" data-uc-sticky="">
-                    <input type="email" class="form-control form-control-sm fs-7 rounded-default" placeholder="Search..">
-                    <span class="form-icon text-gray">
-                        <i class="unicon-search icon-1"></i>
-                    </span>
-                </form> -->
                 <ul class="nav-y gap-narrow fw-medium fs-6" data-uc-nav="">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how_it_works">How it works</a></li>
@@ -225,20 +201,6 @@
                                             </a>
                                             <p class="mt-2">{{ config('app.name') }} automatically creates, schedules, and posts Faceless videos for you, on auto-pilot. Each video is unique and customized to your topic.</p>
                                         </div>
-                                        <!-- <div class="d-inline-block">
-                                            <a href="#" class="hstack gap-1 text-none fw-medium">
-                                                <i class="icon icon-1 unicon-earth-filled"></i>
-                                                <span>English</span>
-                                                <span data-uc-drop-parent-icon=""></span>
-                                            </a>
-                                            <div class="p-2 bg-white dark:bg-gray-700 shadow-xs rounded w-150px" data-uc-drop="mode: click; offset: 16; pos: bottom-center; boundary: !.uc-footer-widgets; animation: uc-animation-slide-top-small; duration: 150;">
-                                                <ul class="nav-y gap-1 fw-medium rtl:items-end">
-                                                    <li><a href="#en">English</a></li>
-                                                    <li><a href="#ar">العربية</a></li>
-                                                    <li><a href="#ch">中文</a></li>
-                                                </ul>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div>
@@ -260,17 +222,6 @@
                                         <li><a href="#pricing">Articles</a></li>
                                     </ul>
                                 </div>
-                                <!-- <div class="d-none lg:d-block">
-                                    <ul class="nav-y gap-2 fw-medium">
-                                        <li class="fs-7 text-uppercase dark:text-gray-300">Resources</li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="#">Newsletter</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Help center</a></li>
-                                        <li><a href="#">Tutorials</a></li>
-                                        <li><a href="#">Support</a></li>
-                                    </ul>
-                                </div> -->
                             </div>
                         </div>
                         <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-between text-center pt-4 lg:pt-6 border-top dark:text-white">
