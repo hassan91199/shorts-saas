@@ -13,16 +13,6 @@
                     <div class="row child-cols-12 justify-center items-center g-6 xl:g-8">
                         <div>
                             <div class="panel vstack justify-center items-center gap-3 max-w-600px lg:max-w-750px mx-auto px-2 lg:px-0 text-center" data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
-                                <!-- <div class="position-absolute z-2" style="top: 40%; right: 10%">
-                                    <img class="w-48px lg:w-80px me-4" src="../assets/images/template/user-cursor-1.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 10000; delay: 1000;">
-                                </div>
-                                <div class="position-absolute z-2" style="bottom: 0%; left: 10%">
-                                    <img class="w-48px lg:w-80px" src="../assets/images/template/user-cursor-3.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 5000; delay: 4000;">
-                                </div> -->
-                                <!-- <div class="cstack gap-1 py-1 px-2 border rounded-pill">
-                                    <span class="d-inline-block w-4px h-4px rounded-circle bg-primary-400"></span>
-                                    <span class="fs-8 fw-bold text-uppercase text-white">Beta 2.0 Available Now</span>
-                                </div> -->
                                 <h1 class="h1 sm:display-6 md:display-5 lg:display-4 xl:display-3 m-0 text-white">
                                     Faceless videos on <span class="d-inline-flex px-1 bg-secondary text-primary -rotate-1 lg:-rotate-2 rounded-1 lg:rounded-1-5">auto-pilot</span> <br>
                                     now or never!
@@ -40,15 +30,6 @@
                                 <div class="dashboard-image max-w-lg mx-auto max-h-250px lg:max-h-550px overflow-hidden" data-anime="translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
                                     <img class="shadow-md lg:shadow-lg rounded-2 filter-black-white" src="{{ asset('assets\images\create-short.png') }}" alt="app-dashboard">
                                 </div>
-                                <!-- <div class="position-absolute top-50 end-0 translate-middle-y mt-2 lg:me-5">
-                                    <img class="w-100px text-primary lg:rounded-2 shadow-xl" src="../assets/images/template/app-dashboard-helper-1.png" alt="app-dashboard-helper-1" data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 250;">
-                                </div> -->
-                                <!-- <div class="position-absolute" style="top: 74%; right: 7%">
-                                    <img class="w-48px lg:w-80px" src="../assets/images/template/user-cursor-2.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 8000; delay: 3000;">
-                                </div> -->
-                                <!-- <div class="position-absolute" style="top: 64%; left: 26.5%">
-                                    <img class="w-48px lg:w-80px" src="../assets/images/template/user-cursor-4.svg" alt="user-cursor" data-anime="loop: true; translateX: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; translateY: [ { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) }, { value: anime.random(-80, 80) } ]; easing: easeOutElastic(1, .8); direction: 'alternate'; duration: 7000; delay: 2000;">
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -137,15 +118,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="swiper-slide">
-                                <div class="item-preview panel p-1">
-                                    <div class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
-                                        <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-8.mp4') }}" playsinline autoplay loop muted></video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="swiper-slide">
                                 <div class="item-preview panel p-1">
                                     <div class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
@@ -514,10 +486,6 @@
                                 </div>
                                 <h2 class="h3 lg:h2 m-0">Frequenlty Asked Questions</h2>
                                 <p class="fs-6 lg:fs-5">Curious about something? We've got the answers you need.</p>
-                                <!-- <a href="#" class="btn btn-sm lg:btn-md btn-primary px-3 mt-2">
-                                    <span>Still have a question?</span>
-                                    <i class="icon icon-narrow unicon-arrow-right fw-bold rtl:rotate-180"></i>
-                                </a> -->
                             </div>
                         </div>
                         <div class="lg:col-6">
@@ -680,14 +648,23 @@
 
     <x-slot name="script">
         <script>
-            function handleSubscribeButtonDisable(){
-                const isLoggedIn = {{ $isUserLoggedIn }};
+            function handleSubscribeButtonDisable() {
+                const isLoggedIn = {
+                    {
+                        $isUserLoggedIn
+                    }
+                };
 
-                if(!isLoggedIn) return;
-                
-                const userSubscribedPlan = '{{ $userSubscribedPlan ?? '' }}';
-                const userSubscribedQuantity = {{ $userSubscribedPlanQuantity ?? '' }};
-                
+                if (!isLoggedIn) return;
+
+                const userSubscribedPlan = '{{ $userSubscribedPlan ?? '
+                ' }}';
+                const userSubscribedQuantity = {
+                    {
+                        $userSubscribedPlanQuantity ?? ''
+                    }
+                };
+
                 const seriesCountElement = document.getElementById(`${userSubscribedPlan}-series-count`);
                 let seriesCount = Number(seriesCountElement.innerText);
 
@@ -701,7 +678,7 @@
                     }
                 }
             }
-            
+
             function updateSeriesCount(planName, operation) {
                 const seriesCountElement = document.getElementById(`${planName}-series-count`);
                 let seriesCount = Number(seriesCountElement.innerText);
