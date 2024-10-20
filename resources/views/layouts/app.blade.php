@@ -1,7 +1,7 @@
 <x-lexend-guest-layout :show-menu-panel="false" :show-bottom-actions-sticky="false" :show-header="false" :show-footer="false">
     <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 py-1 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white panel text-none" href="{{ route('dashboard') }}" style="width: 140px">
-            <img src="{{ asset('assets/images/common/logo-dark.svg') }}" alt="Lexend">
+            <img src="{{ Vite::asset('resources/images/logo-dark.svg') }}" alt="Dashboard Home">
         </a>
 
         <ul class="navbar-nav flex-row d-none d-md-flex">
