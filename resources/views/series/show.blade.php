@@ -3,10 +3,10 @@
     <div id="hero_header" class="hero-header section panel overflow-hidden">
         <!-- <div class="position-absolute top-0 start-0 end-0 min-h-screen overflow-hidden d-none lg:d-block" data-anime="targets: >*; scale: [0, 1]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 750});">
             <div class="position-absolute top-0 start-0 rotate-45" style="top: 30% !important; left: 18% !important">
-                <img class="w-32px text-gray-900 dark:text-white" src="../assets/images/template/star-1.svg" alt="star-1" data-uc-svg>
+                <img class="w-32px text-gray-900 dark:text-white" src="{{ Vite::asset('resources/images/star-1.svg') }}" alt="star-1" data-uc-svg>
             </div>
             <div class="position-absolute top-0 end-0 rotate-45" style="top: 15% !important; right: 18% !important">
-                <img class="w-24px text-gray-900 dark:text-white" src="../assets/images/template/star-2.svg" alt="star-2" data-uc-svg>
+                <img class="w-24px text-gray-900 dark:text-white" src="{{ Vite::asset('resources/images/star-2.svg') }}" alt="star-2" data-uc-svg>
             </div>
         </div> -->
         <div class="section-outer panel pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9">
@@ -126,7 +126,7 @@
                                     <div class="d-flex gap-1 bg-white w-100 p-2 rounded overflow-auto flex-nowrap">
                                         @foreach($artStyles as $artStyle)
                                         <div class="position-relative d-flex justify-content-center align-items-center cursor-pointer rounded shadow transition-all duration-250 hover:-translate-y-1" style="min-width: 117px; min-height: 208px; cursor: pointer;" data-art-style="{{ $artStyle }}" onclick="selectArtStyle(this)">
-                                            <img class="cursor-pointer shadow rounded" src="{{ asset("assets/images/$artStyle.png") }}" loading="lazy" width="117" height="208">
+                                            <img class="cursor-pointer shadow rounded" src="{{ Vite::asset("resources/images/$artStyle.webp") }}" loading="lazy" width="117" height="208">
                                             <div class="position-absolute bottom-0 start-0 w-100 py-1 rounded-bottom text-white text-center text-uppercase fs-8 fw-medium" style="background-color: rgba(0, 0, 0, 0.8);">
                                                 {{ str_replace('_', ' ', $artStyle) }}
                                             </div>
