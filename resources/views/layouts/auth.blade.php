@@ -10,8 +10,8 @@
                                 data-anime="translateX: [-24, 0]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750;">
                                 <figure class="panel h-100 m-0 rounded">
                                     <canvas class="h-100 w-100"></canvas>
-                                    <img class="media-cover image" src="{{ asset('assets/images/common/login.webp') }}"
-                                        alt="Hero login image">
+                                    <img class="media-cover image"
+                                        src="{{ Vite::asset('resources/images/login.webp') }}" alt="Hero login image">
                                 </figure>
                                 <div class="position-cover text-white vstack justify-end p-4 lg:p-6 xl:py-8">
                                     <div class="position-cover bg-gradient-to-t from-black to-transparent opacity-50">
@@ -32,7 +32,7 @@
                                 <a href="{{ route('home') }}"
                                     class="position-absolute top-0 ltr:start-0 rtl:end-0 text-none m-4 lg:m-6"
                                     data-anime="scale: [0.5, 1]; opacity: [0, 1]; easing: easeInOutExpo; duration: 750; delay: anime.stagger(100, {start: 150});">
-                                    <img src="{{ asset('assets/images/common/logo-dark.svg') }}" alt="">
+                                    <img src="{{ Vite::asset('resources/images/logo-dark.svg') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -43,48 +43,48 @@
                                     <div class="position-absolute bottom-0 start-0 rotate-45"
                                         style="bottom: 15% !important; left: 18% !important">
                                         <img class="w-32px text-gray-900 dark:text-white"
-                                            src="{{ asset('assets/images/template/star-1.svg') }}" alt="star-1"
+                                            src="{{ Vite::asset('resources/images/star-1.svg') }}" alt="star-1"
                                             data-uc-svg>
                                     </div>
                                     <div class="position-absolute top-0 end-0 rotate-45"
                                         style="top: 15% !important; right: 18% !important">
                                         <img class="w-24px text-gray-900 dark:text-white"
-                                            src="{{ asset('assets/images/template/star-2.svg') }}" alt="star-2"
+                                            src="{{ Vite::asset('resources/images/star-2.svg') }}" alt="star-2"
                                             data-uc-svg>
                                     </div>
                                     <div class="position-absolute top-0 start-0 translate-middle-y -rotate-12"
                                         style="top: 15% !important; left: 10% !important">
                                         <img class="w-64px d-block dark:d-none"
-                                            src="{{ asset('assets/images/template/icon-internet.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-internet.svg') }}"
                                             alt="icon-internet">
                                         <img class="w-64px d-none dark:d-block"
-                                            src="{{ asset('assets/images/template/icon-internet-dark.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-internet-dark.svg') }}"
                                             alt="icon-internet-dark">
                                     </div>
                                     <div class="position-absolute top-0 start-0 translate-middle-y ms-n3"
                                         style="top: 65% !important; left: 0% !important">
                                         <img class="w-64px d-block dark:d-none"
-                                            src="{{ asset('assets/images/template/icon-globe.svg') }}" alt="icon-globe">
+                                            src="{{ Vite::asset('resources/images/icon-globe.svg') }}" alt="icon-globe">
                                         <img class="w-64px d-none dark:d-block"
-                                            src="{{ asset('assets/images/template/icon-globe-dark.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-globe-dark.svg') }}"
                                             alt="icon-globe-dark">
                                     </div>
                                     <div class="position-absolute top-0 end-0 translate-middle-y rotate-12"
                                         style="top: 80% !important; right: 12% !important">
                                         <img class="w-64px d-block dark:d-none"
-                                            src="{{ asset('assets/images/template/icon-diamond.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-diamond.svg') }}"
                                             alt="icon-diamond">
                                         <img class="w-64px d-none dark:d-block"
-                                            src="{{ asset('assets/images/template/icon-diamond-dark.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-diamond-dark.svg') }}"
                                             alt="icon-diamond-dark">
                                     </div>
                                     <div class="position-absolute top-0 end-0 translate-middle-y -rotate-12 me-n2"
                                         style="top: 35% !important">
                                         <img class="w-64px d-block dark:d-none"
-                                            src="{{ asset('assets/images/template/icon-community.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-community.svg') }}"
                                             alt="icon-community">
                                         <img class="w-64px d-none dark:d-block"
-                                            src="{{ asset('assets/images/template/icon-community-dark.svg') }}"
+                                            src="{{ Vite::asset('resources/images/icon-community-dark.svg') }}"
                                             alt="icon-community-dark">
                                     </div>
                                 </div>
