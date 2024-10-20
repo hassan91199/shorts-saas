@@ -23,7 +23,7 @@
             <!-- <div class="hstack text-start">
                     <div class="form-check text-start rtl:text-end">
                         <input id="uc_form_check_terms" class="form-check-input rounded bg-white dark:bg-opacity-0 dark:text-white dark:border-gray-300 dark:border-opacity-30" type="checkbox" required>
-                        <label for="uc_form_check_terms" class="hstack justify-between form-check-label fs-6">I read and accept the <a href="page-terms.html" class="uc-link ltr:ms-narrow rtl:me-narrow">terms of use</a>. </label>
+                        <label for="uc_form_check_terms" class="hstack justify-between form-check-label fs-6">I read and accept the <a href="#" class="uc-link ltr:ms-narrow rtl:me-narrow">terms of use</a>. </label>
                     </div>
                 </div> -->
             <button class="btn btn-primary btn-md text-white mt-2" type="submit">Create my account</button>
