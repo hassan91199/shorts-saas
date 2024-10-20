@@ -13,40 +13,41 @@
     <link rel="canonical" href="{{ config('app.url') }}">
 
     <!-- preload head styles -->
-    <link rel="preload" href="../assets/css/unicons.min.css" as="style">
-    <link rel="preload" href="../assets/css/swiper-bundle.min.css" as="style">
+    <link rel="preload" href="{{ asset('assets/css/unicons.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/css/swiper-bundle.min.css') }}" as="style">
 
     <!-- preload footer scripts -->
-    <link rel="preload" href="../assets/js/libs/jquery.min.js" as="script">
-    <link rel="preload" href="../assets/js/libs/scrollmagic.min.js" as="script">
-    <link rel="preload" href="../assets/js/libs/swiper-bundle.min.js" as="script">
-    <link rel="preload" href="../assets/js/libs/anime.min.js" as="script">
-    <link rel="preload" href="../assets/js/helpers/data-attr-helper.js" as="script">
-    <link rel="preload" href="../assets/js/helpers/swiper-helper.js" as="script">
-    <link rel="preload" href="../assets/js/helpers/anime-helper.js" as="script">
-    <link rel="preload" href="../assets/js/helpers/anime-helper-defined-timelines.js" as="script">
-    <link rel="preload" href="../assets/js/uikit-components-bs.js" as="script">
-    <link rel="preload" href="../assets/js/app.js" as="script">
+    <link rel="preload" href="{{ asset('assets/js/libs/jquery.min.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/libs/scrollmagic.min.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/libs/swiper-bundle.min.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/libs/anime.min.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/helpers/data-attr-helper.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/helpers/swiper-helper.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/helpers/anime-helper.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/helpers/anime-helper-defined-timelines.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/uikit-components-bs.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/app.js') }}" as="script">
 
     <!-- app head for bootstrap core -->
-    <script src="../assets/js/app-head-bs.js"></script>
+    <script src="{{ asset('assets/js/app-head-bs.js') }}"></script>
 
     <!-- include uni-core components -->
-    <link rel="stylesheet" href="../assets/js/uni-core/css/uni-core.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/js/uni-core/css/uni-core.min.css') }}">
 
     <!-- include styles -->
-    <link rel="stylesheet" href="../assets/css/unicons.min.css">
-    <link rel="stylesheet" href="../assets/css/prettify.min.css">
-    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/unicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/prettify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
 
     <!-- include main style -->
-    <link rel="stylesheet" href="../assets/css/theme/theme-two.css">
+    <!-- Replaced "assets/css/theme/theme-two.css" with the minified version -->
+    <link rel="stylesheet" href="{{ asset('assets/css/theme/theme-two.min.css') }}">
 
     <!-- include custom style -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
     <!-- include scripts -->
-    <script src="../assets/js/uni-core/js/uni-core-bundle.min.js"></script>
+    <script src="{{ asset('assets/js/uni-core/js/uni-core-bundle.min.js') }}"></script>
 </head>
 
 <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
@@ -242,21 +243,21 @@
     <!-- Footer end -->
 
     <!-- include jquery & bootstrap js -->
-    <script src="../assets/js/libs/jquery.min.js"></script>
-    <script defer src="../assets/js/libs/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/js/libs/jquery.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/libs/bootstrap.min.js') }}"></script>
 
     <!-- include scripts -->
-    <script defer src="../assets/js/libs/anime.min.js"></script>
-    <script defer src="../assets/js/libs/swiper-bundle.min.js"></script>
-    <script defer src="../assets/js/libs/scrollmagic.min.js"></script>
-    <script defer src="../assets/js/helpers/data-attr-helper.js"></script>
-    <script defer src="../assets/js/helpers/swiper-helper.js"></script>
-    <script defer src="../assets/js/helpers/anime-helper.js"></script>
-    <script defer src="../assets/js/helpers/anime-helper-defined-timelines.js"></script>
-    <script defer src="../assets/js/uikit-components-bs.js"></script>
+    <script defer src="{{ asset('assets/js/libs/anime.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/libs/swiper-bundle.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/libs/scrollmagic.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/helpers/data-attr-helper.js') }}"></script>
+    <script defer src="{{ asset('assets/js/helpers/swiper-helper.js') }}"></script>
+    <script defer src="{{ asset('assets/js/helpers/anime-helper.js') }}"></script>
+    <script defer src="{{ asset('assets/js/helpers/anime-helper-defined-timelines.js') }}"></script>
+    <script defer src="{{ asset('assets/js/uikit-components-bs.js') }}"></script>
 
     <!-- include app script -->
-    <script defer src="../assets/js/app.js"></script>
+    <script defer src="{{ asset('assets/js/app.js') }}"></script>
 
     <script>
         // Schema toggle via URL
