@@ -3,7 +3,7 @@
     <div id="overview" class="overview section panel overflow-hidden uc-dark lg:m-2 lg:rounded-3">
         <div class="position-cover bg-white dark:bg-gray-900"></div>
         <div class="position-cover opacity-70 bg-contain" style="background-position: 50% 85%"
-            data-src="../assets/images/template/pricing-06-bg-masked.png" data-uc-img></div>
+            data-src="{{ asset('assets/images/template/pricing-06-bg-masked.png') }}" data-uc-img></div>
         <div class="position-cover bg-gradient-to-t from-gray-800 via-transparent to-gray-900"></div>
         <div class="position-absolute d-inline-block w-500px h-500px rounded-circle bg-gradient-45 from-primary to-white start-50 blur-10 translate-middle blend-color-dodge"
             style="top: 0%"></div>
@@ -79,7 +79,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-1.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-1.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-2.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-2.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-3.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-3.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-4.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-4.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-5.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-5.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-6.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-6.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-7.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-7.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                     <div
                                         class="panel bg-white border border-secondary-600 rounded-1 shadow-xs hover:shadow-md transition-all duration-250 hover:-translate-y-1 overflow-hidden">
                                         <div class="panel overflow-hidden">
-                                            <video src="{{ asset('assets/videos/short-9.mp4') }}" playsinline autoplay
+                                            <video src="{{ asset('assets/videos/short-9.webm') }}" playsinline autoplay
                                                 loop muted></video>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
         <div
             class="section-outer panel py-4 overflow-hidden md:py-6 xl:py-10 mx-2 rounded-2 lg:rounded-3 bg-secondary dark:bg-primary-700 dark:text-white">
             <div class="position-cover opacity-70 bg-contain" style="background-position: 50% 85%"
-                data-src="../assets/images/template/pricing-06-bg-masked.png" data-uc-img></div>
+                data-src="{{ asset('assets/images/template/pricing-06-bg-masked.png') }}" data-uc-img></div>
             <div class="position-cover bg-gradient-to-t from-gray-800 via-transparent to-gray-900"></div>
             <div class="container xl:max-w-xl">
                 <div class="section-inner panel">
