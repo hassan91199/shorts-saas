@@ -48,6 +48,8 @@
 
     <!-- include scripts -->
     <script src="{{ asset('assets/js/uni-core/js/uni-core-bundle.min.js') }}"></script>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
@@ -59,7 +61,7 @@
                 <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
                     <div class="uc-logo">
                         <a href="{{ config('app.url') }}" class="h5 text-none text-gray-900 dark:text-white">
-                            <!-- <img class="w-32px" src="../assets/images/common/logo-mark.svg" alt="{{ config('app.name') }}"> -->
+                            <!-- <img class="w-32px" src="{{ asset('assets/images/common/logo-mark.svg') }}" alt="{{ config('app.name') }}"> -->
                             <img src="{{ asset('assets/images/common/logo-light.svg') }}"
                                 alt="{{ config('app.name') }}">
                         </a>
@@ -144,7 +146,7 @@
                             data-uc-navbar="mode: click; animation: uc-animation-slide-top-small; duration: 150;">
                             <div class="uc-navbar-left">
                                 <div>
-                                    <a class="panel text-none fs-5 fw-bold" href="index-6.html">
+                                    <a class="panel text-none fs-5 fw-bold" href="{{ route('home') }}">
                                         <img src="{{ asset('assets/images/common/logo-icon.svg') }}" alt="Lexend">
                                         <span>lexend</span>
                                     </a>
@@ -210,9 +212,9 @@
                                     <div class="col-12 lg:col-6">
                                         <div class="panel vstack items-start gap-3 xl:gap-4 lg:max-w-1/2">
                                             <div>
-                                                <a href="index.html" style="width: 140px">
+                                                <a href="{{ route('home') }}" style="width: 140px">
                                                     <img class="text-primary"
-                                                        src="../assets/images/common/logo-dark.svg"
+                                                        src="{{ asset('assets/images/common/logo-dark.svg') }}"
                                                         alt="{{ config('app.name') }}">
                                                 </a>
                                                 <p class="mt-2">{{ config('app.name') }} automatically creates,
