@@ -41,7 +41,7 @@
                                 <div class="dashboard-image max-w-lg mx-auto max-h-250px lg:max-h-550px overflow-hidden"
                                     data-anime="translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
                                     <img class="shadow-md lg:shadow-lg rounded-2 filter-black-white"
-                                        src="{{ asset('assets\images\create-short.png') }}" alt="app-dashboard">
+                                        src="{{ asset('assets\images\create-short.webp') }}" alt="app-dashboard">
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                                 data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-1.png') }}"
+                                        <img src="{{ asset('assets/images/how-it-works-1.webp') }}"
                                             class="filter-black-white"
                                             alt="Share tools quickly and confidently in minutes">
                                     </div>
@@ -213,7 +213,7 @@
                                 data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-2.png') }}"
+                                        <img src="{{ asset('assets/images/how-it-works-2.webp') }}"
                                             class="filter-black-white"
                                             alt="Share tools quickly and confidently in minutes">
                                     </div>
@@ -238,7 +238,7 @@
                                 data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
                                 <div class="vstack gap-4 h-100">
                                     <div class="panel w-100 rounded lg:rounded-2 overflow-hidden">
-                                        <img src="{{ asset('assets/images/how-it-works-3.png') }}"
+                                        <img src="{{ asset('assets/images/how-it-works-3.webp') }}"
                                             class="filter-black-white"
                                             alt="Share tools quickly and confidently in minutes">
                                     </div>
