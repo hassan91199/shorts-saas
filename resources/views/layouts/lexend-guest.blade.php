@@ -61,8 +61,8 @@
                 <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
                     <div class="uc-logo">
                         <a href="{{ config('app.url') }}" class="h5 text-none text-gray-900 dark:text-white">
-                            <!-- <img class="w-32px" src="{{ asset('assets/images/common/logo-mark.svg') }}" alt="{{ config('app.name') }}"> -->
-                            <img src="{{ asset('assets/images/common/logo-light.svg') }}"
+                            <!-- <img class="w-32px" src="{{ Vite::asset('resources/images/logo-mark.svg') }}" alt="{{ config('app.name') }}"> -->
+                            <img src="{{ Vite::asset('resources/images/logo-light.svg') }}"
                                 alt="{{ config('app.name') }}">
                         </a>
                     </div>
@@ -147,7 +147,8 @@
                             <div class="uc-navbar-left">
                                 <div>
                                     <a class="panel text-none fs-5 fw-bold" href="{{ route('home') }}">
-                                        <img src="{{ asset('assets/images/common/logo-icon.svg') }}" alt="Lexend">
+                                        <img src="{{ Vite::asset('resources/images/logo-icon.svg') }}"
+                                            alt="Lexend">
                                         <span>lexend</span>
                                     </a>
                                 </div>
@@ -214,7 +215,7 @@
                                             <div>
                                                 <a href="{{ route('home') }}" style="width: 140px">
                                                     <img class="text-primary"
-                                                        src="{{ asset('assets/images/common/logo-dark.svg') }}"
+                                                        src="{{ Vite::asset('resources/images/logo-dark.svg') }}"
                                                         alt="{{ config('app.name') }}">
                                                 </a>
                                                 <p class="mt-2">{{ config('app.name') }} automatically creates,
