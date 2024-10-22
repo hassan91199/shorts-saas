@@ -78,6 +78,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook'])->name('cashier.webhookapp/Http/Controllers/SubscriptionController.php');
+Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook'])->name('cashier.webhook');
 
 require __DIR__ . '/auth.php';
