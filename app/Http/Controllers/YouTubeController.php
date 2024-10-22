@@ -42,7 +42,7 @@ class YouTubeController extends Controller
             $client->setAccessToken($accessToken);
 
             // Get the user's channel info
-            $youtubeService = new \Google_Service_Youtube($client);
+            $youtubeService = new Google_Service_Youtube($client);
             $channelsResponse = $youtubeService->channels->listChannels('id', ['mine' => true]);
 
             if (count($channelsResponse['items']) > 0) {
