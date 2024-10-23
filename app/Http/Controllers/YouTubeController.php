@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\LinkedAccount;
+use Google\Client;
+use Google\Http\MediaFileUpload;
+use Google\Service\YouTube;
+use Google\Service\YouTube\Video;
+use Google\Service\YouTube\VideoSnippet;
+use Google\Service\YouTube\VideoStatus;
 use Google_Client;
 use Google_Service_Youtube;
 use Google_Service_Youtube_Video;
@@ -42,7 +48,7 @@ class YouTubeController extends Controller
             $client->setAccessToken($accessToken);
 
             // Get the user's channel info
-            $youtubeService = new Google_Service_Youtube($client);
+            $youtubeService = new YouTube($client);
             $channelsResponse = $youtubeService->channels->listChannels('id', ['mine' => true]);
 
             if (count($channelsResponse['items']) > 0) {
@@ -89,12 +95,12 @@ class YouTubeController extends Controller
         }
 
         // Create youtube service object
-        $youtube = new Google_Service_Youtube($client);
+        $youtube = new YouTube($client);
 
         // Create video object with necessary details
-        $youtubeVideo = new Google_Service_Youtube_Video();
-        $videoSnippet = new Google_Service_Youtube_VideoSnippet();
-        $videoStatus = new Google_Service_Youtube_VideoStatus();
+        $youtubeVideo = new Video();
+        $videoSnippet = new VideoSnippet();
+        $videoStatus = new VideoStatus();
 
         // Set video snippet details
         $videoSnippet->setTitle($video->title);
@@ -120,7 +126,7 @@ class YouTubeController extends Controller
             $filePath = public_path($video->video_url);
 
             // Creating MediaFileUpload obj for resumable uploads
-            $media = new Google_Http_MediaFileUpload(
+            $media = new MediaFileUpload(
                 $client,
                 $insertRequest,
                 'video/*',
@@ -164,7 +170,7 @@ class YouTubeController extends Controller
 
     private function getGoogleClient()
     {
-        $client = new Google_Client();
+        $client = new Client();
         $client->setClientId(config('google.client_id'));
         $client->setClientSecret(config('google.client_secret'));
         $client->setRedirectUri(config('google.redirect_uri'));
